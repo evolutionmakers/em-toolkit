@@ -1,0 +1,676 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;padding:0}img{max-width:100%}[hidden]{display:none!important}</style></head><body>
+<title>Tu plan de 2027 en un folio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Poppins:wght@500;600;700&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* Capa: página de la web nueva de EM. Papel #FAF9F5, piezas en blanco, H2 Poppins con barra amarilla,
+   un solo botón amarillo redondo por pantalla, columna de lectura de 760 px. Solo tema claro, como la web. */
+:root{--paper:#FAF9F5;--white:#FFFFFF;--ink:#1D1D1D;--text:#353535;--soft:#666666;--line:#E5E5E3;--grey:#F6F6F6;
+--black:#121213;--yellow:#FAC100;--ysoft:#FFF4CC;--red:#C31C2A;--green:#2F7D4A;--gsoft:#E8F3EC;--gold:#8A6A00;
+--display:'Alfa Slab One',Georgia,serif;--head:'Poppins',system-ui,-apple-system,sans-serif;--body:'Outfit',system-ui,-apple-system,sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+html{scroll-padding-top:72px}
+body{background:var(--paper);color:var(--text);font:300 18px/1.65 var(--body);-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--white)}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+@media(min-width:900px){.wrap{padding-left:max(40px,env(safe-area-inset-left,0px));padding-right:max(40px,env(safe-area-inset-right,0px))}}
+a{color:var(--ink)}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+h1,h2,h3{color:var(--ink);text-wrap:balance}
+b,strong{font-weight:600;color:var(--ink)}
+.muestra{background:var(--ysoft);border-bottom:1px dashed #c9a400;font:500 13px/1.4 var(--head);color:var(--ink)}
+.muestra .wrap{padding-block:8px}
+/* Menú, como la web */
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--white);border-bottom:1px solid var(--line);transition:transform .28s ease}
+header.top.off{transform:translateY(-110%)}
+header.top .wrap{display:flex;align-items:center;gap:18px;min-height:56px}
+.logo2{display:inline-flex;align-items:center;color:var(--ink);min-height:44px;flex:0 0 auto}
+.logo2 svg{height:17px;width:auto;display:block}
+nav.mn{display:flex;gap:22px;font-size:15px;margin-left:auto}
+nav.mn a{color:var(--text);text-decoration:none;white-space:nowrap}
+nav.mn a[aria-current="page"]{color:var(--ink);box-shadow:inset 0 -2px 0 var(--yellow)}
+@media(max-width:1000px){nav.mn a:not([aria-current]){display:none}}
+.lab-s{display:none}
+@media(max-width:600px){.logo2 svg{height:12px}header.top .btn{padding:0 14px;font-size:13px;margin-left:auto}nav.mn{display:none}.lab-l{display:none}.lab-s{display:inline}}
+/* Botón único y enlace de texto */
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 28px;border:0;border-radius:999px;background:var(--yellow);color:var(--ink);font:700 15px var(--head);cursor:pointer;text-decoration:none;white-space:nowrap}
+header.top .btn{min-height:40px;padding:0 18px;font-size:14px}
+.arr{display:inline-block;width:18px;height:12px;flex:0 0 auto}
+.arr path{fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.btn .arr{animation:nudge 2.4s ease-in-out infinite}
+.btn:hover .arr{animation:none;transform:translateX(6px);transition:transform .2s}
+@keyframes nudge{0%,70%,100%{transform:none}80%{transform:translateX(5px)}90%{transform:translateX(1px)}}
+.lnk{display:inline-flex;align-items:center;gap:6px;font:600 15px var(--head);color:var(--ink);text-decoration:none;border-bottom:2px solid var(--yellow);padding:0 0 1px;min-height:36px;background:none;border-top:0;border-left:0;border-right:0;cursor:pointer}
+.lnk .arr{width:15px;height:10px;transition:transform .25s}
+.lnk:hover .arr{transform:translateX(4px)}
+.note{font-size:15px;color:var(--soft);margin:10px 0 0;max-width:62ch}
+/* Cabeza de página */
+.crumbs{font:500 13px var(--head);color:var(--soft);margin:24px 0 0}
+.crumbs a{color:var(--soft)}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:44px;align-items:start;padding-block:14px clamp(36px,6vw,58px)}
+@media(max-width:900px){.hero{grid-template-columns:minmax(0,1fr);gap:24px}}
+h1{font:400 clamp(34px,5.4vw,56px)/1.05 var(--display);margin:10px 0 16px;letter-spacing:-.3px}
+.x-intro{font-size:19px;line-height:1.6;margin:0 0 16px;max-width:52ch}
+.x-tags{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 4px;padding:0;list-style:none}
+.x-tags li{font:600 12px var(--head);padding:4px 11px;border-radius:99px;background:var(--grey);color:var(--text)}
+.why{border-left:4px solid var(--yellow);padding:2px 0 2px 16px;margin:24px 0 0;font-size:17px;max-width:54ch}
+/* Caja de la herramienta */
+.cpn{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:24px;min-width:0}
+@media(max-width:600px){.cpn{padding:16px}}
+.x-k{display:block;font:700 12px var(--head);letter-spacing:.14em;text-transform:uppercase;color:var(--soft);margin:0 0 8px}
+.prog{display:flex;justify-content:space-between;gap:10px;font:700 12px var(--head);letter-spacing:.12em;text-transform:uppercase;color:var(--soft)}
+.pbar{height:4px;background:var(--grey);border-radius:4px;margin:10px 0 18px;overflow:hidden}
+.pbar i{display:block;height:100%;width:0;background:var(--yellow);transition:width .3s ease}
+.qtext{font:600 21px/1.3 var(--head);color:var(--ink);margin:0 0 16px;min-height:2.6em}
+.opts{display:grid;gap:10px}
+.opt{display:block;width:100%;text-align:left;min-height:52px;padding:12px 16px;border:1px solid var(--line);border-radius:12px;background:var(--paper);color:var(--ink);font:400 17px/1.35 var(--body);cursor:pointer;transition:border-color .15s,background .15s}
+.opt:hover{border-color:var(--ink)}
+.opt[aria-pressed="true"]{background:var(--ink);color:var(--white);border-color:var(--ink)}
+.trow{display:flex;justify-content:space-between;align-items:center;gap:10px 18px;margin-top:16px;flex-wrap:wrap}
+.ghost{background:none;border:0;font:600 14px var(--head);color:var(--soft);cursor:pointer;min-height:44px;padding:0 4px}
+.ghost:disabled{opacity:.35;cursor:default}
+.pill{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:99px;border:1.5px solid var(--ink);background:var(--white);color:var(--ink);font:600 14px var(--head);cursor:pointer}
+.fld{display:flex;flex-direction:column;gap:4px;min-width:0}
+.fld label{font:600 13.5px var(--head);color:var(--ink)}
+.fld small{font-size:13.5px;color:var(--soft)}
+.fld input,.fld select{min-height:46px;border:1px solid var(--line);border-radius:10px;padding:8px 12px;font:400 17px var(--body);background:var(--paper);color:var(--ink);width:100%}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media(max-width:520px){.grid2{grid-template-columns:minmax(0,1fr)}}
+/* Resultado */
+.big{font:400 clamp(34px,5vw,48px)/1 var(--display);color:var(--ink);font-variant-numeric:tabular-nums}
+.verd{font:600 20px/1.3 var(--head);color:var(--ink);margin:8px 0 4px}
+.chip{display:inline-flex;align-items:center;gap:6px;font:600 12.5px var(--head);padding:4px 11px;border-radius:99px}
+.chip::before{content:"";width:8px;height:8px;border-radius:9px;background:currentColor}
+.chip.r{background:#FBE7E8;color:var(--red)}.chip.a{background:var(--ysoft);color:var(--gold)}.chip.g{background:var(--gsoft);color:var(--green)}
+.bars{display:grid;gap:9px;margin:14px 0 4px}
+.br{display:grid;grid-template-columns:minmax(0,150px) minmax(0,1fr) 52px;gap:10px;align-items:center;font-size:15px}
+.br .tr{height:10px;background:var(--grey);border-radius:10px;overflow:hidden}
+.br .tr i{display:block;height:100%;background:#BDBAB2;width:0;transition:width .5s ease}
+.br.top .tr i{background:var(--yellow)}
+.br.top b{font-family:var(--head)}
+.br span:last-child{text-align:right;font:500 13.5px var(--head);color:var(--soft);font-variant-numeric:tabular-nums}
+.first{background:var(--ysoft);border-radius:12px;padding:14px 16px;margin:14px 0 0;font-size:16.5px}
+.plan{margin:12px 0 0;padding-left:20px;font-size:16px}.plan li{margin:5px 0}
+.ej-tag{display:inline-block;font:600 12px var(--head);background:var(--ysoft);color:var(--gold);padding:3px 10px;border-radius:99px;margin-bottom:10px}
+.ok{display:block;font:600 14px var(--head);color:var(--green);min-height:20px;margin-top:6px}
+.mail{border-top:1px solid var(--line);margin-top:18px;padding-top:16px}
+.mail form{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.mail input{flex:1 1 220px;min-width:0;min-height:46px;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink);padding:0 12px;font:400 16px var(--body)}
+.sr{position:absolute;left:-9999px}
+/* Secciones */
+section.s{padding-block:clamp(36px,6vw,58px);border-top:1px solid var(--line)}
+h2{font:700 clamp(24px,3vw,32px)/1.2 var(--head);margin:0 0 14px;border-left:4px solid var(--yellow);padding-left:14px}
+.x-p{max-width:760px;margin:0 0 16px}
+/* Escalera */
+.ladder{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:22px;list-style:none;padding:0}
+@media(max-width:900px){.ladder{grid-template-columns:minmax(0,1fr)}}
+.step{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.step.hl{border:2px solid var(--yellow)}
+.step .k{font:700 12px var(--head);letter-spacing:.14em;text-transform:uppercase;color:var(--soft)}
+.step h3{margin:0;font:600 20px/1.3 var(--head)}
+.step p{margin:0;font-size:16.5px;line-height:1.55}
+.step ul{margin:0;padding-left:18px;font-size:16px}.step li{margin:3px 0}
+.step .act{margin-top:auto;padding-top:6px}
+.step .rec{display:none;font:600 12.5px var(--head);color:var(--ink);background:var(--ysoft);border-radius:99px;padding:3px 10px;align-self:flex-start}
+.step.hl .rec{display:inline-block}
+/* Calendario de reservas bajo la escalera */
+.cita{margin-top:18px;background:var(--white);border:2px solid var(--yellow);border-radius:16px;padding:18px;min-width:0}
+@media(max-width:600px){.cita{padding:14px}}
+.cita-hd{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;justify-content:space-between}
+.cita-hd b{font:600 18px/1.3 var(--head);flex:1 1 260px;min-width:0}
+.cita-fr{position:relative;margin-top:12px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--paper);min-height:220px}
+.cita-fr iframe{display:block;width:100%;height:700px;border:0;background:var(--white)}
+@media(max-width:600px){.cita-fr iframe{height:640px}}
+.cita-fr iframe[hidden],.cita-ph[hidden]{display:none}
+.cita-ph{margin:0;padding:22px 18px;font-size:16px}
+.cita-ph b{display:block;font:600 16px/1.35 var(--head);margin-bottom:6px}
+.cita .ghost{margin-top:8px}
+.cita-env{display:flex;gap:10px;align-items:flex-start;margin:0 0 12px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--white);font:400 16px/1.45 var(--body);color:var(--ink);cursor:pointer}
+.cita-env input{flex:0 0 auto;width:20px;height:20px;margin:2px 0 0;accent-color:var(--ink)}
+.cita-env small{display:block;font-size:14px;color:var(--soft);margin-top:2px}
+.cita-msg{display:block;font:600 13.5px var(--head);color:var(--soft);margin:-6px 0 10px;min-height:0}
+.cita-msg:empty{display:none}
+/* Bloque «Guardar mi enlace» */
+.rep{margin:18px 0 0;border:1px dashed var(--line);border-radius:12px;padding:12px 14px}
+.ej-tag[hidden]{display:none}
+/* Tablas y fórmulas */
+.tw{overflow-x:auto;margin:12px 0 8px;border:1px solid var(--line);border-radius:16px;background:var(--white)}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:16px}
+th{background:var(--ink);color:var(--white);text-align:left;font:600 12px var(--head);letter-spacing:.08em;text-transform:uppercase;padding:11px 14px}
+td{border-bottom:1px solid var(--line);padding:11px 14px;vertical-align:top}
+tr:last-child td{border-bottom:0}
+td.n{white-space:nowrap;font:600 15px var(--head);color:var(--ink);font-variant-numeric:tabular-nums}
+td.y{background:var(--ysoft)}
+.yes{color:var(--green);font:700 16px var(--head)}.no{color:var(--soft)}
+.formula{font:500 14.5px/1.7 ui-monospace,Menlo,Consolas,monospace;background:var(--white);border:1px solid var(--line);border-radius:16px;padding:14px 16px;overflow-x:auto;white-space:pre;color:var(--ink);margin:8px 0 18px}
+.steps3{list-style:none;margin:18px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+@media(max-width:760px){.steps3{grid-template-columns:minmax(0,1fr)}}
+.steps3 .n{font:400 30px/1 var(--display);color:var(--ink)}
+.steps3 h3{font:600 18px/1.3 var(--head);margin:10px 0 6px}
+.steps3 p{margin:0;font-size:16.5px}
+.src{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));margin-top:18px}
+.src article{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:20px;min-width:0}
+.src .bign{font:400 34px/1 var(--display);color:var(--ink)}
+.src p{margin:8px 0 0;font-size:16.5px}
+.src .from{font-size:14px;color:var(--soft)}
+.sup{font:600 11.5px var(--head);background:var(--grey);color:var(--soft);padding:2px 8px;border-radius:99px;vertical-align:middle}
+.x-faq{border-top:1px solid var(--line);margin-top:20px;max-width:900px}
+.x-faq details{border-bottom:1px solid var(--line);background:var(--white)}
+.x-faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:16px;align-items:center;padding:16px 18px;font:600 17px/1.35 var(--head);color:var(--ink);min-height:44px}
+.x-faq summary::-webkit-details-marker{display:none}
+.x-faq summary::after{content:"+";font:400 24px var(--body);color:var(--soft);flex:0 0 auto}
+.x-faq details[open] summary::after{content:"–"}
+.x-faq .a{padding:0 18px 16px;font-size:17px}
+.pt{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr))}
+.pt li{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:18px 20px;font:400 19px/1.35 var(--display);color:var(--ink)}
+.qe{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));margin-top:14px}
+.qe article{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:20px;min-width:0}
+.qe .k{font:700 12px var(--head);letter-spacing:.14em;text-transform:uppercase;color:var(--soft)}
+.qe p{margin:8px 0 0;font-size:16.5px;line-height:1.55}
+.qd{border-top:1px solid var(--line);margin-top:12px;padding-top:8px}
+.qd summary{cursor:pointer;font:600 15px/1.35 var(--head);color:var(--ink);min-height:36px;display:flex;align-items:center}
+.qd p{font-size:15.5px}
+.qe-h{font:600 20px/1.3 var(--head);margin:28px 0 0}
+.x-closeline{margin:0;font:400 clamp(22px,2.6vw,30px)/1.3 var(--display);color:var(--ink);max-width:900px}
+.x-closesub{margin:14px 0 22px;font-size:17px;max-width:760px}
+/* Pie y banda */
+footer.f{border-top:1px solid var(--line);background:var(--white);font-size:14.5px;color:var(--soft)}
+footer.f .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;padding-block:28px 96px}
+footer.f .flogo{flex-basis:100%}.f .flogo svg{height:16px}
+.f .fn{display:flex;flex-wrap:wrap;gap:6px 22px;flex-basis:100%;font:600 15px var(--head)}
+.f .fn a{color:var(--ink);text-decoration:none;min-height:32px;display:inline-flex;align-items:center}
+.f .fl2{display:flex;flex-wrap:wrap;gap:6px 16px}.f .fl2 a{color:var(--soft)}
+.band{position:fixed;left:0;right:0;bottom:0;z-index:25;background:var(--black);color:var(--white);transform:translateY(110%);transition:transform .3s ease;padding-bottom:env(safe-area-inset-bottom,0px)}
+.band.on{transform:none}
+.band .wrap{display:flex;align-items:center;gap:14px;min-height:62px}
+.band .who{flex:1 1 auto;min-width:0;line-height:1.3}
+.band .who b{font:600 15px var(--head);color:var(--white);display:block}
+.band .who span{color:#BDBDBD;font-size:13.5px;display:block}
+.band .btn{min-height:44px;padding:0 20px}
+@media(max-width:600px){.band .btn{padding:0 14px;font-size:14px}}
+@media(prefers-reduced-motion:reduce){.btn .arr{animation:none}.pbar i,.br .tr i{transition:none}header.top{transition:none}}
+
+.frm{display:grid;gap:18px}
+#herramienta [hidden]{display:none!important}
+.blk{border:1px solid var(--line);border-radius:14px;padding:16px;background:var(--paper);min-width:0}
+@media(max-width:600px){.blk{padding:12px}}
+.blk h3{display:flex;gap:10px;align-items:baseline;margin:0;font:600 18px/1.3 var(--head)}
+.blk h3 .nb{font:400 24px/1 var(--display);color:var(--ink)}
+.blk .q-s{margin:4px 0 12px;font-size:15px;color:var(--soft);font-style:italic}
+.blk .fld input,.blk .fld select{background:var(--white)}
+.ln{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr) minmax(0,1fr);gap:8px;margin:0 0 8px;align-items:end}
+@media(max-width:520px){.ln{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.ln .fld:first-child{grid-column:1/-1}}
+.ln .fld label{font-size:12.5px}
+.ln + .ln .fld label{position:absolute;left:-9999px}
+@media(max-width:520px){.ln + .ln .fld label{position:static}.ln{border-top:1px dashed var(--line);padding-top:8px}.ln:first-of-type{border-top:0;padding-top:0}}
+.hint{font-size:14px;color:var(--soft);margin:6px 0 0}
+.err{color:var(--red);font:600 14px var(--head);min-height:20px;display:block}
+.kv{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 14px;margin:12px 0 0;font-size:15.5px}
+.kv dt{color:var(--text)}.kv dd{margin:0;text-align:right;font:600 15.5px var(--head);color:var(--ink);font-variant-numeric:tabular-nums}
+.br{grid-template-columns:minmax(0,150px) minmax(0,1fr) 78px}
+.br.bad .tr i{background:var(--red)}
+.tagl{font:600 11.5px var(--head);padding:2px 8px;border-radius:99px;margin-left:6px;white-space:nowrap}
+.tagl.g{background:var(--gsoft);color:var(--green)}.tagl.r{background:#FBE7E8;color:var(--red)}
+/* El folio: una hoja A4 en blanco */
+.sheet{background:var(--white);border:1px solid var(--line);box-shadow:0 10px 30px rgba(0,0,0,.08);border-radius:4px;padding:28px 26px;margin:16px 0 0;color:var(--ink);position:relative;overflow:hidden}
+@media(min-width:900px){.sheet{min-height:640px}}
+@media(max-width:600px){.sheet{padding:20px 16px}}
+.sheet::after{content:"";position:absolute;right:-34px;top:-34px;width:96px;height:96px;border-radius:50%;background:var(--yellow)}
+.sheet .sh-k{display:block;padding-right:64px;font:700 11px var(--head);letter-spacing:.14em;text-transform:uppercase;color:var(--soft)}
+.sheet h4{font:400 24px/1.15 var(--display);margin:4px 0 2px;max-width:85%}
+.sheet .sh-d{font-size:13.5px;color:var(--soft);margin:0 0 14px}
+.sheet .sq{border-top:1px solid var(--line);padding:10px 0}
+.sheet .sq b.n{font:400 18px var(--display);margin-right:6px}
+.sheet .sq .qq{font:600 15px/1.3 var(--head)}
+.sheet .sq p{margin:4px 0 0;font-size:15px;line-height:1.5}
+.sheet .sq .ene{background:var(--ysoft);border-radius:8px;padding:6px 10px;margin-top:6px;font-size:14.5px}
+.sheet .sq .ene b{font-family:var(--head)}
+.fr{margin-top:8px;font-size:13.5px}
+.fr .frk{font:600 13px var(--head);color:var(--ink);margin:0 0 4px}
+.fr table{border-collapse:collapse;width:100%;min-width:0;table-layout:fixed;font-variant-numeric:tabular-nums}
+.fr th,.fr td{padding:4px 5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-bottom:1px solid var(--line);text-align:left;font-size:13.5px}
+.fr th{font:600 12px var(--head);color:var(--soft)}
+.fr td.g{background:var(--gsoft);color:var(--green);font-weight:600}.fr td.a{background:var(--ysoft);color:var(--gold);font-weight:600}.fr td.r{background:#FBE7E8;color:var(--red);font-weight:600}
+.fr .frn{margin:4px 0 0;color:var(--soft);font-size:12.5px}
+.sheet .foot{border-top:1px solid var(--line);padding-top:10px;font-size:13.5px;color:var(--soft)}
+</style>
+
+<header class="top"><div class="wrap"><a class="logo2" href="https://www.evolutionmakers.plus/" target="_blank" rel="noopener" aria-label="Evolution Makers, inicio"><svg class="lg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6594 411" role="img" aria-label="Evolution Makers"><path fill="#FAC100" d="M90 309C24 299 -16 232 6 170C24 121 74 93 125 103C188 116 225 182 202 243C185 288 137 316 90 309ZM378 309C308 299 268 223 299 159C341 74 467 85 494 177C514 249 453 320 378 309ZM668 309C600 298 561 231 584 168C599 128 638 101 681 101C729 101 769 131 783 178C786 190 787 219 783 231C770 277 732 308 686 310C679 310 671 309 668 309Z"/><path fill="currentColor" d="M1874 410C1772 403 1694 336 1678 242C1660 139 1717 45 1816 12C1937 -29 2069 42 2093 161C2098 184 2098 218 2095 240C2078 337 1995 407 1892 410C1885 411 1876 411 1874 410ZM3552 410C3468 403 3399 352 3371 277C3355 236 3354 183 3368 140C3403 33 3526 -26 3639 11C3716 37 3769 100 3779 178C3782 199 3780 233 3775 253C3753 350 3656 419 3552 410ZM6436 410C6404 409 6375 402 6352 391C6344 388 6332 380 6330 378C6329 377 6320 287 6320 286C6320 286 6325 289 6329 293C6364 318 6398 329 6437 331C6464 332 6479 327 6489 316C6497 308 6498 303 6498 291C6497 268 6484 257 6436 240C6358 213 6321 160 6334 95C6342 49 6378 14 6430 3C6444 -0 6494 -1 6509 2C6528 6 6563 20 6563 24C6563 27 6556 101 6556 102C6555 102 6552 100 6548 98C6506 75 6453 72 6434 91C6421 104 6422 124 6437 136C6444 141 6456 147 6472 153C6508 166 6522 173 6539 185C6576 211 6596 251 6594 292C6589 356 6553 396 6490 407C6480 409 6450 411 6444 411C6443 411 6440 410 6436 410ZM2590 409C2527 402 2474 367 2454 317C2444 293 2444 290 2444 137L2444 10L2492 10L2540 10L2540 142L2540 274L2543 282C2550 301 2566 316 2587 323C2599 327 2629 327 2641 323C2664 317 2681 301 2688 281L2690 274L2691 142L2692 10L2738 9L2784 9L2784 149C2783 301 2784 291 2778 309C2756 376 2678 418 2590 409ZM4076 318C3987 221 3981 213 3951 178C3940 164 3930 153 3930 153C3929 153 3929 154 3929 156C3930 158 3930 214 3931 280L3931 401L3884 401L3836 401L3836 205L3836 9L3874 9L3912 9L3986 90C4065 178 4074 188 4095 213C4103 222 4109 230 4109 230C4109 230 4109 180 4109 120L4109 9L4156 9L4204 9L4204 208L4204 406L4180 406L4156 406L4076 318ZM1361 209C1322 101 1290 12 1289 11L1289 9L1337 9L1386 10L1416 94C1453 197 1465 233 1472 264C1473 267 1474 269 1474 269C1474 269 1475 267 1476 264C1483 233 1494 199 1531 95L1562 10L1607 9C1643 9 1652 9 1652 10C1652 11 1619 100 1580 208L1510 404L1471 404L1432 404L1361 209ZM4585 325C4545 247 4534 225 4523 199C4520 191 4517 185 4517 185C4516 185 4516 191 4516 198C4516 214 4514 246 4506 334L4500 400L4455 401L4409 401L4409 395C4410 392 4417 305 4426 202C4435 98 4442 12 4443 11L4443 9L4482 9L4520 10L4552 71C4610 182 4630 222 4641 248C4643 253 4645 257 4645 257C4645 258 4648 252 4651 244C4663 215 4675 190 4721 101L4768 9L4807 9L4846 10L4864 202C4873 307 4881 395 4881 397L4881 401L4835 401L4788 401L4788 396C4784 363 4772 218 4772 203C4772 190 4771 182 4770 186C4763 206 4745 244 4699 332L4663 402L4644 403L4625 403L4585 325ZM1032 205L1032 9L1146 9L1261 9L1261 48L1261 87L1194 87L1128 88L1127 126L1127 165L1181 165L1236 165L1236 205L1236 245L1182 245L1127 245L1127 284L1127 323L1202 323L1278 323L1278 362L1278 401L1155 401L1032 401L1032 205ZM2153 205L2153 9L2200 9L2248 9L2248 164L2248 320L2326 320L2405 320L2405 360L2405 401L2279 401L2153 401L2153 205ZM2943 243L2943 85L2884 85L2824 85L2824 47L2824 9L2990 9L3156 9L3156 48L3156 86L3097 86L3038 86L3038 244L3038 401L2990 401L2943 401L2943 243ZM3202 205L3202 9L3250 9L3297 9L3297 205L3297 401L3250 401L3202 401L3202 205ZM4913 400C4913 400 4948 311 4990 203L5066 6L5099 6L5132 6L5209 202C5251 310 5285 398 5286 399C5286 401 5284 401 5239 401L5192 400L5176 360L5161 320L5097 320L5032 320L5017 360L5002 400L4958 401C4933 401 4913 401 4913 400ZM5326 205L5326 9L5374 9L5422 9L5422 93L5422 176L5482 93L5542 9L5594 9L5646 9L5640 17C5637 22 5606 66 5572 115L5509 204L5579 301C5617 355 5649 399 5649 400C5650 401 5639 401 5595 401L5539 401L5481 321L5422 241L5422 321L5422 401L5374 401L5326 401L5326 205ZM5686 205L5686 9L5800 9L5915 9L5915 48L5915 87L5848 87L5781 87L5781 126L5781 165L5836 165L5890 165L5890 205L5890 245L5836 245L5781 245L5781 284L5781 323L5856 323L5932 323L5932 362L5932 401L5809 401L5686 401L5686 205ZM5978 205L5978 9L6060 9C6150 10 6148 10 6169 16C6224 35 6256 83 6250 140C6247 175 6228 205 6199 222L6191 226L6193 229C6194 231 6304 386 6312 396L6315 401L6262 401L6208 401L6156 324L6103 248L6086 247L6069 247L6069 324L6069 401L6024 401L5978 401L5978 205ZM1906 324C1953 316 1990 278 1998 230C2010 164 1975 104 1913 87C1900 84 1872 83 1860 87C1810 100 1776 142 1772 193C1769 232 1781 266 1804 291C1831 319 1869 331 1906 324ZM3598 323C3657 306 3692 248 3682 184C3675 133 3635 92 3585 85C3523 76 3465 122 3456 187C3454 198 3455 223 3457 232C3468 281 3506 318 3552 325C3562 327 3589 325 3598 323ZM5137 247C5137 246 5130 227 5122 204C5114 181 5105 155 5103 147C5097 128 5097 129 5097 129C5096 129 5095 135 5093 142C5091 148 5082 174 5073 200C5063 225 5056 246 5056 247C5056 248 5071 248 5096 248C5127 248 5137 248 5137 247ZM6122 171C6146 166 6160 150 6159 126C6158 108 6151 98 6136 91C6125 85 6118 84 6092 84L6069 84L6069 128L6069 172L6092 172C6105 172 6118 172 6122 171Z"/></svg></a><nav class="mn" aria-label="Principal"><a href="https://www.evolutionmakers.plus/servicios" target="_blank" rel="noopener">Qué hacemos</a><a href="https://www.evolutionmakers.plus/manifiesto" target="_blank" rel="noopener">Manifiesto</a><a aria-current="page" href="https://podcast.evolutionmakers.plus/" target="_blank" rel="noopener">Insights</a></nav><a class="btn hb" href="https://www.evolutionmakers.plus/contacto" target="_blank" rel="noopener"><span class="lab-l">Hablar 30 minutos</span><span class="lab-s">30 min</span></a></div></header>
+<main>
+<div class="wrap">
+<p class="crumbs"><a href="https://podcast.evolutionmakers.plus/" target="_blank" rel="noopener">Evolution Insights</a> / <a href="https://www.evolutionmakers.plus/toolkit">Evolution Toolkit</a> / Tu plan de 2027 en un folio</p>
+<div class="hero">
+<div><h1>Tu plan de 2027 en un folio</h1><p class="x-intro">Este año has sacado tu empresa adelante, y eso ya dice mucho. En enero se ejecuta, y lo que se ejecuta en enero se decide ahora. Cuatro preguntas para una tarde y te llevas tu plan de 2027 en un folio, con lo que harás en enero.</p><ul class="x-tags"><li>Unos 20 minutos</li><li>Gratis y sin registro</li><li>Tus datos solo salen de tu navegador si tú quieres</li></ul><p class="why"><b>Por qué importa.</b> El plan típico es el de este año con un diez por ciento más en ventas porque sí. No hace falta un plan de cuarenta páginas. Hace falta criterio, y el criterio cabe en un folio. <a href="#base">De dónde sale</a>.</p></div>
+<div class="cpn" id="herramienta" aria-live="polite">
+<div id="v-q">
+  <span class="x-k">Cuatro preguntas, un folio</span>
+  <p style="margin:0 0 14px;font-size:16px">Contesta con lo que ha pasado este año, no con lo que te gustaría. Puedes dejar una pregunta a medias y volver: lo que escribes se guarda solo en este navegador.</p>
+  <div class="trow" style="margin:0 0 14px"><button class="lnk" type="button" id="b-ej">Ver un resultado de ejemplo</button></div>
+  <form class="frm" id="f-p" novalidate>
+  <div class="fld"><label for="e-n">Tu empresa (opcional, sale en el folio)</label><input id="e-n" maxlength="40" autocomplete="organization" placeholder="Ej.: Mi empresa"></div>
+
+  <div class="blk"><h3><span class="nb">1</span>¿Qué me ha dado de comer este año y qué me ha comido?</h3>
+  <p class="q-s">Casi siempre una línea factura mucho y deja poco, y otra pequeña paga las nóminas.</p>
+<div class="ln" data-i="0"><div class="fld"><label for="l0n">Línea o servicio 1</label><input id="l0n" maxlength="40" autocomplete="off" placeholder="Ej.: Mantenimiento mensual"></div><div class="fld"><label for="l0m">Margen del año (€)</label><input id="l0m" type="text" inputmode="decimal" autocomplete="off" placeholder="250.000"></div><div class="fld"><label for="l0h">Tus horas al año</label><input id="l0h" type="text" inputmode="decimal" autocomplete="off" placeholder="200"></div></div><div class="ln" data-i="1"><div class="fld"><label for="l1n">Línea o servicio 2</label><input id="l1n" maxlength="40" autocomplete="off" placeholder=""></div><div class="fld"><label for="l1m">Margen del año (€)</label><input id="l1m" type="text" inputmode="decimal" autocomplete="off" placeholder=""></div><div class="fld"><label for="l1h">Tus horas al año</label><input id="l1h" type="text" inputmode="decimal" autocomplete="off" placeholder=""></div></div><div class="ln" data-i="2"><div class="fld"><label for="l2n">Línea o servicio 3</label><input id="l2n" maxlength="40" autocomplete="off" placeholder=""></div><div class="fld"><label for="l2m">Margen del año (€)</label><input id="l2m" type="text" inputmode="decimal" autocomplete="off" placeholder=""></div><div class="fld"><label for="l2h">Tus horas al año</label><input id="l2h" type="text" inputmode="decimal" autocomplete="off" placeholder=""></div></div><div class="ln" data-i="3"><div class="fld"><label for="l3n">Línea o servicio 4</label><input id="l3n" maxlength="40" autocomplete="off" placeholder=""></div><div class="fld"><label for="l3m">Margen del año (€)</label><input id="l3m" type="text" inputmode="decimal" autocomplete="off" placeholder=""></div><div class="fld"><label for="l3h">Tus horas al año</label><input id="l3h" type="text" inputmode="decimal" autocomplete="off" placeholder=""></div></div><div class="ln" data-i="4"><div class="fld"><label for="l4n">Línea o servicio 5</label><input id="l4n" maxlength="40" autocomplete="off" placeholder=""></div><div class="fld"><label for="l4m">Margen del año (€)</label><input id="l4m" type="text" inputmode="decimal" autocomplete="off" placeholder=""></div><div class="fld"><label for="l4h">Tus horas al año</label><input id="l4h" type="text" inputmode="decimal" autocomplete="off" placeholder=""></div></div>
+  <p class="hint"><b>Margen</b>: lo que te queda de esa línea después de pagar lo que cuesta hacerla (personas, proveedores, materiales), antes de alquiler y estructura. Si no lo sabes, sácalo con <a href="/margen-de-verdad">El margen de verdad</a>. <b>Horas tuyas</b>: solo las tuyas, en todo el año. Si le dedicas 5 horas a la semana, son 225 (5 × 45 semanas).</p>
+  </div>
+
+  <div class="blk"><h3><span class="nb">2</span>¿Qué cliente no quiero repetir?</h3>
+  <p class="q-s">No hace falta echarle mañana. Pero si no lo nombras, vuelve a tu agenda.</p>
+  <div class="grid2">
+   <div class="fld"><label for="c-n">Cliente</label><input id="c-n" maxlength="40" autocomplete="off" placeholder="Nombre o una pista"><small>Se queda en tu navegador.</small></div>
+   <div class="fld"><label for="c-p">Por qué</label><select id="c-p"><option value="">Elige</option><option value="tarde">Paga tarde</option><option value="cambia">Cambia el encargo cada semana</option><option value="margen">No deja margen</option><option value="para">Trabajo para él y no con él</option><option value="otra">Otra razón</option></select></div>
+   <div class="fld" style="grid-column:1/-1"><label for="c-a">Qué vas a hacer</label><select id="c-a"><option value="">Elige</option><option value="cond">Cambiar condiciones o precio en la próxima propuesta</option><option value="busca">Dejar de buscar clientes así</option><option value="cierra">Cerrar la relación, con fecha</option></select></div>
+  </div>
+  <details class="help" style="margin-top:10px"><summary>Opcional: el cliente al que vas a proponer más en 2027</summary>
+  <div class="grid2" style="margin-top:8px">
+   <div class="fld"><label for="c-m">Cliente</label><input id="c-m" maxlength="40" autocomplete="off" placeholder="Uno de tus mejores"></div>
+   <div class="fld"><label for="c-q">Qué le vas a proponer</label><input id="c-q" maxlength="60" autocomplete="off" placeholder="Ej.: el mantenimiento anual"></div>
+  </div><p class="hint">De esto va el episodio «Tus diez mejores clientes: qué les vas a proponer en 2027».</p></details>
+  </div>
+
+  <div class="blk"><h3><span class="nb">3</span>¿Qué voy a dejar de hacer yo?</h3>
+  <p class="q-s">Una tarea concreta, a partir de enero. Una.</p>
+  <div class="grid2">
+   <div class="fld" style="grid-column:1/-1"><label for="t-n">La tarea</label><input id="t-n" maxlength="60" autocomplete="off" placeholder="Ej.: revisar y firmar todos los presupuestos"></div>
+   <div class="fld"><label for="t-h">Horas tuyas a la semana</label><input id="t-h" type="text" inputmode="decimal" autocomplete="off" placeholder="4"></div>
+   <div class="fld"><label for="t-q">Quién la hace desde ahora</label><select id="t-q"><option value="">Elige</option><option value="persona">Otra persona</option><option value="sistema">Un sistema o la IA</option><option value="nadie">Nadie: deja de hacerse</option></select></div>
+   <div class="fld"><label for="t-d">Desde cuándo</label><select id="t-d"><option value="1">enero de 2027</option><option value="2">febrero de 2027</option><option value="3">marzo de 2027</option><option value="4">abril de 2027</option><option value="5">mayo de 2027</option><option value="6">junio de 2027</option><option value="7">julio de 2027</option><option value="8">agosto de 2027</option><option value="9">septiembre de 2027</option><option value="10">octubre de 2027</option><option value="11">noviembre de 2027</option><option value="12">diciembre de 2027</option></select></div>
+  </div>
+  <p class="hint">¿No sabes si la puede hacer la IA? Pruébala en <a href="/tareas-para-la-ia">Tareas para la IA</a>.</p>
+  </div>
+
+  <div class="blk"><h3><span class="nb">4</span>¿Qué número me va a decir si voy bien?</h3>
+  <p class="q-s">Uno solo, que mires cada mes en dos minutos.</p>
+  <div class="grid2">
+   <div class="fld"><label for="n-t">Tu número</label><select id="n-t"><option value="margen">Margen del servicio principal (%)</option><option value="repiten">Clientes que repiten (% de tus clientes)</option><option value="cobro">Días que tardas en cobrar</option><option value="otro">Otro</option></select></div>
+   <div class="fld" id="n-ow" hidden><label for="n-o">¿Cuál?</label><input id="n-o" maxlength="40" autocomplete="off" placeholder="Ej.: propuestas ganadas al mes"></div>
+   <div class="fld"><label for="n-h">Cuánto es hoy</label><input id="n-h" type="text" inputmode="decimal" autocomplete="off" placeholder="Ej.: 75"></div>
+   <div class="fld"><label for="n-a">Hace un año (opcional)</label><input id="n-a" type="text" inputmode="decimal" autocomplete="off" placeholder="Ej.: 80"><small>El mismo periodo del año anterior: si hoy es noviembre de 2026, el de noviembre de 2025.</small></div>
+   <div class="fld"><label for="n-o2">Objetivo a diciembre de 2027</label><input id="n-o2" type="text" inputmode="decimal" autocomplete="off" placeholder="Ej.: 60"></div>
+   <div class="fld"><label for="n-d">Día del mes en que lo miras</label><input id="n-d" type="number" inputmode="numeric" min="1" max="28" value="5"></div>
+  </div>
+  <p class="hint" id="n-cob" hidden>¿No sabes tus días de cobro? Calcúlalos en <a href="/cobro-y-pago">Cobro y pago</a>.</p>
+  </div>
+
+  <div class="blk"><h3><span class="nb">5</span>Tu tarde, en el calendario</h3>
+  <p class="q-s">Como una reunión con tu mejor cliente: la reunión con la empresa que quieres tener dentro de un año.</p>
+  <div class="grid2">
+   <div class="fld"><label for="d-e">¿Ya has hecho tu tarde?</label><select id="d-e"><option value="hacer">Todavía no: es la cita para hacerla</option><option value="revisar">Ya la he hecho: es la cita para revisar el folio</option></select></div>
+   <div class="fld"><label for="d-f">Día</label><input id="d-f" type="date" min="2026-11-01" max="2027-12-31"></div>
+   <div class="fld"><label for="d-h">Hora</label><input id="d-h" type="time" value="16:00"></div>
+  </div>
+  <p class="hint">Al final te damos un archivo de calendario (.ics: lo abres y se añade la cita a tu agenda), con la tarde y un aviso cada mes para mirar tu número.</p>
+  </div>
+
+  <span class="err" id="p-err" role="alert"></span>
+  <div class="trow"><button class="btn" type="submit">Ver mi folio<svg class="arr" viewBox="0 0 18 12" aria-hidden="true"><path d="M1 6h15M11 1l5 5-5 5"/></svg></button>
+  <button class="ghost" type="button" id="b-clear">Borrar todo</button></div>
+  </form>
+</div>
+<div id="v-r" hidden>
+  <span class="ej-tag" id="r-ej" hidden>Ejemplo · empresa de servicios de 3 M€, no son tus datos</span>
+  <span class="ej-tag" id="r-lk" hidden>Abierto desde tu enlace guardado</span>
+  <span class="x-k">Lo que te ha dado de comer y lo que te ha comido</span>
+  <div class="big" id="r-big">0 €</div><span class="note" style="margin:4px 0 0;display:block" id="r-bigs"></span>
+  <p class="verd" id="r-b"></p><p style="margin:0" id="r-t"></p>
+  <div class="bars" id="r-l"></div>
+  <dl class="kv" id="r-kv"></dl>
+  <div class="first" id="r-s"></div>
+  <div class="sheet" id="r-f"></div>
+  <div class="trow">
+    <button class="pill" type="button" id="b-pdf">Descargar mi folio en PDF</button>
+    <button class="lnk" type="button" id="b-ics">Añadir la tarde a mi calendario (.ics)</button>
+    <a class="lnk" href="descargables/plan-2027-en-un-folio-basica.xlsx" download>Descargar la hoja (Excel)</a>
+    <button class="lnk" type="button" id="b-copy">Copiar mi folio</button>
+    <button class="ghost" type="button" id="b-edit">Cambiar mis respuestas</button>
+  </div>
+  <span class="ok" id="copy-ok" role="status"></span>
+<div class="rep"><b>Guarda tu resultado, sin registrarte</b><p class="note">Tu enlace lleva tus respuestas dentro: al abrirlo ves este resultado sin volver a escribirlas. Quien lo abra lo ve, así que compártelo solo con quien quieras.</p><div class="trow" style="justify-content:flex-start;margin-top:8px"><button class="pill" type="button" id="b-link">Guardar mi enlace</button></div><span class="ok" id="lk-ok" role="status"></span></div>
+  
+</div>
+</div>
+</div></div>
+<section class="s" id="para-ti"><div class="wrap"><h2>Esto es para ti si…</h2><ul class="pt"><li>«Mi plan del año que viene es este con un diez por ciento más.»</li><li>«Facturo mucho, pero no sé qué parte me deja dinero de verdad.»</li><li>«Llego a enero sin haber decidido nada y el año me arrastra.»</li></ul></div></section>
+<section class="s" id="escalera"><div class="wrap">
+<h2>Y ahora, ¿qué haces con tu resultado?</h2>
+<p class="x-p" id="esc-why">Tres caminos según lo que te haya salido. En cuanto veas tu folio, te marcamos el que encaja con tu resultado.</p>
+<ol class="ladder">
+<li class="step" data-k="basica"><span class="k">Gratis · lo que acabas de hacer</span><h3>Tu folio y lo que harás en enero</h3><p>Ya lo tienes: tus cuatro respuestas, una acción para enero por cada una, el margen por hora de cada línea y las horas que recuperas. Descárgalo en PDF, ponlo en tu calendario y rellena la hoja de Excel.</p>
+<div class="act"><a class="lnk" href="#herramienta">Volver a la herramienta<svg class="arr" viewBox="0 0 18 12" aria-hidden="true"><path d="M1 6h15M11 1l5 5-5 5"/></svg></a></div></li>
+<li class="step hl" data-k="club"><span class="rec">Te lo recomendamos</span><span class="k">Versión ampliada · Evolution Club</span><h3>Del folio a todo 2027, mes a mes</h3><ul><li>La hoja completa, en Excel y Google Sheets, con tus líneas, el margen por hora y qué parte de tu tiempo y de tu margen se lleva cada una</li><li>Seguimiento de 12 meses de tu número, con su gráfico, la línea del objetivo, el color de la franja y el mismo mes del año anterior</li><li>Revisión de las cuatro respuestas cada trimestre</li><li>Tus diez mejores clientes y qué les vas a proponer en 2027</li><li>Un plan de 90 días con responsable, horas y coste por hora</li><li>Una sesión del Club al año sobre esta herramienta, con otras personas que dirigen su empresa</li></ul>
+<div class="act" data-btn='&lt;a class=&quot;btn&quot; href=&quot;https://www.evolutionmakers.plus/club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Pedir plaza&lt;svg class=&quot;arr&quot; viewBox=&quot;0 0 18 12&quot; aria-hidden=&quot;true&quot;&gt;&lt;path d=&quot;M1 6h15M11 1l5 5-5 5&quot;/&gt;&lt;/svg&gt;&lt;/a&gt;&lt;p class=&quot;note&quot;&gt;Hablamos quince minutos y vemos si encajas.&lt;/p&gt;' data-lnk='&lt;a class=&quot;lnk&quot; href=&quot;https://www.evolutionmakers.plus/club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;¿Cómo funciona Evolution Club?&lt;svg class=&quot;arr&quot; viewBox=&quot;0 0 18 12&quot; aria-hidden=&quot;true&quot;&gt;&lt;path d=&quot;M1 6h15M11 1l5 5-5 5&quot;/&gt;&lt;/svg&gt;&lt;/a&gt;'><a class="btn" href="https://www.evolutionmakers.plus/club" target="_blank" rel="noopener">Pedir plaza<svg class="arr" viewBox="0 0 18 12" aria-hidden="true"><path d="M1 6h15M11 1l5 5-5 5"/></svg></a><p class="note">Hablamos quince minutos y vemos si encajas.</p></div></li>
+<li class="step" data-k="day"><span class="rec">Te lo recomendamos</span><span class="k">Un día con tus números</span><h3>Tu Evolution Day</h3><p>Si una línea pierde dinero, o la que te come se lleva más del 30 % de tus horas y deja menos del 10 % del margen, eso no se arregla en una tarde. En tu Evolution Day lo trabajamos con tus números: precio, alcance o dejar de venderla. Sales con la decisión tomada.</p>
+<div class="act" data-btn='&lt;button class=&quot;btn&quot; type=&quot;button&quot; data-cita aria-controls=&quot;cita&quot; aria-expanded=&quot;false&quot;&gt;Reservar 30 minutos&lt;svg class=&quot;arr&quot; viewBox=&quot;0 0 18 12&quot; aria-hidden=&quot;true&quot;&gt;&lt;path d=&quot;M1 6h15M11 1l5 5-5 5&quot;/&gt;&lt;/svg&gt;&lt;/button&gt;&lt;p class=&quot;note&quot;&gt;Reserva una conversación de 30 minutos con Ramón para preparar tu Evolution Day, aquí mismo. &lt;a href=&quot;https://www.evolutionmakers.plus/evolution-day&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Cómo funciona tu Evolution Day&lt;/a&gt;.&lt;/p&gt;' data-lnk='&lt;a class=&quot;lnk&quot; href=&quot;https://www.evolutionmakers.plus/evolution-day&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;¿Cómo funciona tu Evolution Day?&lt;svg class=&quot;arr&quot; viewBox=&quot;0 0 18 12&quot; aria-hidden=&quot;true&quot;&gt;&lt;path d=&quot;M1 6h15M11 1l5 5-5 5&quot;/&gt;&lt;/svg&gt;&lt;/a&gt;'><a class="lnk" href="https://www.evolutionmakers.plus/evolution-day" target="_blank" rel="noopener">¿Cómo funciona tu Evolution Day?<svg class="arr" viewBox="0 0 18 12" aria-hidden="true"><path d="M1 6h15M11 1l5 5-5 5"/></svg></a></div></li>
+</ol>
+<div class="cita" id="cita" hidden><div class="cita-hd"><b>Reserva una conversación de 30 minutos con Ramón para preparar tu Evolution Day</b><a class="lnk" id="cita-tab" href="https://cita.evolutionmakers.plus/toolkit" target="_blank" rel="noopener">Abrir en otra pestaña<svg class="arr" viewBox="0 0 18 12" aria-hidden="true"><path d="M1 6h15M11 1l5 5-5 5"/></svg></a></div>
+<label class="cita-env" for="cita-env"><input type="checkbox" id="cita-env"><span>Envía mi resultado a Evolution Makers para preparar la conversación<small>Así Ramón llega a la llamada con tu análisis leído. Si no la marcas, la reserva va sin datos.</small></span></label>
+<span class="cita-msg" id="cita-msg" role="status"></span>
+<div class="cita-fr"><iframe title="Calendario para reservar 30 minutos con Ramón" data-src="https://cita.evolutionmakers.plus/toolkit" loading="lazy" hidden></iframe>
+<p class="cita-ph"><b>Aquí se abre el calendario para elegir día y hora.</b>Si no te aparece, pulsa «Abrir en otra pestaña».</p></div>
+<button class="ghost" type="button" data-cita-off>Cerrar el calendario</button></div>
+</div></section>
+<section class="s" id="ampliada"><div class="wrap">
+<h2>Básica o ampliada</h2>
+<p class="x-p">La básica te dice dónde estás. La ampliada te ayuda a mejorarlo y a comprobar cada mes si mejora. Está dentro de Evolution Club.</p>
+<div class="tw"><table><thead><tr><th>Qué incluye</th><th>Básica · gratis</th><th>Ampliada · Evolution Club</th></tr></thead><tbody><tr><td>El folio: cuatro respuestas y qué haces en enero</td><td class="yes">Sí</td><td class="y yes">Sí</td></tr><tr><td>Margen por hora tuya en cada línea: te da de comer y te come</td><td class="yes">Sí</td><td class="y yes">Sí</td></tr><tr><td>Parte de tus horas y de tu margen que se lleva cada línea</td><td class="no">—</td><td class="y yes">Sí</td></tr><tr><td>Horas que recuperas con la tarea que dejas de hacer, y su coste</td><td class="yes">Sí</td><td class="y yes">Sí</td></tr><tr><td>Franja verde, ámbar y rojo de tu número, en pantalla y en el PDF</td><td class="yes">Sí</td><td class="y yes">Sí</td></tr><tr><td>Tu número frente al mismo periodo del año anterior: «Hace un año» en el folio y el PDF</td><td class="yes">Sí</td><td class="y yes">Sí</td></tr><tr><td>Seguimiento de 12 meses de tu número, con gráfico, objetivo, color de franja y el mismo mes del año anterior</td><td class="no">—</td><td class="y yes">Sí</td></tr><tr><td>Revisión trimestral de las cuatro respuestas</td><td class="no">—</td><td class="y yes">Sí</td></tr><tr><td>Tus diez mejores clientes y qué les propones en 2027</td><td class="no">—</td><td class="y yes">Sí</td></tr><tr><td>Plan de 90 días con responsable, horas y coste por hora</td><td class="no">—</td><td class="y yes">Sí</td></tr><tr><td>Excel y Google Sheets editables</td><td class="yes">Sí</td><td class="y yes">Sí</td></tr><tr><td>Una sesión del Club al año sobre esta herramienta</td><td class="no">—</td><td class="y yes">Sí</td></tr></tbody></table></div>
+<h3 class="qe-h">Qué es cada cosa</h3><div class="qe"><article><span class="k">Evolution Club</span><p>Una comunidad de empresarios de pymes que se ayudan a decidir mejor. Once sesiones al año en las que la sala trabaja casos reales de los socios, consultas que te contestamos nosotros y una biblioteca con las grabaciones y las versiones ampliadas de cada herramienta. No es un club de networking: se viene a compartir y a ayudar. Se entra después de una conversación de quince minutos.</p></article><article><span class="k">Evolution Analytics</span><p>Tu espacio privado dentro del Club. Cada mes subes lo que ya tienes, tal cual: el cierre de tu gestoría, un informe de ventas, una captura o una nota de voz. Sin conectar nada ni rellenar plantillas. Ves tus cifras frente al mes y al año anteriores y frente a empresas de tu sector, y recibes una lectura que revisa nuestro equipo: qué se está torciendo, qué va bien y dónde mirar. Está en desarrollo y llegará a la versión ampliada en cuanto abra.</p><details class="qd"><summary>¿Por qué te voy a dar mis datos?</summary><p>Porque siguen siendo tuyos. Los tratamos solo por encargo tuyo, con contrato. Pedimos cifras, no nombres de personas ni de clientes. La IA que usamos no aprende de tus datos. Ves quién ha mirado lo tuyo y cuándo. Con un clic, solo lo ves tú. Y lo borras entero con un botón. Nunca usamos lo que vemos para venderte nada sin decírtelo.</p></details><details class="qd"><summary>¿Qué me da que no me den mis propios informes?</summary><p>No los sustituye: los lee. Tus herramientas te enseñan cada una su parte, la contabilidad por un lado y las ventas o las reservas por otro. Aquí se juntan en un sitio y se comparan con lo que pasó antes y con empresas de tu sector, a partir de cuentas publicadas de empresas parecidas a la tuya. Además mira lo que los informes de siempre no miran: si llevas un año sin tocar precios, cuánto pesan tus dos clientes más grandes, cuánto de lo que factura tu empresa pasa por ti o qué servicio gana dinero solo si no cuentas tus horas. Y lo lee alguien con experiencia en muchas empresas, que sabe que una misma cifra no significa lo mismo en un restaurante que en un hotel.</p></details></article><article><span class="k">Tu Evolution Day</span><p>Un día entero dedicado solo a tu empresa, con el objetivo cerrado antes de empezar. Empieza contigo a solas, con lo que no se habla delante del equipo, y después entra tu equipo, hasta diez personas. Al final del día te llevas el trabajo hecho, no una lista de lo que habría que hacer: el plan comercial cerrado y con responsables, tus precios rediseñados o ese proceso que dependía de una sola persona, ya repartido. Y los indicadores para saber en tres meses si ha servido.</p></article></div>
+</div></section>
+<section class="s" id="como"><div class="wrap"><h2>Cómo funciona</h2><ol class="steps3"><li><span class="n">1</span><h3>Busca una tarde</h3><p>Móvil apagado y los números del año a mano: lo que te ha dejado cada línea y las horas que le has dedicado tú.</p></li><li><span class="n">2</span><h3>Contesta cuatro preguntas</h3><p>Qué te da de comer y qué te come, el cliente que no repites, la tarea que sueltas y el número que mirarás cada mes.</p></li><li><span class="n">3</span><h3>Ponlo en el calendario</h3><p>Descarga tu folio en PDF y añade la cita a tu agenda, con fecha y hora, como una reunión con tu mejor cliente.</p></li></ol></div></section>
+<section class="s" id="calculo"><div class="wrap"><h2>Cómo se calcula</h2><p class="x-p">La herramienta hace tres cuentas y deduce una acción para enero por cada pregunta. Lo demás son tus palabras.</p>
+<div class="formula">Margen por hora tuya   margen de la línea ÷ horas tuyas al año en esa línea
+Te da de comer         la línea con más margen por hora tuya
+Te come                la línea con menos margen por hora tuya (o la que pierde dinero)
+Parte de tus horas     horas de la línea ÷ total de tus horas en las líneas
+Parte del margen       margen de la línea ÷ margen total de las líneas
+Horas que recuperas    horas a la semana × 45 semanas × meses que quedan de 2027 ÷ 12
+En euros (si lo hay)   horas que recuperas × coste por hora de «El margen de verdad»
+Recomendación          alguna línea con margen negativo, o la que te come
+                       se lleva más del 30 % de tus horas y deja menos del 10 % del margen
+                         → tu Evolution Day
+                       si no → versión ampliada, en Evolution Club</div>
+<p class="x-p"><b>La franja de tu número.</b> Tu objetivo marca un camino en línea recta desde hoy hasta diciembre de 2027. Cada vez que miras tu número, lo comparas con la marca de ese mes. Te quedas atrás cuando el número va hacia el lado malo: más días de cobro, menos margen.</p>
+<div class="formula">Camino total          |objetivo − hoy|   (si son iguales: 10 % del objetivo)
+Marca del mes         hoy + (objetivo − hoy) × meses ÷ 12
+Retraso               distancia a la marca hacia el lado malo ÷ camino total
+Verde                 vas al ritmo o por delante, o el retraso es menor del 10 %
+Ámbar                 retraso entre el 10 % y el 25 %
+Rojo                  retraso de más del 25 %</div>
+<p class="note">Los cortes del 10 % y el 25 % son criterio de Evolution Makers <span class="sup">Supuesto</span>: un 10 % del camino es el margen de un mes normal con altibajos; pasar del 25 % es ir un trimestre por detrás. Ejemplo: de 75 a 60 días de cobro, el camino es de 15 días. En marzo la marca es 71,25: verde hasta 72,8 días, ámbar hasta 75 y rojo por encima.</p>
+<p class="x-p"><b>Por qué horas al año y no porcentaje de tu tiempo.</b> Con horas, el margen por hora sale en euros y lo puedes comparar con lo que cuesta una hora de tu equipo. Si solo sabes el porcentaje, multiplícalo por tus horas de trabajo al año: con 45 horas a la semana, unas 2.000.</p>
+<div class="tw"><table><thead><tr><th>Semanas de trabajo al año</th><th>Semanas</th><th>De dónde sale</th></tr></thead><tbody>
+<tr><td>Un año</td><td class="n">52</td><td>365 días ÷ 7, redondeado hacia abajo.</td></tr>
+<tr><td>Vacaciones</td><td class="n">− 4,4</td><td>30 días naturales, el mínimo del artículo 38.1 del Estatuto de los Trabajadores. Son unos 22 días laborables: 22 ÷ 5.</td></tr>
+<tr><td>Fiestas laborales</td><td class="n">− 2,8</td><td>14 al año, el máximo del artículo 37.2. Contamos que todas caen entre semana: 14 ÷ 5.</td></tr>
+<tr><td><b>Semanas que trabajas</b></td><td class="n">44,8 → 45</td><td>Redondeamos a 45, igual que en <a href="/tareas-para-la-ia">Tareas para la IA</a>.</td></tr>
+</tbody></table></div>
+<p class="note">Como empresario quizá no te tomes treinta días. Usamos el mínimo legal de tu equipo porque la tarea que sueltas la suele hacer otra persona, y porque así no inflamos las horas que recuperas.</p>
+<p class="x-p" style="margin-top:18px"><b>Por qué el umbral es 30 % de horas y 10 % de margen</b> <span class="sup">Supuesto</span>. Si una línea se lleva más del 30 % de tus horas y deja menos del 10 % del margen, cada hora tuya ahí deja menos de un tercio de lo que deja tu hora media. Con una línea que pierde dinero pasa lo mismo, y peor: cuanto más vendes, más pierdes. Eso ya no se arregla en una tarde: hay que decidir precio, alcance o dejar de venderla, y se hace mejor un día entero con tus números. Si no se da ninguna de las dos cosas, el folio te basta y lo que toca es revisarlo cada trimestre y mirar tu número cada mes. Es criterio de Evolution Makers y lo ajustaremos con los resultados de quien use la herramienta.</p>
+<p class="note">Un ejemplo: cuatro líneas con 495.000 € de margen y 1.700 horas tuyas. «Proyectos llave en mano» deja 45.000 € (9 %) y se lleva 700 horas (41 %): 64 € por hora frente a 291 € de media. Pasa los dos umbrales: te marcamos tu Evolution Day.</p></div></section>
+<section class="s" id="base"><div class="wrap"><h2>En qué se basa</h2><p class="x-p">La herramienta sale de un episodio de Evolution Insights, el podcast de Evolution Makers: «Noviembre decide tu 2027: cuatro preguntas para una tarde», del 4 de noviembre de 2026. La idea es sencilla: en enero se ejecuta, y lo que se ejecuta en enero se decide ahora. Para eso no hace falta un plan de cuarenta páginas. Hace falta criterio, y el criterio cabe en un folio.</p>
+<div class="src">
+<article><div class="bign">4 preguntas</div><p>Qué te ha dado de comer y qué te ha comido, qué cliente no quieres repetir, qué vas a dejar de hacer tú y qué número te va a decir si vas bien. Una tarde, con el móvil apagado.</p><p class="from">Evolution Insights, episodio del 4 de noviembre de 2026. <a href="https://podcast.evolutionmakers.plus/" target="_blank" rel="noopener">Escúchalo en el podcast</a>. Siguen «Tus diez mejores clientes: qué les vas a proponer en 2027» y «La cuesta de enero se prepara en diciembre».</p></article>
+<article><div class="bign">45 semanas</div><p>Las semanas de trabajo de un año, descontando 30 días naturales de vacaciones como mínimo y hasta 14 fiestas laborales. Con ellas pasamos a horas al año la tarea que dejas de hacer.</p><p class="from">Estatuto de los Trabajadores (Real Decreto Legislativo 2/2015), artículos 38.1 y 37.2. <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2015-11430" target="_blank" rel="noopener">Texto consolidado en el BOE</a> (última actualización publicada el 21 de octubre de 2026). Revisado por nosotros el 10 de noviembre de 2026.</p></article>
+</div>
+<p class="note">Los umbrales de la recomendación (30 % de horas, 10 % de margen) son criterio nuestro y van marcados como Supuesto. El resto de cifras del folio son las tuyas.</p></div></section>
+<section class="s"><div class="wrap"><h2>Preguntas frecuentes</h2><div class="x-faq"><details><summary>No sé el margen de cada línea. ¿Qué pongo?</summary><div class="a">Una estimación honesta vale más que nada. Si quieres sacarlo bien, usa <a href="/margen-de-verdad">El margen de verdad</a>: te da lo que deja cada servicio después de lo que cuesta hacerlo.</div></details><details><summary>¿Por qué no hay visión ni misión?</summary><div class="a">Porque el folio va de decisiones que se ven en enero: qué priorizas, qué cliente no repites, qué sueltas y qué miras. Con eso ya sabes hacia dónde vas.</div></details><details><summary>¿Qué pasa con lo que escribo?</summary><div class="a">Se queda en tu navegador, para que puedas volver durante tu tarde. No salen de tu navegador salvo que decidas mandárnoslos: al reservar tu conversación, si marcas la casilla «Envía mi resultado a Evolution Makers para preparar la conversación», o al pedir el informe por correo. Si guardas tu enlace, tus respuestas van dentro: quien lo abra ve tu folio. Con «Borrar todo» lo quitas de este navegador.</div></details><details><summary>¿Qué trae la versión ampliada?</summary><div class="a">El seguimiento de 12 meses de tu número con su gráfico, la revisión trimestral de las cuatro respuestas, tus diez mejores clientes con qué les vas a proponer en 2027 y un plan de 90 días con horas y coste. Está dentro de Evolution Club.</div></details><details><summary>¿Y después del folio?</summary><div class="a">En Evolution Insights siguen dos episodios que lo continúan: «Tus diez mejores clientes: qué les vas a proponer en 2027» y «La cuesta de enero se prepara en diciembre».</div></details></div></div></section>
+<section class="s" id="cierre"><div class="wrap"><p class="x-closeline">Una tarde, cuatro preguntas, un folio.</p><p class="x-closesub">Ponla hoy en el calendario, con fecha y hora. Si quieres revisar el folio cada trimestre y seguir tu número mes a mes, la versión ampliada está en Evolution Club.</p></div></section>
+</main>
+<footer class="f"><div class="wrap"><a class="logo2 flogo" href="https://www.evolutionmakers.plus/" target="_blank" rel="noopener" aria-label="Evolution Makers"><svg class="lg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6594 411" role="img" aria-label="Evolution Makers"><path fill="#FAC100" d="M90 309C24 299 -16 232 6 170C24 121 74 93 125 103C188 116 225 182 202 243C185 288 137 316 90 309ZM378 309C308 299 268 223 299 159C341 74 467 85 494 177C514 249 453 320 378 309ZM668 309C600 298 561 231 584 168C599 128 638 101 681 101C729 101 769 131 783 178C786 190 787 219 783 231C770 277 732 308 686 310C679 310 671 309 668 309Z"/><path fill="currentColor" d="M1874 410C1772 403 1694 336 1678 242C1660 139 1717 45 1816 12C1937 -29 2069 42 2093 161C2098 184 2098 218 2095 240C2078 337 1995 407 1892 410C1885 411 1876 411 1874 410ZM3552 410C3468 403 3399 352 3371 277C3355 236 3354 183 3368 140C3403 33 3526 -26 3639 11C3716 37 3769 100 3779 178C3782 199 3780 233 3775 253C3753 350 3656 419 3552 410ZM6436 410C6404 409 6375 402 6352 391C6344 388 6332 380 6330 378C6329 377 6320 287 6320 286C6320 286 6325 289 6329 293C6364 318 6398 329 6437 331C6464 332 6479 327 6489 316C6497 308 6498 303 6498 291C6497 268 6484 257 6436 240C6358 213 6321 160 6334 95C6342 49 6378 14 6430 3C6444 -0 6494 -1 6509 2C6528 6 6563 20 6563 24C6563 27 6556 101 6556 102C6555 102 6552 100 6548 98C6506 75 6453 72 6434 91C6421 104 6422 124 6437 136C6444 141 6456 147 6472 153C6508 166 6522 173 6539 185C6576 211 6596 251 6594 292C6589 356 6553 396 6490 407C6480 409 6450 411 6444 411C6443 411 6440 410 6436 410ZM2590 409C2527 402 2474 367 2454 317C2444 293 2444 290 2444 137L2444 10L2492 10L2540 10L2540 142L2540 274L2543 282C2550 301 2566 316 2587 323C2599 327 2629 327 2641 323C2664 317 2681 301 2688 281L2690 274L2691 142L2692 10L2738 9L2784 9L2784 149C2783 301 2784 291 2778 309C2756 376 2678 418 2590 409ZM4076 318C3987 221 3981 213 3951 178C3940 164 3930 153 3930 153C3929 153 3929 154 3929 156C3930 158 3930 214 3931 280L3931 401L3884 401L3836 401L3836 205L3836 9L3874 9L3912 9L3986 90C4065 178 4074 188 4095 213C4103 222 4109 230 4109 230C4109 230 4109 180 4109 120L4109 9L4156 9L4204 9L4204 208L4204 406L4180 406L4156 406L4076 318ZM1361 209C1322 101 1290 12 1289 11L1289 9L1337 9L1386 10L1416 94C1453 197 1465 233 1472 264C1473 267 1474 269 1474 269C1474 269 1475 267 1476 264C1483 233 1494 199 1531 95L1562 10L1607 9C1643 9 1652 9 1652 10C1652 11 1619 100 1580 208L1510 404L1471 404L1432 404L1361 209ZM4585 325C4545 247 4534 225 4523 199C4520 191 4517 185 4517 185C4516 185 4516 191 4516 198C4516 214 4514 246 4506 334L4500 400L4455 401L4409 401L4409 395C4410 392 4417 305 4426 202C4435 98 4442 12 4443 11L4443 9L4482 9L4520 10L4552 71C4610 182 4630 222 4641 248C4643 253 4645 257 4645 257C4645 258 4648 252 4651 244C4663 215 4675 190 4721 101L4768 9L4807 9L4846 10L4864 202C4873 307 4881 395 4881 397L4881 401L4835 401L4788 401L4788 396C4784 363 4772 218 4772 203C4772 190 4771 182 4770 186C4763 206 4745 244 4699 332L4663 402L4644 403L4625 403L4585 325ZM1032 205L1032 9L1146 9L1261 9L1261 48L1261 87L1194 87L1128 88L1127 126L1127 165L1181 165L1236 165L1236 205L1236 245L1182 245L1127 245L1127 284L1127 323L1202 323L1278 323L1278 362L1278 401L1155 401L1032 401L1032 205ZM2153 205L2153 9L2200 9L2248 9L2248 164L2248 320L2326 320L2405 320L2405 360L2405 401L2279 401L2153 401L2153 205ZM2943 243L2943 85L2884 85L2824 85L2824 47L2824 9L2990 9L3156 9L3156 48L3156 86L3097 86L3038 86L3038 244L3038 401L2990 401L2943 401L2943 243ZM3202 205L3202 9L3250 9L3297 9L3297 205L3297 401L3250 401L3202 401L3202 205ZM4913 400C4913 400 4948 311 4990 203L5066 6L5099 6L5132 6L5209 202C5251 310 5285 398 5286 399C5286 401 5284 401 5239 401L5192 400L5176 360L5161 320L5097 320L5032 320L5017 360L5002 400L4958 401C4933 401 4913 401 4913 400ZM5326 205L5326 9L5374 9L5422 9L5422 93L5422 176L5482 93L5542 9L5594 9L5646 9L5640 17C5637 22 5606 66 5572 115L5509 204L5579 301C5617 355 5649 399 5649 400C5650 401 5639 401 5595 401L5539 401L5481 321L5422 241L5422 321L5422 401L5374 401L5326 401L5326 205ZM5686 205L5686 9L5800 9L5915 9L5915 48L5915 87L5848 87L5781 87L5781 126L5781 165L5836 165L5890 165L5890 205L5890 245L5836 245L5781 245L5781 284L5781 323L5856 323L5932 323L5932 362L5932 401L5809 401L5686 401L5686 205ZM5978 205L5978 9L6060 9C6150 10 6148 10 6169 16C6224 35 6256 83 6250 140C6247 175 6228 205 6199 222L6191 226L6193 229C6194 231 6304 386 6312 396L6315 401L6262 401L6208 401L6156 324L6103 248L6086 247L6069 247L6069 324L6069 401L6024 401L5978 401L5978 205ZM1906 324C1953 316 1990 278 1998 230C2010 164 1975 104 1913 87C1900 84 1872 83 1860 87C1810 100 1776 142 1772 193C1769 232 1781 266 1804 291C1831 319 1869 331 1906 324ZM3598 323C3657 306 3692 248 3682 184C3675 133 3635 92 3585 85C3523 76 3465 122 3456 187C3454 198 3455 223 3457 232C3468 281 3506 318 3552 325C3562 327 3589 325 3598 323ZM5137 247C5137 246 5130 227 5122 204C5114 181 5105 155 5103 147C5097 128 5097 129 5097 129C5096 129 5095 135 5093 142C5091 148 5082 174 5073 200C5063 225 5056 246 5056 247C5056 248 5071 248 5096 248C5127 248 5137 248 5137 247ZM6122 171C6146 166 6160 150 6159 126C6158 108 6151 98 6136 91C6125 85 6118 84 6092 84L6069 84L6069 128L6069 172L6092 172C6105 172 6118 172 6122 171Z"/></svg></a><nav class="fn" aria-label="Formas de trabajar con nosotros"><a href="https://www.evolutionmakers.plus/chief-evolution-officer" target="_blank" rel="noopener">Chief Evolution Officer</a><a href="https://www.evolutionmakers.plus/evolution-day" target="_blank" rel="noopener">Evolution Day</a><a href="https://www.evolutionmakers.plus/club" target="_blank" rel="noopener">Evolution Club</a><a href="https://podcast.evolutionmakers.plus/" target="_blank" rel="noopener">Evolution Insights</a><a href="https://www.evolutionmakers.plus/toolkit">Evolution Toolkit</a></nav><span>Evolution Worldwide, S.L. · Sede en Madrid · Base en Sevilla · Trabajamos en toda España</span><span class="fl2"><span>910 055 130</span><a href="https://www.evolutionmakers.plus/contacto" target="_blank" rel="noopener">Contacto</a><a href="https://www.evolutionmakers.plus/politica-de-privacidad" target="_blank" rel="noopener">Privacidad</a><a href="https://www.evolutionmakers.plus/aviso-legal" target="_blank" rel="noopener">Aviso legal</a></span></div></footer>
+<div class="band" id="band" role="region" aria-label="Evolution Club"><div class="wrap"><div class="who"><b>Evolution Club · los treinta primeros</b><span>Quedan plazas. La versión ampliada de cada herramienta está dentro.</span></div><a class="btn" href="https://www.evolutionmakers.plus/club" target="_blank" rel="noopener">Pedir plaza</a></div></div>
+<script>window.EMT_CFG={"cita": "https://cita.evolutionmakers.plus/toolkit", "p": {"herramienta": "Herramienta", "resumen": "Resumen", "decidir": "Decidir", "enlace": "Enlace"}, "herramienta": "Tu plan de 2027 en un folio"};</script>
+<script>
+(function(){
+const hd=document.querySelector('header.top');let ly=scrollY;
+const band=document.getElementById('band'),foot=document.querySelector('footer.f');
+addEventListener('scroll',()=>{const y=scrollY;if(hd){hd.classList.toggle('off',y>ly&&y>120);}ly=y;
+ if(band){const fr=foot.getBoundingClientRect().top;band.classList.toggle('on',y>420&&fr>innerHeight-40);}},{passive:true});
+const lad=document.getElementById('escalera');
+// Calendario en la misma pantalla: el botón del peldaño del Day abre la página de reservas bajo la escalera.
+// En la muestra (fuera de evolutionmakers.plus) no se carga el iframe: se enseña un aviso y el enlace.
+const enWeb=/(^|\.)evolutionmakers\.plus$/.test(location.hostname);
+const CFG=window.EMT_CFG||{cita:'',p:{},herramienta:''};
+// URL de la reserva: sin datos salvo que el empresario marque la casilla y haya un resultado suyo (el ejemplo no cuenta).
+function citaUrl(){const env=document.getElementById('cita-env'),msg=document.getElementById('cita-msg');let u=CFG.cita;
+ if(!env||!env.checked){if(msg)msg.textContent='';return u;}
+ let r=null;try{r=window.EMT.resumen?window.EMT.resumen():null;}catch(e){r=null;}
+ if(!r||(!r.enlace&&!r.soloResumen)){if(msg)msg.textContent='Todavía no hay un resultado tuyo que mandar (el ejemplo no cuenta). La reserva va sin datos.';return u;}
+ const q=[[CFG.p.herramienta,CFG.herramienta],[CFG.p.resumen,window.EMT.corta(r.resumen,200)]];
+ if(r.decidir)q.push([CFG.p.decidir,window.EMT.corta(r.decidir,280)]);
+ // El campo Enlace de la reserva admite 2.000 caracteres como máximo (prueba del 12/11). Si no cabe, no se manda y se avisa.
+ const largo=!!(r.enlace&&r.enlace.length>2000);if(r.enlace&&!largo)q.push([CFG.p.enlace,r.enlace]);
+ if(msg)msg.textContent='Se manda al reservar: '+CFG.herramienta+', tu resultado en una frase'+(r.decidir?', lo que tienes que decidir':'')+(r.enlace?(largo?'. Tu enlace es demasiado largo para la reserva: guárdalo con «Guardar mi enlace» y tráelo a la conversación.':' y tu enlace.'):'. Sin nombres ni respuestas de nadie: eso se queda en tu equipo.');
+ return u+(u.indexOf('?')<0?'?':'&')+q.map(x=>encodeURIComponent(x[0])+'='+encodeURIComponent(x[1])).join('&');}
+function citaSync(){const c=document.getElementById('cita');if(!c)return;const u=citaUrl(),fr=c.querySelector('iframe'),tab=document.getElementById('cita-tab');
+ if(tab)tab.href=u;if(fr){fr.dataset.src=u;if(fr.getAttribute('src')&&fr.getAttribute('src')!==u)fr.src=u;}}
+function cita(on){const c=document.getElementById('cita');if(!c)return;c.hidden=!on;
+ document.querySelectorAll('[data-cita]').forEach(b=>b.setAttribute('aria-expanded',on?'true':'false'));
+ if(!on)return;citaSync();const fr=c.querySelector('iframe'),ph=c.querySelector('.cita-ph');
+ if(enWeb&&fr&&!fr.getAttribute('src')){fr.src=fr.dataset.src;fr.hidden=false;if(ph)ph.hidden=true;}
+ c.scrollIntoView({behavior:'smooth',block:'start'});}
+const envB=document.getElementById('cita-env');if(envB)envB.addEventListener('change',citaSync);
+if(lad)lad.addEventListener('click',e=>{const t=e.target.closest('[data-cita]');if(t){e.preventDefault();cita(true);}
+ if(e.target.closest('[data-cita-off]'))cita(false);});
+window.EMT={
+ // rec: 'day' | 'club'; why: texto corto que explica la recomendación
+ recomienda(rec,why){if(!lad)return;lad.querySelectorAll('.step').forEach(s=>{const on=s.dataset.k===rec;s.classList.toggle('hl',on);
+   const a=s.querySelector('.act');if(!a||!a.dataset.btn)return;a.innerHTML=on?a.dataset.btn:a.dataset.lnk;});
+   const w=document.getElementById('esc-why');if(w&&why)w.textContent=why;
+   if(rec!=='day')cita(false);else citaSync();},
+ // Resumen para la reserva: cada herramienta lo sobrescribe con () => ({resumen, decidir, enlace}) o null si no hay resultado suyo.
+ resumen(){return null;},
+ // Una frase con el texto de «Copiar mi resultado»: sin la línea del título ni la de la dirección, unida con « · ».
+ frase(txt){const L=String(txt||'').split('\n').map(x=>x.trim()).filter(Boolean);if(L.length>2){L.shift();if(/^evolutionmakers\.plus\//.test(L[L.length-1]))L.pop();}
+   return this.corta(L.join(' · '),200);},
+ corta(t,n){t=String(t||'').replace(/\s+/g,' ').trim();if(t.length<=n)return t;const c=t.slice(0,n-1),k=c.lastIndexOf(' ');return (k>n*0.6?c.slice(0,k):c).replace(/[ ·,;:]+$/,'')+'…';},
+ // Enlace con el resultado: JSON en base64url (sin + / =), en «#r=». Lo que va detrás de # no llega a ningún servidor.
+ cod(o){const b=new TextEncoder().encode(JSON.stringify(o));let s='';for(let i=0;i<b.length;i+=8192)s+=String.fromCharCode.apply(null,b.subarray(i,i+8192));
+   return btoa(s).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');},
+ dec(c){try{if(!/^[A-Za-z0-9_-]+$/.test(c))return null;let s=c.replace(/-/g,'+').replace(/_/g,'/');while(s.length%4)s+='=';
+   const bin=atob(s),b=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)b[i]=bin.charCodeAt(i);return JSON.parse(new TextDecoder().decode(b));}catch(e){return null;}},
+ leeR(){const m=/^#r=([A-Za-z0-9_-]+)$/.exec(location.hash||'');return m?this.dec(m[1]):null;},
+ enlaceR(o){return location.href.split('#')[0]+'#r='+this.cod(o);},
+ // Botón «Guardar mi enlace»: get() devuelve los datos a guardar; ej() dice si es el ejemplo.
+ botonEnlace(get,ej,queEs){const b=document.getElementById('b-link'),o=document.getElementById('lk-ok');if(!b||!o)return;
+   b.onclick=()=>{const d=get();if(d==null)return;
+    if(ej()){o.style.color='var(--red)';o.textContent='Esto es el ejemplo. '+queEs+' para guardar tu enlace.';return;}
+    try{history.replaceState(null,'','#r='+this.cod(d));}catch(e){}
+    this.copiar(this.enlaceR(d),'lk-ok');setTimeout(()=>{if(o.textContent==='Copiado')o.textContent='Enlace copiado. Guárdalo en tus favoritos o mándatelo por correo.';},50);};},
+ // Al cambiar los datos, el enlace de la barra deja de valer: se quita.
+ limpiaR(){if(/^#r=/.test(location.hash||'')){try{history.replaceState(null,'',location.href.split('#')[0]);}catch(e){}}const o=document.getElementById('lk-ok');if(o)o.textContent='';},
+ copiar(txt,out){const o=document.getElementById(out);const ko=()=>{o.textContent='No se ha podido copiar: selecciona el texto del resultado';o.style.color='var(--red)';};
+   if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(()=>{o.textContent='Copiado';o.style.color='';},ko);}else ko();},
+ eur(n){return (Math.round(n)).toLocaleString('es-ES')+' €';},
+ correo(formId,inId,outId){const f=document.getElementById(formId);if(!f)return;f.addEventListener('submit',e=>{e.preventDefault();
+   const v=document.getElementById(inId).value.trim(),o=document.getElementById(outId);
+   if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)){o.textContent='Revisa el correo: falta la @ o el dominio.';o.style.color='var(--red)';return;}
+   o.style.color='';o.textContent='Muestra: en la web te llegaría a '+v+' en un minuto.';});}
+};
+})();
+</script>
+<script></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script><script>
+(function(){
+const $=id=>document.getElementById(id);
+const SEM=45,KEY='emt-plan-2027',RUTA='toolkit.evolutionmakers.plus';
+const MES=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+const PQ={tarde:'paga tarde',cambia:'cambia el encargo cada semana',margen:'no deja margen',para:'te hace trabajar para él y no con él',otra:'por otra razón'};
+const NT={margen:['Margen del servicio principal','%',1],repiten:['Clientes que repiten','%',1],cobro:['Días que tardas en cobrar',' días',-1]};
+const fh=v=>String(Math.round(Math.abs(v))).replace(/\B(?=(\d{3})+(?!\d))/g,'.');
+const E=v=>(v<0?'− ':'')+fh(v)+' €';
+const n1=v=>(+v).toLocaleString('es-ES',{maximumFractionDigits:1});
+function num(s){s=String(s||'').trim().replace(/[€%\s]/g,'');if(s==='')return null;const t=s.replace(/\.(?=\d{3}(\D|$))/g,'').replace(',','.');const n=parseFloat(t);return isNaN(n)?null:n;}
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+let CHP=0;try{const g=localStorage.getItem('emt-coste-hora-persona');if(g&&+g>0)CHP=Math.round(+g*100)/100;}catch(e){}
+const IDS=['e-n','c-n','c-p','c-a','c-m','c-q','t-n','t-h','t-q','t-d','n-t','n-o','n-h','n-a','n-o2','n-d','d-e','d-f','d-h'];
+for(let i=0;i<5;i++)IDS.push('l'+i+'n','l'+i+'m','l'+i+'h');
+let ejemplo=false,deLink=false,R=null,RV=null;
+function guarda(){if(ejemplo)return;try{const o={};IDS.forEach(k=>o[k]=$(k).value);localStorage.setItem(KEY,JSON.stringify(o));}catch(e){}}
+function carga(){try{const o=JSON.parse(localStorage.getItem(KEY)||'null');if(o)IDS.forEach(k=>{if(o[k]!=null)$(k).value=o[k];});}catch(e){}}
+function tipo(){const t=$('n-t').value;$('n-ow').hidden=t!=='otro';$('n-cob').hidden=t!=='cobro';}
+$('n-t').addEventListener('change',tipo);
+$('f-p').addEventListener('input',guarda);$('f-p').addEventListener('change',guarda);
+function lee(){
+ const L=[];for(let i=0;i<5;i++){const n=$('l'+i+'n').value.trim(),m=num($('l'+i+'m').value),h=num($('l'+i+'h').value);
+  if(n||m!=null||h!=null)L.push({n:n||('Línea '+(i+1)),m,h});}
+ return {emp:$('e-n').value.trim(),L,
+  c:{n:$('c-n').value.trim(),p:$('c-p').value,a:$('c-a').value,m:$('c-m').value.trim(),q:$('c-q').value.trim()},
+  t:{n:$('t-n').value.trim(),h:num($('t-h').value),q:$('t-q').value,d:+$('t-d').value||1},
+  k:{t:$('n-t').value,o:$('n-o').value.trim(),h:num($('n-h').value),a:num($('n-a').value),g:num($('n-o2').value),d:Math.min(28,Math.max(1,+$('n-d').value||5))},
+  d:{e:$('d-e').value,f:$('d-f').value,h:$('d-h').value||'16:00'}};}
+function calcula(D){
+ const L=D.L.filter(l=>l.m!=null&&l.h>0);
+ const TM=L.reduce((s,l)=>s+l.m,0),TH=L.reduce((s,l)=>s+l.h,0);
+ L.forEach(l=>{l.mh=l.m/l.h;l.sh=TH>0?l.h/TH:0;l.sm=TM>0?l.m/TM:0;});
+ let best=null,worst=null;L.forEach(l=>{if(!best||l.mh>best.mh)best=l;if(!worst||l.mh<worst.mh)worst=l;});
+ if(L.length<2&&!(worst&&worst.m<0))worst=null;
+ const neg=L.filter(l=>l.m<0);
+ const trap=!!(worst&&L.length>=2&&TM>0&&worst.sh>0.30&&worst.sm<0.10);
+ const meses=13-D.t.d,hrs=D.t.h>0?D.t.h*SEM*meses/12:0,hfull=D.t.h>0?D.t.h*SEM:0;
+ return {L,TM,TH,avg:TH>0?TM/TH:0,best,worst,neg,trap,meses,hrs,hfull,eur:CHP>0?hrs*CHP:null};}
+function fecha(f){if(!f)return '';const [y,m,d]=f.split('-').map(Number);const dt=new Date(y,m-1,d);
+ return dt.toLocaleDateString('es-ES',{weekday:'long',day:'numeric',month:'long',year:'numeric'});}
+function enero(D,C){
+ const o={};
+ // 1
+ if(!C.L.length)o[1]='Saco el margen y mis horas de cada línea. Sin eso, el resto del folio va a ciegas.';
+ else if(C.neg.length)o[1]='Subo el precio de «'+C.neg[0].n+'» en las próximas propuestas o dejo de venderla: me cuesta '+E(-C.neg[0].m)+' al año.';
+ else if(C.trap)o[1]='Saco horas de «'+C.worst.n+'»: me lleva el '+Math.round(C.worst.sh*100)+' % de mis horas y deja el '+Math.round(C.worst.sm*100)+' % del margen. Decido precio, alcance o quién la lleva.';
+ else if(C.best&&C.worst&&C.best!==C.worst)o[1]='Mis primeras propuestas del año van de «'+C.best.n+'»: cada hora mía ahí deja '+E(C.best.mh)+', frente a '+E(C.worst.mh)+' en «'+C.worst.n+'».';
+ else o[1]='Apunto en enero las horas reales que me lleva cada línea, para compararlas en la revisión de marzo.';
+ // 2
+ const cn=D.c.n?'«'+D.c.n+'»':'ese cliente';
+ const cond={tarde:'pago a 30 días y por escrito',cambia:'alcance cerrado y cada cambio presupuestado aparte',margen:'un precio que deje margen o menos alcance',para:'quién decide qué y reuniones con fecha',otra:'las condiciones que me hagan querer trabajar con él'}[D.c.p]||'las condiciones que me hagan querer trabajar con él';
+ if(D.c.a==='cond')o[2]='En la próxima propuesta a '+cn+' cambio condiciones: '+cond+'.';
+ else if(D.c.a==='busca')o[2]='Escribo en una línea qué cliente no vuelvo a buscar (como '+cn+') y se lo paso a quien vende.';
+ else if(D.c.a==='cierra')o[2]='Antes del 31 de enero le digo a '+cn+' la fecha en que cerramos la relación.';
+ else o[2]=D.c.n?'Decido qué hago con '+cn+': cambiar condiciones, dejar de buscar clientes así o cerrar con fecha.':'Pongo nombre al cliente que no quiero repetir. Si no lo nombro, vuelve.';
+ if(D.c.m)o[2]+=' Y le propongo a «'+D.c.m+'» '+(D.c.q?D.c.q:'más trabajo')+'.';
+ // 3
+ const mm=MES[D.t.d-1];
+ if(!D.t.n)o[3]='Elijo una tarea que hago yo y no debería. Una.';
+ else{const q={persona:'Le explico «'+D.t.n+'» a quien la va a hacer y desde '+mm+' no la toco.',sistema:'Escribo los pasos de «'+D.t.n+'» y la paso a un sistema o a la IA, con una persona que revise.',nadie:'Quito «'+D.t.n+'» de mi agenda desde '+mm+' y aviso a quien la esperaba.'}[D.t.q]||'Decido quién hace «'+D.t.n+'» desde '+mm+'.';
+  o[3]=q+(C.hrs>0?' Recupero '+fh(C.hrs)+' horas en 2027.':'');}
+ // 4
+ const k=D.k,nt=NT[k.t],nom=k.t==='otro'?(k.o||'Mi número'):nt[0],u=nt?nt[1]:'';
+ if(k.h!=null&&k.g!=null){const paso=(k.g-k.h)/12;
+  o[4]='El '+k.d+' de enero miro mi número por primera vez ('+nom.toLowerCase()+'). Para llegar de '+n1(k.h)+u+' a '+n1(k.g)+u+', toca moverlo unos '+n1(Math.abs(paso))+u+' al mes.';}
+ else o[4]='Elijo el número y apunto cuánto es hoy. El '+k.d+' de cada mes lo miro dos minutos.';
+ return o;}
+function respuestas(D,C){
+ const r={};
+ r[1]=C.L.length?(C.best?'Me da de comer «'+C.best.n+'»: '+E(C.best.mh)+' por hora mía. ':'')+(C.worst?'Me come «'+C.worst.n+'»: '+(C.worst.m<0?'pierde '+E(-C.worst.m)+' al año.':E(C.worst.mh)+' por hora mía.'):''):'Pendiente: el margen y las horas de cada línea.';
+ r[2]=D.c.n||D.c.p?'No repito '+(D.c.n?'«'+D.c.n+'»':'al cliente que')+(D.c.p?' ('+PQ[D.c.p]+').':'.'):'Pendiente: ponerle nombre.';
+ r[3]=D.t.n?'Dejo de hacer «'+D.t.n+'»'+(D.t.h>0?', '+n1(D.t.h)+' horas a la semana':'')+'.':'Pendiente: elegir la tarea.';
+ const k=D.k,nt=NT[k.t],nom=k.t==='otro'?(k.o||'Mi número'):nt[0],u=nt?nt[1]:'';
+ r[4]=nom+(k.h!=null?': hoy '+n1(k.h)+u:'')+(k.g!=null?'; en diciembre de 2027, '+n1(k.g)+u:'')+'. Lo miro el día '+k.d+' de cada mes.';
+ return r;}
+// Franja verde / ámbar / rojo del número (cortes: 10 % y 25 % del camino total, Supuesto)
+const FV=0.10,FR=0.25,CHK=[[3,'Marzo'],[6,'Junio'],[9,'Septiembre'],[12,'Diciembre']];
+function franja(k){if(k.h==null||k.g==null)return null;const nt=NT[k.t];
+ const dir=k.g!==k.h?Math.sign(k.g-k.h):(nt?nt[2]:1),cam=Math.abs(k.g-k.h)||Math.abs(k.g)*0.1;if(!(cam>0))return null;
+ const u=nt?nt[1]:'',baja=dir<0;
+ const rows=CHK.map(([m,nm])=>{const marca=k.h+dir*Math.abs(k.g-k.h)*m/12,v=marca-dir*FV*cam,r=marca-dir*FR*cam;return {m,nm,marca,v,r};});
+ return {rows,baja,u,cam};}
+const r1=x=>(Math.round(x*10)/10).toLocaleString('es-ES',{maximumFractionDigits:1});
+function frTxt(F,row){return F.baja?['≤ '+r1(row.v),'≤ '+r1(row.r),'> '+r1(row.r)]:['≥ '+r1(row.v),'≥ '+r1(row.r),'< '+r1(row.r)];}
+function frHtml(F){if(!F)return '';const un=F.u.trim()?' ('+F.u.trim()+')':'';
+ return '<div class="fr"><p class="frk">Mi franja'+un+': si voy al ritmo del objetivo</p><table><colgroup><col style="width:34%"><col><col><col></colgroup><thead><tr><th>Mes</th><th>Verde</th><th>Ámbar</th><th>Rojo</th></tr></thead><tbody>'
+ +F.rows.map(r=>{const t=frTxt(F,r);return '<tr><td>'+r.nm+'</td><td class="g">'+t[0]+'</td><td class="a">'+t[1]+'</td><td class="r">'+t[2]+'</td></tr>';}).join('')
+ +'</tbody></table><p class="frn">Verde: vas al ritmo o te quedas atrás menos del 10 % del camino. Ámbar: entre el 10 y el 25 %. Rojo: más del 25 %. Cortes de Evolution Makers (Supuesto).</p></div>';}
+// «Hace un año: X»: el mismo periodo del año anterior (opcional)
+function haceUn(k){if(k.a==null)return '';const nt=NT[k.t],u=nt?nt[1]:'';return 'Hace un año: '+n1(k.a)+u+(k.h!=null?' (hoy, '+n1(k.h)+u+').':'.');}
+const PREG=['¿Qué me ha dado de comer este año y qué me ha comido?','¿Qué cliente no quiero repetir?','¿Qué voy a dejar de hacer yo?','¿Qué número me va a decir si voy bien?'];
+function resultado(){
+ const D=lee(),C=calcula(D),A=respuestas(D,C),EN=enero(D,C);
+ if(!C.L.length){$('p-err').textContent='Pon al menos una línea con su margen y tus horas: es lo que hace las cuentas.';$('l0n').focus();return;}
+ $('p-err').textContent='';
+ $('v-q').hidden=true;$('v-r').hidden=false;$('r-ej').hidden=!ejemplo;$('r-lk').hidden=!deLink||ejemplo;
+ RV=IDS.map(k=>$(k).value);
+ $('r-big').textContent=E(C.avg)+' / h';
+ $('r-bigs').textContent='Es lo que deja de media cada hora tuya: '+E(C.TM)+' de margen en '+fh(C.TH)+' horas.';
+ let ver,chip,txt;
+ if(C.neg.length){ver='Una línea te cuesta dinero';chip='<span class="chip r">Prioridad</span>';txt='«'+C.neg[0].n+'» pierde '+E(-C.neg[0].m)+' al año. Cuanto más la vendes, más pierdes.';}
+ else if(C.trap){ver='Una línea te come el tiempo';chip='<span class="chip r">Prioridad</span>';txt='«'+C.worst.n+'» se lleva el '+Math.round(C.worst.sh*100)+' % de tus horas y deja el '+Math.round(C.worst.sm*100)+' % del margen.';}
+ else if(C.best&&C.worst&&C.best!==C.worst){ver='Sabes qué te da de comer';chip='<span class="chip g">Bien</span>';txt='Cada hora tuya en «'+C.best.n+'» deja '+n1(C.best.mh/Math.max(C.worst.mh,0.01))+' veces más que en «'+C.worst.n+'». Ahí va tu tiempo en 2027.';}
+ else{ver='Tienes la primera línea';chip='<span class="chip a">Atención</span>';txt='Con una sola línea no hay con qué comparar. Añade las demás para ver cuál te da de comer.';}
+ $('r-b').innerHTML=ver+' '+chip;$('r-t').textContent=txt;
+ const mx=Math.max(...C.L.map(l=>Math.abs(l.mh)),1);
+ $('r-l').innerHTML=C.L.map(l=>{const isB=l===C.best&&C.L.length>1,isW=l===C.worst;
+  return '<div class="br'+(isB?' top':'')+(isW?' bad':'')+'"><b>'+esc(l.n)+(isB?'<span class="tagl g">te da de comer</span>':'')+(isW?'<span class="tagl r">te come</span>':'')+'</b><div class="tr"><i style="width:'+Math.max(0,l.mh)/mx*100+'%"></i></div><span>'+E(l.mh)+'/h</span></div>';}).join('');
+ let kv='';
+ if(C.worst&&C.L.length>1)kv+='<dt>«'+esc(C.worst.n)+'»: parte de tus horas</dt><dd>'+Math.round(C.worst.sh*100)+' %</dd><dt>«'+esc(C.worst.n)+'»: parte del margen</dt><dd>'+Math.round(C.worst.sm*100)+' %</dd>';
+ if(C.hrs>0)kv+='<dt>Horas que recuperas en 2027 con la tarea que sueltas</dt><dd>'+fh(C.hrs)+' h</dd>'+(C.eur!=null?'<dt>Al coste por hora de tu equipo ('+n1(CHP)+' €/h, de «El margen de verdad»). Tu hora vale más: es el mínimo.</dt><dd>'+E(C.eur)+'</dd>':'');
+ $('r-kv').innerHTML=kv;
+ const fe=D.d.f?fecha(D.d.f)+' a las '+D.d.h:'';
+ $('r-s').innerHTML='<b>Tu primer paso:</b> '+(fe?'tu tarde ya tiene fecha, el '+fe+'. Añádela a tu calendario con el botón de abajo y trátala como una reunión con tu mejor cliente.':'ponle fecha y hora a tu tarde, hoy. Vuelve a «Cambiar mis respuestas», rellena el bloque 5 y añádela a tu calendario.');
+ const emp=D.emp?esc(D.emp)+' · ':'';const FJ=franja(D.k),HA=haceUn(D.k);
+ $('r-f').innerHTML='<span class="sh-k">'+emp+'Mi plan de 2027 en un folio</span><h4>La reunión con la empresa que quiero tener dentro de un año</h4>'+
+  '<p class="sh-d">'+(ejemplo?'Ejemplo · ':'')+(fe?(D.d.e==='revisar'?'Lo reviso el ':'Mi tarde: ')+fe:'Mi tarde: pendiente de fecha')+'</p>'+
+  PREG.map((q,i)=>'<div class="sq"><span class="qq"><b class="n">'+(i+1)+'</b>'+q+'</span><p>'+esc(A[i+1])+'</p>'+(i===3&&HA?'<p>'+esc(HA)+'</p>':'')+(i===3?frHtml(FJ):'')+'<p class="ene"><b>Qué hago en enero:</b> '+esc(EN[i+1])+'</p></div>').join('')+
+  '<div class="foot">Una tarde, cuatro preguntas, un folio. · '+RUTA+'/plan-2027-en-un-folio</div>';
+ R={D,C,A,EN,fe,FJ,HA};
+ if(C.neg.length)EMT.recomienda('day','«'+C.neg[0].n+'» pierde '+E(-C.neg[0].m)+' al año. Eso se decide con precio, alcance o dejando de venderla, y conviene hacerlo con tus números delante. Te marcamos tu Evolution Day.');
+ else if(C.trap)EMT.recomienda('day','«'+C.worst.n+'» se lleva el '+Math.round(C.worst.sh*100)+' % de tus horas y deja el '+Math.round(C.worst.sm*100)+' % del margen: más del 30 % del tiempo para menos del 10 % del dinero. Te marcamos tu Evolution Day.');
+ else EMT.recomienda('club','Ninguna línea pierde dinero ni se come tu tiempo. Tu folio basta: lo que toca es revisarlo cada trimestre y mirar tu número cada mes. Te marcamos la versión ampliada, en Evolution Club.');
+ $('herramienta').scrollIntoView({behavior:'smooth',block:'start'});}
+$('f-p').addEventListener('submit',e=>{e.preventDefault();ejemplo=false;deLink=false;EMT.limpiaR();guarda();resultado();});
+$('b-ej').onclick=()=>{ejemplo=true;deLink=false;EMT.limpiaR();
+ const v={'e-n':'Empresa de ejemplo','l0n':'Proyectos llave en mano','l0m':'45.000','l0h':'700','l1n':'Mantenimiento mensual','l1m':'250.000','l1h':'200',
+  'l2n':'Consultoría y diagnóstico','l2m':'140.000','l2h':'500','l3n':'Formación para empresas','l3m':'60.000','l3h':'300','l4n':'','l4m':'','l4h':'',
+  'c-n':'Cliente A','c-p':'tarde','c-a':'cond','c-m':'Cliente B','c-q':'el mantenimiento anual de toda su red',
+  't-n':'Revisar y firmar todos los presupuestos','t-h':'4','t-q':'persona','t-d':'1',
+  'n-t':'cobro','n-o':'','n-h':'75','n-a':'80','n-o2':'60','n-d':'5','d-e':'hacer','d-f':'2026-11-26','d-h':'16:00'};
+ Object.keys(v).forEach(k=>$(k).value=v[k]);tipo();
+ const keep=CHP;if(!CHP)CHP=25.6;resultado();CHP=keep;};
+$('b-edit').onclick=()=>{if(ejemplo){ejemplo=false;IDS.forEach(k=>{const el=$(k);if(el.tagName==='SELECT')el.selectedIndex=0;else el.value='';});$('n-d').value='5';$('d-h').value='16:00';carga();tipo();}
+ $('v-r').hidden=true;$('v-q').hidden=false;$('copy-ok').textContent='';$('herramienta').scrollIntoView({behavior:'smooth',block:'start'});};
+$('b-clear').onclick=()=>{IDS.forEach(k=>{const el=$(k);if(el.tagName==='SELECT')el.selectedIndex=0;else el.value='';});$('n-d').value='5';$('d-h').value='16:00';tipo();
+ try{localStorage.removeItem(KEY);}catch(e){}};
+function texto(){const {D,A,EN,fe}=R;return 'Mi plan de 2027 en un folio · Evolution Toolkit\n'+(D.emp?D.emp+'\n':'')+(fe?'Mi tarde: '+fe+'\n':'')+
+ PREG.map((q,i)=>'\n'+(i+1)+'. '+q+'\n'+A[i+1]+(i===3&&R.HA?'\n'+R.HA:'')+(i===3&&R.FJ?'\nMi franja (verde · ámbar · rojo): '+R.FJ.rows.map(r=>r.nm+' '+frTxt(R.FJ,r).join(' · ')).join('; '):'')+'\nQué hago en enero: '+EN[i+1]).join('\n')+'\n\nUna tarde, cuatro preguntas, un folio.\n'+RUTA+'/plan-2027-en-un-folio';}
+$('b-copy').onclick=()=>{if(R)EMT.copiar(texto(),'copy-ok');};
+// ---------- Enlace con el resultado: [casillas del formulario en el orden de IDS, coste por hora de tu equipo si lo tenías]
+const estado=()=>R&&RV?(CHP>0?[RV,CHP]:[RV]):null;
+const enlace=()=>EMT.enlaceR(estado());
+EMT.botonEnlace(estado,()=>ejemplo,'Rellena tu folio');
+// Para la reserva: del texto de «Copiar mi folio», la respuesta a las cuatro preguntas
+EMT.resumen=()=>{if(!R||ejemplo)return null;return {resumen:EMT.corta([1,2,3,4].map(k=>R.A[k]).join(' · '),200),decidir:'',enlace:enlace()};};
+function baja(blob,name,msg){const o=$('copy-ok');try{const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();a.remove();
+ o.style.color='';o.textContent=msg+'';}catch(e){o.textContent='No se ha podido descargar aquí. Usa «Copiar mi folio».';o.style.color='var(--red)';}}
+$('b-ics').onclick=()=>{if(!R)return;const o=$('copy-ok'),D=R.D;
+ if(!D.d.f){o.style.color='var(--red)';o.textContent='Pon el día de tu tarde en el bloque 5 («Cambiar mis respuestas»).';return;}
+ const p2=n=>String(n).padStart(2,'0'),f=D.d.f.replace(/-/g,''),[hh,mi]=D.d.h.split(':').map(Number);
+ const fin=p2(Math.min(hh+3,23))+p2(mi),now=new Date(),st=now.getUTCFullYear()+p2(now.getUTCMonth()+1)+p2(now.getUTCDate())+'T'+p2(now.getUTCHours())+p2(now.getUTCMinutes())+'00Z';
+ const ic=s=>String(s).replace(/\\/g,'\\\\').replace(/([,;])/g,'\\$1').replace(/\n/g,'\\n');
+ const tit=D.d.e==='revisar'?'Revisar mi folio de 2027':'Mi tarde: el plan de 2027 en un folio';
+ const desc=(D.d.e==='revisar'?'Revisa tus cuatro respuestas y si has hecho lo de enero.':'Móvil apagado. Cuatro preguntas: qué me da de comer y qué me come, qué cliente no repito, qué dejo de hacer yo y qué número miro cada mes.')+'\nLa reunión con la empresa que quieres tener dentro de un año.\n'+RUTA+'/plan-2027-en-un-folio';
+ const nt=NT[D.k.t],nom=D.k.t==='otro'?(D.k.o||'mi número'):nt[0];
+ const L=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Evolution Makers//Evolution Toolkit//ES','CALSCALE:GREGORIAN',
+  'BEGIN:VEVENT','UID:tarde-'+st+'@evolutionmakers.plus','DTSTAMP:'+st,'DTSTART:'+f+'T'+p2(hh)+p2(mi)+'00','DTEND:'+f+'T'+fin+'00','SUMMARY:'+ic(tit),'DESCRIPTION:'+ic(desc),
+  'BEGIN:VALARM','TRIGGER:-P1D','ACTION:DISPLAY','DESCRIPTION:'+ic(tit),'END:VALARM','END:VEVENT',
+  'BEGIN:VEVENT','UID:numero-'+st+'@evolutionmakers.plus','DTSTAMP:'+st,'DTSTART:2027'+p2(1)+p2(D.k.d)+'T090000','DTEND:2027'+p2(1)+p2(D.k.d)+'T091500',
+  'RRULE:FREQ=MONTHLY;BYMONTHDAY='+D.k.d+';COUNT=12','SUMMARY:'+ic('Mirar mi número: '+nom),'DESCRIPTION:'+ic('Dos minutos. Apunta el valor del mes y compáralo con tu objetivo de diciembre de 2027.'),'END:VEVENT','END:VCALENDAR'];
+ baja(new Blob([L.join('\r\n')+'\r\n'],{type:'text/calendar;charset=utf-8'}),'mi-tarde-plan-2027.ics','Archivo de calendario generado: ábrelo y se añaden tu tarde y el aviso mensual.');};
+$('b-pdf').onclick=()=>{if(!R)return;const o=$('copy-ok');
+ if(!window.jspdf){o.textContent='No se ha podido generar el PDF. Usa «Copiar mi folio».';o.style.color='var(--red)';return;}
+ const {D,A,EN,fe}=R,{jsPDF}=window.jspdf;
+ function dibuja(fs){const d=new jsPDF({unit:'mm',format:'a4'}),lh=fs*0.43;
+  d.setFillColor(250,193,0);d.circle(196,14,30,'F');[20,26,32].forEach(x=>d.circle(x,16,2.1,'F'));
+  d.setFont('helvetica','bold');d.setFontSize(9);d.setTextColor(29,29,29);d.text('EVOLUTION MAKERS · EVOLUTION TOOLKIT',37,17.3);
+  d.setFontSize(20);d.text('Mi plan de 2027 en un folio',20,31);
+  d.setFont('helvetica','normal');d.setFontSize(10.5);d.setTextColor(53,53,53);
+  let y=38;d.text(d.splitTextToSize((D.emp?D.emp+' · ':'')+'La reunión con la empresa que quiero tener dentro de un año.',150),20,y);y+=5.5;
+  d.setTextColor(102,102,102);d.text((ejemplo?'Ejemplo · ':'')+(fe?(D.d.e==='revisar'?'Lo reviso el ':'Mi tarde: ')+fe:'Mi tarde: pendiente de fecha'),20,y);y+=8;
+  PREG.forEach((q,i)=>{d.setDrawColor(229,229,227);d.line(20,y-3,190,y-3);
+   d.setFillColor(250,193,0);d.circle(23,y+1.6,3.6,'F');d.setFont('helvetica','bold');d.setFontSize(11);d.setTextColor(29,29,29);d.text(String(i+1),23,y+3.1,{align:'center'});
+   d.setFontSize(fs+1.5);d.text(q,30,y+3);y+=9;
+   d.setFont('helvetica','normal');d.setFontSize(fs);d.setTextColor(53,53,53);const a=d.splitTextToSize(A[i+1],160);d.text(a,30,y);y+=a.length*lh+2.5;
+   if(i===3&&R.HA){d.setFont('helvetica','bold');d.setTextColor(29,29,29);d.text(R.HA,30,y);d.setFont('helvetica','normal');d.setTextColor(53,53,53);y+=lh+2.5;}
+   if(i===3&&R.FJ){const F=R.FJ,rh=lh+1.6,cx=[30,62,104,146],cw=[32,42,42,42],un=F.u.trim()?' ('+F.u.trim()+')':'';
+    d.setFont('helvetica','bold');d.setFontSize(fs-0.5);d.setTextColor(29,29,29);d.text('Mi franja'+un+': si voy al ritmo del objetivo',30,y);y+=rh;
+    d.setFontSize(fs-1);d.setTextColor(102,102,102);['Al mirar en','Verde','Ámbar','Rojo'].forEach((h,j)=>d.text(h,cx[j]+1.5,y));y+=rh-0.6;
+    const COL=[[232,243,236,47,125,74],[255,244,204,138,106,0],[251,231,232,195,28,42]];
+    F.rows.forEach(r=>{const t=frTxt(F,r);d.setFont('helvetica','normal');d.setTextColor(53,53,53);d.text(r.nm,cx[0]+1.5,y);
+     t.forEach((x,j)=>{const c=COL[j];d.setFillColor(c[0],c[1],c[2]);d.rect(cx[j+1],y-lh+0.2,cw[j+1]-1.5,rh-0.4,'F');d.setTextColor(c[3],c[4],c[5]);d.setFont('helvetica','bold');d.text(x.replace('≤','<=').replace('≥','>='),cx[j+1]+1.5,y);});y+=rh;});
+    d.setFont('helvetica','normal');d.setFontSize(fs-1.5);d.setTextColor(102,102,102);const nl=d.splitTextToSize('Verde: al ritmo o menos del 10 % del camino por detrás. Ámbar: del 10 al 25 %. Rojo: más del 25 %. Cortes de Evolution Makers (supuesto).',160);d.text(nl,30,y);y+=nl.length*(fs-1.5)*0.43+5;d.setFontSize(fs);}
+   const e=d.splitTextToSize(EN[i+1],154);d.setFillColor(255,244,204);d.roundedRect(28,y-4,163,(e.length+1)*lh+4,2,2,'F');
+   d.setTextColor(29,29,29);d.setFont('helvetica','bold');d.text('Qué hago en enero',31,y);d.setFont('helvetica','normal');d.text(e,31,y+lh);y+=(e.length+1)*lh+8;});
+  const C=R.C;if(C.L.length){d.setDrawColor(229,229,227);d.line(20,y-3,190,y-3);d.setFont('helvetica','bold');d.setFontSize(fs);d.setTextColor(29,29,29);d.text('Margen por hora tuya, línea a línea',20,y+2);y+=7;
+   d.setFont('helvetica','normal');const mx=Math.max(...C.L.map(l=>Math.abs(l.mh)),1);
+   C.L.forEach(l=>{d.setTextColor(53,53,53);d.text(d.splitTextToSize(l.n,52)[0],20,y);d.setFillColor(246,246,246);d.rect(75,y-3,85,3.6,'F');
+    const c=l===C.best&&C.L.length>1?[250,193,0]:l===C.worst?[195,28,42]:[189,186,178];d.setFillColor(...c);d.rect(75,y-3,85*Math.max(0,l.mh)/mx,3.6,'F');
+    d.text(E(l.mh)+'/h',190,y,{align:'right'});y+=6;});}
+  return {d,y};}
+ let fs=10.5,r=dibuja(fs);while(r.y>272&&fs>7.5){fs-=0.5;r=dibuja(fs);}
+ const d=r.d;d.setFont('helvetica','normal');d.setFontSize(9);d.setTextColor(102,102,102);
+ d.text('Una tarde, cuatro preguntas, un folio. Revísalo cada trimestre.',20,281);d.text(RUTA+'/plan-2027-en-un-folio',20,286);
+ try{d.save('Mi-plan-2027-en-un-folio.pdf');o.style.color='';o.textContent='PDF generado.';}catch(e){o.textContent='No se ha podido descargar aquí.';}};
+EMT.correo('f-mail','m-in','m-ok');
+carga();tipo();
+const H=EMT.leeR();
+if(Array.isArray(H)&&Array.isArray(H[0])&&H[0].length===IDS.length&&H[0].every(x=>typeof x==='string')){
+ IDS.forEach((k,j)=>{$(k).value=H[0][j];});tipo();if(!(CHP>0)&&+H[1]>0)CHP=+H[1];
+ ejemplo=false;deLink=true;resultado();}
+})();
+</script>

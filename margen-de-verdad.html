@@ -1,0 +1,598 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;padding:0}img{max-width:100%}[hidden]{display:none!important}</style></head><body>
+<title>El margen de verdad</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Poppins:wght@500;600;700&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* Capa: página de la web nueva de EM. Papel #FAF9F5, piezas en blanco, H2 Poppins con barra amarilla,
+   un solo botón amarillo redondo por pantalla, columna de lectura de 760 px. Solo tema claro, como la web. */
+:root{--paper:#FAF9F5;--white:#FFFFFF;--ink:#1D1D1D;--text:#353535;--soft:#666666;--line:#E5E5E3;--grey:#F6F6F6;
+--black:#121213;--yellow:#FAC100;--ysoft:#FFF4CC;--red:#C31C2A;--green:#2F7D4A;--gsoft:#E8F3EC;--gold:#8A6A00;
+--display:'Alfa Slab One',Georgia,serif;--head:'Poppins',system-ui,-apple-system,sans-serif;--body:'Outfit',system-ui,-apple-system,sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+html{scroll-padding-top:72px}
+body{background:var(--paper);color:var(--text);font:300 18px/1.65 var(--body);-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--white)}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+@media(min-width:900px){.wrap{padding-left:max(40px,env(safe-area-inset-left,0px));padding-right:max(40px,env(safe-area-inset-right,0px))}}
+a{color:var(--ink)}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+h1,h2,h3{color:var(--ink);text-wrap:balance}
+b,strong{font-weight:600;color:var(--ink)}
+.muestra{background:var(--ysoft);border-bottom:1px dashed #c9a400;font:500 13px/1.4 var(--head);color:var(--ink)}
+.muestra .wrap{padding-block:8px}
+/* Menú, como la web */
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--white);border-bottom:1px solid var(--line);transition:transform .28s ease}
+header.top.off{transform:translateY(-110%)}
+header.top .wrap{display:flex;align-items:center;gap:18px;min-height:56px}
+.logo2{display:inline-flex;align-items:center;color:var(--ink);min-height:44px;flex:0 0 auto}
+.logo2 svg{height:17px;width:auto;display:block}
+nav.mn{display:flex;gap:22px;font-size:15px;margin-left:auto}
+nav.mn a{color:var(--text);text-decoration:none;white-space:nowrap}
+nav.mn a[aria-current="page"]{color:var(--ink);box-shadow:inset 0 -2px 0 var(--yellow)}
+@media(max-width:1000px){nav.mn a:not([aria-current]){display:none}}
+.lab-s{display:none}
+@media(max-width:600px){.logo2 svg{height:12px}header.top .btn{padding:0 14px;font-size:13px;margin-left:auto}nav.mn{display:none}.lab-l{display:none}.lab-s{display:inline}}
+/* Botón único y enlace de texto */
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 28px;border:0;border-radius:999px;background:var(--yellow);color:var(--ink);font:700 15px var(--head);cursor:pointer;text-decoration:none;white-space:nowrap}
+header.top .btn{min-height:40px;padding:0 18px;font-size:14px}
+.arr{display:inline-block;width:18px;height:12px;flex:0 0 auto}
+.arr path{fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.btn .arr{animation:nudge 2.4s ease-in-out infinite}
+.btn:hover .arr{animation:none;transform:translateX(6px);transition:transform .2s}
+@keyframes nudge{0%,70%,100%{transform:none}80%{transform:translateX(5px)}90%{transform:translateX(1px)}}
+.lnk{display:inline-flex;align-items:center;gap:6px;font:600 15px var(--head);color:var(--ink);text-decoration:none;border-bottom:2px solid var(--yellow);padding:0 0 1px;min-height:36px;background:none;border-top:0;border-left:0;border-right:0;cursor:pointer}
+.lnk .arr{width:15px;height:10px;transition:transform .25s}
+.lnk:hover .arr{transform:translateX(4px)}
+.note{font-size:15px;color:var(--soft);margin:10px 0 0;max-width:62ch}
+/* Cabeza de página */
+.crumbs{font:500 13px var(--head);color:var(--soft);margin:24px 0 0}
+.crumbs a{color:var(--soft)}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:44px;align-items:start;padding-block:14px clamp(36px,6vw,58px)}
+@media(max-width:900px){.hero{grid-template-columns:minmax(0,1fr);gap:24px}}
+h1{font:400 clamp(34px,5.4vw,56px)/1.05 var(--display);margin:10px 0 16px;letter-spacing:-.3px}
+.x-intro{font-size:19px;line-height:1.6;margin:0 0 16px;max-width:52ch}
+.x-tags{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 4px;padding:0;list-style:none}
+.x-tags li{font:600 12px var(--head);padding:4px 11px;border-radius:99px;background:var(--grey);color:var(--text)}
+.why{border-left:4px solid var(--yellow);padding:2px 0 2px 16px;margin:24px 0 0;font-size:17px;max-width:54ch}
+/* Caja de la herramienta */
+.cpn{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:24px;min-width:0}
+@media(max-width:600px){.cpn{padding:16px}}
+.x-k{display:block;font:700 12px var(--head);letter-spacing:.14em;text-transform:uppercase;color:var(--soft);margin:0 0 8px}
+.prog{display:flex;justify-content:space-between;gap:10px;font:700 12px var(--head);letter-spacing:.12em;text-transform:uppercase;color:var(--soft)}
+.pbar{height:4px;background:var(--grey);border-radius:4px;margin:10px 0 18px;overflow:hidden}
+.pbar i{display:block;height:100%;width:0;background:var(--yellow);transition:width .3s ease}
+.qtext{font:600 21px/1.3 var(--head);color:var(--ink);margin:0 0 16px;min-height:2.6em}
+.opts{display:grid;gap:10px}
+.opt{display:block;width:100%;text-align:left;min-height:52px;padding:12px 16px;border:1px solid var(--line);border-radius:12px;background:var(--paper);color:var(--ink);font:400 17px/1.35 var(--body);cursor:pointer;transition:border-color .15s,background .15s}
+.opt:hover{border-color:var(--ink)}
+.opt[aria-pressed="true"]{background:var(--ink);color:var(--white);border-color:var(--ink)}
+.trow{display:flex;justify-content:space-between;align-items:center;gap:10px 18px;margin-top:16px;flex-wrap:wrap}
+.ghost{background:none;border:0;font:600 14px var(--head);color:var(--soft);cursor:pointer;min-height:44px;padding:0 4px}
+.ghost:disabled{opacity:.35;cursor:default}
+.pill{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:99px;border:1.5px solid var(--ink);background:var(--white);color:var(--ink);font:600 14px var(--head);cursor:pointer}
+.fld{display:flex;flex-direction:column;gap:4px;min-width:0}
+.fld label{font:600 13.5px var(--head);color:var(--ink)}
+.fld small{font-size:13.5px;color:var(--soft)}
+.fld input,.fld select{min-height:46px;border:1px solid var(--line);border-radius:10px;padding:8px 12px;font:400 17px var(--body);background:var(--paper);color:var(--ink);width:100%}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media(max-width:520px){.grid2{grid-template-columns:minmax(0,1fr)}}
+/* Resultado */
+.big{font:400 clamp(34px,5vw,48px)/1 var(--display);color:var(--ink);font-variant-numeric:tabular-nums}
+.verd{font:600 20px/1.3 var(--head);color:var(--ink);margin:8px 0 4px}
+.chip{display:inline-flex;align-items:center;gap:6px;font:600 12.5px var(--head);padding:4px 11px;border-radius:99px}
+.chip::before{content:"";width:8px;height:8px;border-radius:9px;background:currentColor}
+.chip.r{background:#FBE7E8;color:var(--red)}.chip.a{background:var(--ysoft);color:var(--gold)}.chip.g{background:var(--gsoft);color:var(--green)}
+.bars{display:grid;gap:9px;margin:14px 0 4px}
+.br{display:grid;grid-template-columns:minmax(0,150px) minmax(0,1fr) 52px;gap:10px;align-items:center;font-size:15px}
+.br .tr{height:10px;background:var(--grey);border-radius:10px;overflow:hidden}
+.br .tr i{display:block;height:100%;background:#BDBAB2;width:0;transition:width .5s ease}
+.br.top .tr i{background:var(--yellow)}
+.br.top b{font-family:var(--head)}
+.br span:last-child{text-align:right;font:500 13.5px var(--head);color:var(--soft);font-variant-numeric:tabular-nums}
+.first{background:var(--ysoft);border-radius:12px;padding:14px 16px;margin:14px 0 0;font-size:16.5px}
+.plan{margin:12px 0 0;padding-left:20px;font-size:16px}.plan li{margin:5px 0}
+.ej-tag{display:inline-block;font:600 12px var(--head);background:var(--ysoft);color:var(--gold);padding:3px 10px;border-radius:99px;margin-bottom:10px}
+.ok{display:block;font:600 14px var(--head);color:var(--green);min-height:20px;margin-top:6px}
+.mail{border-top:1px solid var(--line);margin-top:18px;padding-top:16px}
+.mail form{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.mail input{flex:1 1 220px;min-width:0;min-height:46px;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink);padding:0 12px;font:400 16px var(--body)}
+.sr{position:absolute;left:-9999px}
+/* Secciones */
+section.s{padding-block:clamp(36px,6vw,58px);border-top:1px solid var(--line)}
+h2{font:700 clamp(24px,3vw,32px)/1.2 var(--head);margin:0 0 14px;border-left:4px solid var(--yellow);padding-left:14px}
+.x-p{max-width:760px;margin:0 0 16px}
+/* Escalera */
+.ladder{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:22px;list-style:none;padding:0}
+@media(max-width:900px){.ladder{grid-template-columns:minmax(0,1fr)}}
+.step{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.step.hl{border:2px solid var(--yellow)}
+.step .k{font:700 12px var(--head);letter-spacing:.14em;text-transform:uppercase;color:var(--soft)}
+.step h3{margin:0;font:600 20px/1.3 var(--head)}
+.step p{margin:0;font-size:16.5px;line-height:1.55}
+.step ul{margin:0;padding-left:18px;font-size:16px}.step li{margin:3px 0}
+.step .act{margin-top:auto;padding-top:6px}
+.step .rec{display:none;font:600 12.5px var(--head);color:var(--ink);background:var(--ysoft);border-radius:99px;padding:3px 10px;align-self:flex-start}
+.step.hl .rec{display:inline-block}
+/* Calendario de reservas bajo la escalera */
+.cita{margin-top:18px;background:var(--white);border:2px solid var(--yellow);border-radius:16px;padding:18px;min-width:0}
+@media(max-width:600px){.cita{padding:14px}}
+.cita-hd{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;justify-content:space-between}
+.cita-hd b{font:600 18px/1.3 var(--head);flex:1 1 260px;min-width:0}
+.cita-fr{position:relative;margin-top:12px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--paper);min-height:220px}
+.cita-fr iframe{display:block;width:100%;height:700px;border:0;background:var(--white)}
+@media(max-width:600px){.cita-fr iframe{height:640px}}
+.cita-fr iframe[hidden],.cita-ph[hidden]{display:none}
+.cita-ph{margin:0;padding:22px 18px;font-size:16px}
+.cita-ph b{display:block;font:600 16px/1.35 var(--head);margin-bottom:6px}
+.cita .ghost{margin-top:8px}
+.cita-env{display:flex;gap:10px;align-items:flex-start;margin:0 0 12px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--white);font:400 16px/1.45 var(--body);color:var(--ink);cursor:pointer}
+.cita-env input{flex:0 0 auto;width:20px;height:20px;margin:2px 0 0;accent-color:var(--ink)}
+.cita-env small{display:block;font-size:14px;color:var(--soft);margin-top:2px}
+.cita-msg{display:block;font:600 13.5px var(--head);color:var(--soft);margin:-6px 0 10px;min-height:0}
+.cita-msg:empty{display:none}
+/* Bloque «Guardar mi enlace» */
+.rep{margin:18px 0 0;border:1px dashed var(--line);border-radius:12px;padding:12px 14px}
+.ej-tag[hidden]{display:none}
+/* Tablas y fórmulas */
+.tw{overflow-x:auto;margin:12px 0 8px;border:1px solid var(--line);border-radius:16px;background:var(--white)}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:16px}
+th{background:var(--ink);color:var(--white);text-align:left;font:600 12px var(--head);letter-spacing:.08em;text-transform:uppercase;padding:11px 14px}
+td{border-bottom:1px solid var(--line);padding:11px 14px;vertical-align:top}
+tr:last-child td{border-bottom:0}
+td.n{white-space:nowrap;font:600 15px var(--head);color:var(--ink);font-variant-numeric:tabular-nums}
+td.y{background:var(--ysoft)}
+.yes{color:var(--green);font:700 16px var(--head)}.no{color:var(--soft)}
+.formula{font:500 14.5px/1.7 ui-monospace,Menlo,Consolas,monospace;background:var(--white);border:1px solid var(--line);border-radius:16px;padding:14px 16px;overflow-x:auto;white-space:pre;color:var(--ink);margin:8px 0 18px}
+.steps3{list-style:none;margin:18px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+@media(max-width:760px){.steps3{grid-template-columns:minmax(0,1fr)}}
+.steps3 .n{font:400 30px/1 var(--display);color:var(--ink)}
+.steps3 h3{font:600 18px/1.3 var(--head);margin:10px 0 6px}
+.steps3 p{margin:0;font-size:16.5px}
+.src{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));margin-top:18px}
+.src article{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:20px;min-width:0}
+.src .bign{font:400 34px/1 var(--display);color:var(--ink)}
+.src p{margin:8px 0 0;font-size:16.5px}
+.src .from{font-size:14px;color:var(--soft)}
+.sup{font:600 11.5px var(--head);background:var(--grey);color:var(--soft);padding:2px 8px;border-radius:99px;vertical-align:middle}
+.x-faq{border-top:1px solid var(--line);margin-top:20px;max-width:900px}
+.x-faq details{border-bottom:1px solid var(--line);background:var(--white)}
+.x-faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:16px;align-items:center;padding:16px 18px;font:600 17px/1.35 var(--head);color:var(--ink);min-height:44px}
+.x-faq summary::-webkit-details-marker{display:none}
+.x-faq summary::after{content:"+";font:400 24px var(--body);color:var(--soft);flex:0 0 auto}
+.x-faq details[open] summary::after{content:"–"}
+.x-faq .a{padding:0 18px 16px;font-size:17px}
+.pt{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr))}
+.pt li{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:18px 20px;font:400 19px/1.35 var(--display);color:var(--ink)}
+.qe{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));margin-top:14px}
+.qe article{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:20px;min-width:0}
+.qe .k{font:700 12px var(--head);letter-spacing:.14em;text-transform:uppercase;color:var(--soft)}
+.qe p{margin:8px 0 0;font-size:16.5px;line-height:1.55}
+.qd{border-top:1px solid var(--line);margin-top:12px;padding-top:8px}
+.qd summary{cursor:pointer;font:600 15px/1.35 var(--head);color:var(--ink);min-height:36px;display:flex;align-items:center}
+.qd p{font-size:15.5px}
+.qe-h{font:600 20px/1.3 var(--head);margin:28px 0 0}
+.x-closeline{margin:0;font:400 clamp(22px,2.6vw,30px)/1.3 var(--display);color:var(--ink);max-width:900px}
+.x-closesub{margin:14px 0 22px;font-size:17px;max-width:760px}
+/* Pie y banda */
+footer.f{border-top:1px solid var(--line);background:var(--white);font-size:14.5px;color:var(--soft)}
+footer.f .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;padding-block:28px 96px}
+footer.f .flogo{flex-basis:100%}.f .flogo svg{height:16px}
+.f .fn{display:flex;flex-wrap:wrap;gap:6px 22px;flex-basis:100%;font:600 15px var(--head)}
+.f .fn a{color:var(--ink);text-decoration:none;min-height:32px;display:inline-flex;align-items:center}
+.f .fl2{display:flex;flex-wrap:wrap;gap:6px 16px}.f .fl2 a{color:var(--soft)}
+.band{position:fixed;left:0;right:0;bottom:0;z-index:25;background:var(--black);color:var(--white);transform:translateY(110%);transition:transform .3s ease;padding-bottom:env(safe-area-inset-bottom,0px)}
+.band.on{transform:none}
+.band .wrap{display:flex;align-items:center;gap:14px;min-height:62px}
+.band .who{flex:1 1 auto;min-width:0;line-height:1.3}
+.band .who b{font:600 15px var(--head);color:var(--white);display:block}
+.band .who span{color:#BDBDBD;font-size:13.5px;display:block}
+.band .btn{min-height:44px;padding:0 20px}
+@media(max-width:600px){.band .btn{padding:0 14px;font-size:14px}}
+@media(prefers-reduced-motion:reduce){.btn .arr{animation:none}.pbar i,.br .tr i{transition:none}header.top{transition:none}}
+
+.hero{grid-template-columns:minmax(0,1fr)}
+.hero>div:first-child{max-width:900px}
+.onb{margin:0 0 10px;padding-left:22px;font-size:16.5px}.onb li{margin:4px 0}
+.grid3{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+@media(max-width:900px){.grid3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.grid3{grid-template-columns:minmax(0,1fr)}}
+.ch{border:1px solid var(--line);border-radius:12px;background:var(--paper);margin-top:16px}
+.ch summary{cursor:pointer;padding:14px 16px;font:600 16px var(--head);color:var(--ink);min-height:44px}
+.chb{padding:0 16px 16px}
+.chr{margin-top:12px;font:600 17px var(--head);color:var(--ink)}
+.ln{display:grid;grid-template-columns:minmax(0,1.7fr) repeat(7,minmax(0,1fr)) 40px;gap:10px;align-items:end;padding:12px 0;border-bottom:1px solid var(--line)}
+.ln .fld label{font-size:12.5px;line-height:1.25;min-height:2.5em;display:flex;align-items:flex-end}
+.ln .fld input{min-height:44px;font-size:16px;padding:6px 10px}
+.ln .del{min-height:44px;border:0;background:none;color:var(--soft);font:400 22px var(--body);cursor:pointer}
+@media(max-width:1000px){.ln{grid-template-columns:repeat(2,minmax(0,1fr));background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px;margin-bottom:10px}
+ .ln .nm{grid-column:1/-1}.ln .fld label{min-height:0}.ln .del{grid-column:1/-1;justify-self:end;min-height:36px;font:600 13px var(--head)}
+ .ln .del::after{content:" Quitar este servicio"}}
+.kpis{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:16px}
+@media(max-width:520px){.kpis{grid-template-columns:minmax(0,1fr)}}
+.kpi{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:14px 16px;min-width:0}
+.kpi .kv{font:400 30px/1.1 var(--display);color:var(--ink);font-variant-numeric:tabular-nums}
+.kpi.bad .kv{color:var(--red)}
+.kpi p{margin:6px 0 0;font-size:15px}
+.mbars .br .tr{position:relative}
+.mbars .br.neg .tr i{background:var(--red)}
+.mbars .br .tr .u{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--ink)}
+.rt td.neg{color:var(--red)}
+.rt{min-width:640px}
+.cpn input::placeholder{color:#A9A6A0;font-style:italic}
+a.pill{text-decoration:none}
+.modo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:0 0 18px}
+.modo .opt{font:600 15.5px/1.3 var(--head);min-height:52px;text-align:center}
+@media(max-width:520px){.modo{grid-template-columns:minmax(0,1fr)}}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:900px){.g3{grid-template-columns:minmax(0,1fr)}}
+.ivr{margin-top:12px;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-size:16.5px}
+.ivr .big{display:block;margin:2px 0 6px}
+.ivr p{margin:6px 0 0}
+.err{background:var(--grey);border-radius:12px;padding:14px 16px;margin:14px 0 0;font-size:16.5px}
+</style>
+
+<header class="top"><div class="wrap"><a class="logo2" href="https://www.evolutionmakers.plus/" target="_blank" rel="noopener" aria-label="Evolution Makers, inicio"><svg class="lg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6594 411" role="img" aria-label="Evolution Makers"><path fill="#FAC100" d="M90 309C24 299 -16 232 6 170C24 121 74 93 125 103C188 116 225 182 202 243C185 288 137 316 90 309ZM378 309C308 299 268 223 299 159C341 74 467 85 494 177C514 249 453 320 378 309ZM668 309C600 298 561 231 584 168C599 128 638 101 681 101C729 101 769 131 783 178C786 190 787 219 783 231C770 277 732 308 686 310C679 310 671 309 668 309Z"/><path fill="currentColor" d="M1874 410C1772 403 1694 336 1678 242C1660 139 1717 45 1816 12C1937 -29 2069 42 2093 161C2098 184 2098 218 2095 240C2078 337 1995 407 1892 410C1885 411 1876 411 1874 410ZM3552 410C3468 403 3399 352 3371 277C3355 236 3354 183 3368 140C3403 33 3526 -26 3639 11C3716 37 3769 100 3779 178C3782 199 3780 233 3775 253C3753 350 3656 419 3552 410ZM6436 410C6404 409 6375 402 6352 391C6344 388 6332 380 6330 378C6329 377 6320 287 6320 286C6320 286 6325 289 6329 293C6364 318 6398 329 6437 331C6464 332 6479 327 6489 316C6497 308 6498 303 6498 291C6497 268 6484 257 6436 240C6358 213 6321 160 6334 95C6342 49 6378 14 6430 3C6444 -0 6494 -1 6509 2C6528 6 6563 20 6563 24C6563 27 6556 101 6556 102C6555 102 6552 100 6548 98C6506 75 6453 72 6434 91C6421 104 6422 124 6437 136C6444 141 6456 147 6472 153C6508 166 6522 173 6539 185C6576 211 6596 251 6594 292C6589 356 6553 396 6490 407C6480 409 6450 411 6444 411C6443 411 6440 410 6436 410ZM2590 409C2527 402 2474 367 2454 317C2444 293 2444 290 2444 137L2444 10L2492 10L2540 10L2540 142L2540 274L2543 282C2550 301 2566 316 2587 323C2599 327 2629 327 2641 323C2664 317 2681 301 2688 281L2690 274L2691 142L2692 10L2738 9L2784 9L2784 149C2783 301 2784 291 2778 309C2756 376 2678 418 2590 409ZM4076 318C3987 221 3981 213 3951 178C3940 164 3930 153 3930 153C3929 153 3929 154 3929 156C3930 158 3930 214 3931 280L3931 401L3884 401L3836 401L3836 205L3836 9L3874 9L3912 9L3986 90C4065 178 4074 188 4095 213C4103 222 4109 230 4109 230C4109 230 4109 180 4109 120L4109 9L4156 9L4204 9L4204 208L4204 406L4180 406L4156 406L4076 318ZM1361 209C1322 101 1290 12 1289 11L1289 9L1337 9L1386 10L1416 94C1453 197 1465 233 1472 264C1473 267 1474 269 1474 269C1474 269 1475 267 1476 264C1483 233 1494 199 1531 95L1562 10L1607 9C1643 9 1652 9 1652 10C1652 11 1619 100 1580 208L1510 404L1471 404L1432 404L1361 209ZM4585 325C4545 247 4534 225 4523 199C4520 191 4517 185 4517 185C4516 185 4516 191 4516 198C4516 214 4514 246 4506 334L4500 400L4455 401L4409 401L4409 395C4410 392 4417 305 4426 202C4435 98 4442 12 4443 11L4443 9L4482 9L4520 10L4552 71C4610 182 4630 222 4641 248C4643 253 4645 257 4645 257C4645 258 4648 252 4651 244C4663 215 4675 190 4721 101L4768 9L4807 9L4846 10L4864 202C4873 307 4881 395 4881 397L4881 401L4835 401L4788 401L4788 396C4784 363 4772 218 4772 203C4772 190 4771 182 4770 186C4763 206 4745 244 4699 332L4663 402L4644 403L4625 403L4585 325ZM1032 205L1032 9L1146 9L1261 9L1261 48L1261 87L1194 87L1128 88L1127 126L1127 165L1181 165L1236 165L1236 205L1236 245L1182 245L1127 245L1127 284L1127 323L1202 323L1278 323L1278 362L1278 401L1155 401L1032 401L1032 205ZM2153 205L2153 9L2200 9L2248 9L2248 164L2248 320L2326 320L2405 320L2405 360L2405 401L2279 401L2153 401L2153 205ZM2943 243L2943 85L2884 85L2824 85L2824 47L2824 9L2990 9L3156 9L3156 48L3156 86L3097 86L3038 86L3038 244L3038 401L2990 401L2943 401L2943 243ZM3202 205L3202 9L3250 9L3297 9L3297 205L3297 401L3250 401L3202 401L3202 205ZM4913 400C4913 400 4948 311 4990 203L5066 6L5099 6L5132 6L5209 202C5251 310 5285 398 5286 399C5286 401 5284 401 5239 401L5192 400L5176 360L5161 320L5097 320L5032 320L5017 360L5002 400L4958 401C4933 401 4913 401 4913 400ZM5326 205L5326 9L5374 9L5422 9L5422 93L5422 176L5482 93L5542 9L5594 9L5646 9L5640 17C5637 22 5606 66 5572 115L5509 204L5579 301C5617 355 5649 399 5649 400C5650 401 5639 401 5595 401L5539 401L5481 321L5422 241L5422 321L5422 401L5374 401L5326 401L5326 205ZM5686 205L5686 9L5800 9L5915 9L5915 48L5915 87L5848 87L5781 87L5781 126L5781 165L5836 165L5890 165L5890 205L5890 245L5836 245L5781 245L5781 284L5781 323L5856 323L5932 323L5932 362L5932 401L5809 401L5686 401L5686 205ZM5978 205L5978 9L6060 9C6150 10 6148 10 6169 16C6224 35 6256 83 6250 140C6247 175 6228 205 6199 222L6191 226L6193 229C6194 231 6304 386 6312 396L6315 401L6262 401L6208 401L6156 324L6103 248L6086 247L6069 247L6069 324L6069 401L6024 401L5978 401L5978 205ZM1906 324C1953 316 1990 278 1998 230C2010 164 1975 104 1913 87C1900 84 1872 83 1860 87C1810 100 1776 142 1772 193C1769 232 1781 266 1804 291C1831 319 1869 331 1906 324ZM3598 323C3657 306 3692 248 3682 184C3675 133 3635 92 3585 85C3523 76 3465 122 3456 187C3454 198 3455 223 3457 232C3468 281 3506 318 3552 325C3562 327 3589 325 3598 323ZM5137 247C5137 246 5130 227 5122 204C5114 181 5105 155 5103 147C5097 128 5097 129 5097 129C5096 129 5095 135 5093 142C5091 148 5082 174 5073 200C5063 225 5056 246 5056 247C5056 248 5071 248 5096 248C5127 248 5137 248 5137 247ZM6122 171C6146 166 6160 150 6159 126C6158 108 6151 98 6136 91C6125 85 6118 84 6092 84L6069 84L6069 128L6069 172L6092 172C6105 172 6118 172 6122 171Z"/></svg></a><nav class="mn" aria-label="Principal"><a href="https://www.evolutionmakers.plus/servicios" target="_blank" rel="noopener">Qué hacemos</a><a href="https://www.evolutionmakers.plus/manifiesto" target="_blank" rel="noopener">Manifiesto</a><a aria-current="page" href="https://podcast.evolutionmakers.plus/" target="_blank" rel="noopener">Insights</a></nav><a class="btn hb" href="https://www.evolutionmakers.plus/contacto" target="_blank" rel="noopener"><span class="lab-l">Hablar 30 minutos</span><span class="lab-s">30 min</span></a></div></header>
+<main>
+<div class="wrap">
+<p class="crumbs"><a href="https://podcast.evolutionmakers.plus/" target="_blank" rel="noopener">Evolution Insights</a> / <a href="https://www.evolutionmakers.plus/toolkit">Evolution Toolkit</a> / El margen de verdad</p>
+<div class="hero">
+<div><h1>¿Cuánto ganas de verdad con cada servicio?</h1><p class="x-intro">Sabes vender y tu equipo sabe hacer. Ahora toca saber qué te deja cada servicio cuando restas el descuento, lo que pagas fuera y las horas de tu gente. En cinco minutos ves cuál te deja más y cuál te cuesta dinero.</p><ul class="x-tags"><li>5 minutos</li><li>Gratis y sin registro</li><li>Tus datos solo salen de tu navegador si tú quieres</li></ul><p class="why"><b>Por qué importa.</b> Si algo te cuesta 100 € y lo vendes a 120 €, ganas un 16,7 % de lo que cobras, aunque tengas un markup del 20 % (lo que sumas al coste). Y un punto de precio mueve el beneficio unas ocho veces más. <a href="#base">Ver la fuente</a>.</p></div>
+<div class="cpn" id="herramienta" aria-live="polite">
+<div class="modo" role="group" aria-label="Qué quieres calcular">
+  <button class="opt" type="button" id="md-1" aria-pressed="true">Cuánto gano con cada servicio</button>
+  <button class="opt" type="button" id="md-2" aria-pressed="false">¿A qué precio tengo que vender?</button>
+</div>
+<div id="v-inv" hidden>
+  <p class="note" style="margin:0 0 6px">Al revés: pones lo que quieres ganar y te sale el precio. Y con tus costes fijos, cuánto tienes que facturar para no perder.</p>
+  <div class="trow" style="margin-top:0"><button class="lnk" type="button" id="b-ej2">Ver un ejemplo</button></div>
+  <span class="ej-tag" id="inv-ej" hidden>Ejemplo · datos inventados, no son tus datos</span>
+  <span class="x-k" style="margin-top:14px">1 · El precio que necesitas</span>
+  <div class="grid3 g3">
+    <div class="fld"><label for="iv-c">Lo que te cuesta hacerlo una vez (€)</label><input id="iv-c" inputmode="decimal" placeholder="Ej.: 100"><small>Lo que pagas fuera más las horas del equipo por su coste por hora</small></div>
+    <div class="fld"><label for="iv-m">Margen que quieres sobre lo que cobras (%)</label><input id="iv-m" inputmode="decimal" placeholder="Ej.: 20"><small>De cada 100 € que cobras, cuántos te quedan</small></div>
+    <div class="fld"><label for="iv-d">Descuento que sueles dar (%)</label><input id="iv-d" inputmode="decimal" value="0"><small>Opcional. Si das descuento, la tarifa tiene que ser más alta</small></div>
+  </div>
+  <div class="ivr" id="iv-r1" aria-live="polite">Rellena lo que te cuesta y el margen que quieres.</div>
+  <span class="x-k" style="margin-top:22px">2 · Lo que tienes que facturar</span>
+  <div class="grid3 g3">
+    <div class="fld"><label for="iv-f">Costes fijos al año (€)</label><input id="iv-f" inputmode="decimal" placeholder="Ej.: 180.000"><small>Lo que pagas vendas o no: local, dirección, administración, comercial, seguros. Sin las horas que ya cuentas en cada servicio</small></div>
+    <div class="fld"><label for="iv-mm">Tu margen medio sobre venta (%)</label><input id="iv-mm" inputmode="decimal" placeholder="Ej.: 40"><small>Lo que te queda de cada venta después de costes y horas. Si has calculado tus servicios, ya está puesto</small></div>
+    <div class="fld"><label for="iv-v">Lo que facturas hoy al año (€)</label><input id="iv-v" inputmode="decimal" placeholder="Opcional"><small>Opcional. Para ver cuánto te sobra o te falta</small></div>
+  </div>
+  <div class="ivr" id="iv-r2" aria-live="polite">Rellena tus costes fijos y tu margen medio.</div>
+  <div class="trow"><button class="lnk" type="button" id="b-copy2">Copiar este cálculo</button>
+  <a class="pill" href="descargables/margen-de-verdad-basica.xlsx" download>Descargar la hoja básica (Excel)</a></div>
+  <span class="ok" id="copy-ok2" role="status"></span>
+</div>
+<div id="v-in">
+  <ol class="onb">
+    <li><b>Pon tu coste por hora.</b> Si no lo sabes, la ayuda de abajo te lo calcula en un minuto.</li>
+    <li><b>Escribe tus servicios.</b> Una fila por servicio o línea: lo que cobras, lo que te cuesta y cuántas vendes al año.</li>
+    <li><b>Pulsa «Calcular mi margen».</b> Ves cuánto deja cada uno de verdad y cuál te hace perder dinero.</li>
+  </ol>
+  <div class="trow" style="margin-top:4px"><button class="lnk" type="button" id="b-ej">Ver un ejemplo con cuatro servicios</button>
+  <span class="note" style="margin:0">Rellena los datos de una empresa de servicios inventada y te enseña su resultado.</span></div>
+
+  <details class="ch" id="ch-box">
+    <summary>¿No sabes tu coste por hora? Calcúlalo aquí</summary>
+    <div class="chb">
+      <p class="note" style="margin:0 0 12px">Cuánto te cuesta de verdad una hora de trabajo de tu equipo: lo que pagas al año entre las horas que de verdad se trabajan en clientes.</p>
+      <div class="grid3">
+        <div class="fld"><label for="c-p">Personas que hacen el trabajo</label><input id="c-p" inputmode="decimal" placeholder="Ej.: 6"><small>Cuéntate si tú también lo haces</small></div>
+        <div class="fld"><label for="c-c">Coste anual por persona (€)</label><input id="c-c" inputmode="decimal" placeholder="Ej.: 39.680"><small>Sueldo bruto más seguridad social de empresa</small></div>
+        <div class="fld"><label for="c-h">Horas trabajadas al año por persona</label><input id="c-h" inputmode="decimal" value="1.550"><small>Media en España: unas 1.550 (<a href="#base">fuente</a>)</small></div>
+        <div class="fld"><label for="c-u">Parte de esas horas que va a clientes (%)</label><input id="c-u" inputmode="decimal" value="80"><small>El resto son reuniones, formación, gestión <span class="sup">Supuesto</span></small></div>
+      </div>
+      <div class="chr" id="c-r" aria-live="polite">Rellena las cuatro casillas y te sale aquí.</div>
+      <div class="trow" style="margin-top:8px"><button class="pill" type="button" id="b-ch">Usar este coste por hora en todas mis filas</button></div>
+      <span class="ok" id="ch-ok" role="status"></span>
+    </div>
+  </details>
+
+  <span class="x-k" style="margin-top:20px">Tus servicios</span>
+  <p class="note" style="margin:0 0 4px">Todo por unidad: lo que cobras por un proyecto, una cuota o una sesión, y lo que te cuesta hacerlo una vez. En «Unidades al año», cuántas vendes en doce meses (una cuota mensual con 40 clientes son 480).</p>
+  <div id="lines"></div>
+  <div class="trow" style="margin-top:6px"><button class="ghost" type="button" id="b-add">+ Añadir otro servicio</button></div>
+  <span class="ok" id="in-err" role="status" style="color:var(--red)"></span>
+  <div class="trow"><button class="pill" type="button" id="b-calc">Calcular mi margen</button></div>
+</div>
+
+<div id="v-r" hidden>
+  <span class="ej-tag" id="r-ej" hidden>Ejemplo · empresa de servicios inventada con cuatro servicios, no son tus datos</span>
+  <span class="ej-tag" id="r-lk" hidden>Abierto desde tu enlace guardado</span>
+  <span class="x-k">Tu margen de verdad</span>
+  <div class="big" id="r-pct">0 %</div><span class="note" style="margin:4px 0 0;display:block">de margen medio sobre lo que vendes, después de pagar costes y horas del equipo</span>
+  <p class="verd" id="r-b"></p><p style="margin:0" id="r-t"></p>
+  <div class="kpis">
+    <div class="kpi"><span class="x-k">Pierdes al año</span><div class="kv" id="r-loss">0 €</div><p id="r-loss-t"></p></div>
+    <div class="kpi"><span class="x-k">Te cuesta el descuento</span><div class="kv" id="r-desc">0 €</div><p id="r-desc-t"></p></div>
+  </div>
+  <span class="x-k" style="margin-top:18px">Cuánto deja cada servicio, sobre lo que cobras</span>
+  <div class="bars mbars" id="r-bars"></div>
+  <div class="tw"><table class="rt"><thead><tr><th>Servicio</th><th>Cobras</th><th>Te cuesta</th><th>Te queda</th><th>Sobre venta</th><th>Sobre coste</th><th>Al año</th></tr></thead><tbody id="r-tb"></tbody></table></div>
+  <p class="note" style="margin-top:4px">Por unidad, con el descuento ya restado. «Sobre coste» es el porcentaje que mucha gente cree que gana.</p>
+  <div class="err" id="r-err"></div>
+  <div class="first" id="r-s"></div>
+  <ol class="plan" id="r-p"></ol>
+  <div class="trow">
+    <a class="pill" id="b-xls" href="descargables/margen-de-verdad-basica.xlsx" download>Descargar la hoja básica (Excel)</a>
+    <button class="lnk" type="button" id="b-copy">Copiar mi resultado</button>
+    <button class="ghost" type="button" id="b-edit">← Cambiar mis datos</button>
+  </div>
+  <span class="ok" id="copy-ok" role="status"></span>
+<div class="rep"><b>Guarda tu resultado, sin registrarte</b><p class="note">Tu enlace lleva tus servicios y tus cifras dentro: al abrirlo ves este resultado sin rellenar nada. Quien lo abra lo ve, así que compártelo solo con quien quieras.</p><div class="trow" style="justify-content:flex-start;margin-top:8px"><button class="pill" type="button" id="b-link">Guardar mi enlace</button></div><span class="ok" id="lk-ok" role="status"></span></div>
+  
+</div>
+</div>
+</div></div>
+<section class="s" id="para-ti"><div class="wrap"><h2>Esto es para ti si…</h2><ul class="pt"><li>«Vendo bastante, pero no gano lo que debería.»</li><li>«No sé qué servicio me da de comer y cuál me come.»</li><li>«Hago descuentos para cerrar y luego no sé cuánto me han costado.»</li></ul></div></section>
+<section class="s" id="escalera"><div class="wrap">
+<h2>Y ahora, ¿qué haces con tu resultado?</h2>
+<p class="x-p" id="esc-why">Tres caminos según lo que te haya salido. En cuanto calcules, te marcamos el que encaja con tu resultado.</p>
+<ol class="ladder">
+<li class="step" data-k="basica"><span class="k">Gratis · lo que acabas de hacer</span><h3>Tu margen por servicio y tu plan de 30 días</h3><p>Ya lo tienes en pantalla: el margen de verdad de cada servicio, lo que pierdes y lo que te cuesta el descuento. Y la hoja básica en Excel para tenerlo a mano.</p>
+<div class="act"><a class="lnk" href="#herramienta">Volver a la herramienta<svg class="arr" viewBox="0 0 18 12" aria-hidden="true"><path d="M1 6h15M11 1l5 5-5 5"/></svg></a></div></li>
+<li class="step hl" data-k="club"><span class="rec">Te lo recomendamos</span><span class="k">Versión ampliada · Evolution Club</span><h3>Margen por cliente, precios y doce meses</h3><ul><li>La hoja completa, en Excel y Google Sheets, con el margen de cada cliente</li><li>Escenarios de precio y descuento para ver qué pasa antes de tocar nada</li><li>Seguimiento de doce meses, con su gráfico, para ver si mejora</li><li>Un plan de 90 días con fechas y responsables</li><li>Una sesión del Club al año sobre esta herramienta, con otras personas que dirigen su empresa</li></ul>
+<div class="act" data-btn='&lt;a class=&quot;btn&quot; href=&quot;https://www.evolutionmakers.plus/club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Pedir plaza&lt;svg class=&quot;arr&quot; viewBox=&quot;0 0 18 12&quot; aria-hidden=&quot;true&quot;&gt;&lt;path d=&quot;M1 6h15M11 1l5 5-5 5&quot;/&gt;&lt;/svg&gt;&lt;/a&gt;&lt;p class=&quot;note&quot;&gt;Hablamos quince minutos y vemos si encajas.&lt;/p&gt;' data-lnk='&lt;a class=&quot;lnk&quot; href=&quot;https://www.evolutionmakers.plus/club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;¿Cómo funciona Evolution Club?&lt;svg class=&quot;arr&quot; viewBox=&quot;0 0 18 12&quot; aria-hidden=&quot;true&quot;&gt;&lt;path d=&quot;M1 6h15M11 1l5 5-5 5&quot;/&gt;&lt;/svg&gt;&lt;/a&gt;'><a class="btn" href="https://www.evolutionmakers.plus/club" target="_blank" rel="noopener">Pedir plaza<svg class="arr" viewBox="0 0 18 12" aria-hidden="true"><path d="M1 6h15M11 1l5 5-5 5"/></svg></a><p class="note">Hablamos quince minutos y vemos si encajas.</p></div></li>
+<li class="step" data-k="day"><span class="rec">Te lo recomendamos</span><span class="k">Un día con tus números</span><h3>Tu Evolution Day</h3><p>Si algún servicio pierde dinero o facturas por debajo de tu punto muerto, el problema es de precio y de cómo vendes. En tu Evolution Day lo trabajamos contigo, con tus números, y sales con la tarifa nueva decidida.</p>
+<div class="act" data-btn='&lt;button class=&quot;btn&quot; type=&quot;button&quot; data-cita aria-controls=&quot;cita&quot; aria-expanded=&quot;false&quot;&gt;Reservar 30 minutos&lt;svg class=&quot;arr&quot; viewBox=&quot;0 0 18 12&quot; aria-hidden=&quot;true&quot;&gt;&lt;path d=&quot;M1 6h15M11 1l5 5-5 5&quot;/&gt;&lt;/svg&gt;&lt;/button&gt;&lt;p class=&quot;note&quot;&gt;Reserva una conversación de 30 minutos con Ramón para preparar tu Evolution Day, aquí mismo. &lt;a href=&quot;https://www.evolutionmakers.plus/evolution-day&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Cómo funciona tu Evolution Day&lt;/a&gt;.&lt;/p&gt;' data-lnk='&lt;a class=&quot;lnk&quot; href=&quot;https://www.evolutionmakers.plus/evolution-day&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;¿Cómo funciona tu Evolution Day?&lt;svg class=&quot;arr&quot; viewBox=&quot;0 0 18 12&quot; aria-hidden=&quot;true&quot;&gt;&lt;path d=&quot;M1 6h15M11 1l5 5-5 5&quot;/&gt;&lt;/svg&gt;&lt;/a&gt;'><a class="lnk" href="https://www.evolutionmakers.plus/evolution-day" target="_blank" rel="noopener">¿Cómo funciona tu Evolution Day?<svg class="arr" viewBox="0 0 18 12" aria-hidden="true"><path d="M1 6h15M11 1l5 5-5 5"/></svg></a></div></li>
+</ol>
+<div class="cita" id="cita" hidden><div class="cita-hd"><b>Reserva una conversación de 30 minutos con Ramón para preparar tu Evolution Day</b><a class="lnk" id="cita-tab" href="https://cita.evolutionmakers.plus/toolkit" target="_blank" rel="noopener">Abrir en otra pestaña<svg class="arr" viewBox="0 0 18 12" aria-hidden="true"><path d="M1 6h15M11 1l5 5-5 5"/></svg></a></div>
+<label class="cita-env" for="cita-env"><input type="checkbox" id="cita-env"><span>Envía mi resultado a Evolution Makers para preparar la conversación<small>Así Ramón llega a la llamada con tu análisis leído. Si no la marcas, la reserva va sin datos.</small></span></label>
+<span class="cita-msg" id="cita-msg" role="status"></span>
+<div class="cita-fr"><iframe title="Calendario para reservar 30 minutos con Ramón" data-src="https://cita.evolutionmakers.plus/toolkit" loading="lazy" hidden></iframe>
+<p class="cita-ph"><b>Aquí se abre el calendario para elegir día y hora.</b>Si no te aparece, pulsa «Abrir en otra pestaña».</p></div>
+<button class="ghost" type="button" data-cita-off>Cerrar el calendario</button></div>
+</div></section>
+<section class="s" id="ampliada"><div class="wrap">
+<h2>Básica o ampliada</h2>
+<p class="x-p">La básica te dice dónde estás. La ampliada te ayuda a mejorarlo y a comprobar cada mes si mejora. Está dentro de Evolution Club.</p>
+<div class="tw"><table><thead><tr><th>Qué incluye</th><th>Básica · gratis</th><th>Ampliada · Evolution Club</th></tr></thead><tbody><tr><td>Margen sobre venta y sobre coste de cada servicio</td><td class="yes">Sí</td><td class="y yes">Sí</td></tr><tr><td>Lo que pierdes al año y lo que te cuesta el descuento</td><td class="yes">Sí</td><td class="y yes">Sí</td></tr><tr><td>Ayuda para sacar tu coste por hora</td><td class="yes">Sí</td><td class="y yes">Sí</td></tr><tr><td>Precio mínimo y precio para llegar a tu margen objetivo</td><td class="yes">Sí</td><td class="y yes">Sí</td></tr><tr><td>Punto muerto: cuánto facturar para cubrir tus costes fijos</td><td class="yes">Sí</td><td class="y yes">Sí</td></tr><tr><td>Excel y Google Sheets editables</td><td class="yes">Sí</td><td class="y yes">Sí</td></tr><tr><td>Margen por cliente</td><td class="no">—</td><td class="y yes">Sí</td></tr><tr><td>Escenarios de precio y descuento</td><td class="no">—</td><td class="y yes">Sí</td></tr><tr><td>Seguimiento de 12 meses con gráfico</td><td class="no">—</td><td class="y yes">Sí</td></tr><tr><td>Plan de 90 días</td><td class="no">—</td><td class="y yes">Sí</td></tr><tr><td>Una sesión del Club al año sobre esta herramienta</td><td class="no">—</td><td class="y yes">Sí</td></tr></tbody></table></div>
+<h3 class="qe-h">Qué es cada cosa</h3><div class="qe"><article><span class="k">Evolution Club</span><p>Una comunidad de empresarios de pymes que se ayudan a decidir mejor. Once sesiones al año en las que la sala trabaja casos reales de los socios, consultas que te contestamos nosotros y una biblioteca con las grabaciones y las versiones ampliadas de cada herramienta. No es un club de networking: se viene a compartir y a ayudar. Se entra después de una conversación de quince minutos.</p></article><article><span class="k">Evolution Analytics</span><p>Tu espacio privado dentro del Club. Cada mes subes lo que ya tienes, tal cual: el cierre de tu gestoría, un informe de ventas, una captura o una nota de voz. Sin conectar nada ni rellenar plantillas. Ves tus cifras frente al mes y al año anteriores y frente a empresas de tu sector, y recibes una lectura que revisa nuestro equipo: qué se está torciendo, qué va bien y dónde mirar. Está en desarrollo y llegará a la versión ampliada en cuanto abra.</p><details class="qd"><summary>¿Por qué te voy a dar mis datos?</summary><p>Porque siguen siendo tuyos. Los tratamos solo por encargo tuyo, con contrato. Pedimos cifras, no nombres de personas ni de clientes. La IA que usamos no aprende de tus datos. Ves quién ha mirado lo tuyo y cuándo. Con un clic, solo lo ves tú. Y lo borras entero con un botón. Nunca usamos lo que vemos para venderte nada sin decírtelo.</p></details><details class="qd"><summary>¿Qué me da que no me den mis propios informes?</summary><p>No los sustituye: los lee. Tus herramientas te enseñan cada una su parte, la contabilidad por un lado y las ventas o las reservas por otro. Aquí se juntan en un sitio y se comparan con lo que pasó antes y con empresas de tu sector, a partir de cuentas publicadas de empresas parecidas a la tuya. Además mira lo que los informes de siempre no miran: si llevas un año sin tocar precios, cuánto pesan tus dos clientes más grandes, cuánto de lo que factura tu empresa pasa por ti o qué servicio gana dinero solo si no cuentas tus horas. Y lo lee alguien con experiencia en muchas empresas, que sabe que una misma cifra no significa lo mismo en un restaurante que en un hotel.</p></details></article><article><span class="k">Tu Evolution Day</span><p>Un día entero dedicado solo a tu empresa, con el objetivo cerrado antes de empezar. Empieza contigo a solas, con lo que no se habla delante del equipo, y después entra tu equipo, hasta diez personas. Al final del día te llevas el trabajo hecho, no una lista de lo que habría que hacer: el plan comercial cerrado y con responsables, tus precios rediseñados o ese proceso que dependía de una sola persona, ya repartido. Y los indicadores para saber en tres meses si ha servido.</p></article></div>
+</div></section>
+<section class="s" id="como"><div class="wrap"><h2>Cómo funciona</h2><ol class="steps3"><li><span class="n">1</span><h3>Saca tu coste por hora</h3><p>Lo que te cuesta tu equipo al año entre las horas que de verdad van a clientes. Si no lo sabes, la ayuda te lo calcula y lo pone en todas tus filas.</p></li><li><span class="n">2</span><h3>Escribe tus servicios</h3><p>Una fila por servicio: precio de tarifa, descuento que sueles dar, lo que pagas fuera, horas del equipo y cuántas vendes al año.</p></li><li><span class="n">3</span><h3>Mira qué te queda</h3><p>Ves el margen de verdad de cada servicio, cuál pierde dinero, cuánto te cuesta el descuento y por dónde empezar.</p></li></ol></div></section>
+<section class="s" id="calculo"><div class="wrap"><h2>Cómo se calcula</h2><p class="x-p">Para cada servicio, la herramienta resta del precio el descuento que sueles dar y luego todo lo que cuesta hacerlo: lo que pagas fuera y las horas de tu equipo. Lo que queda, dividido entre lo que de verdad cobras, es tu margen de verdad.</p>
+<div class="formula">Precio cobrado        precio de tarifa × (1 − descuento medio)
+Coste total           coste directo + horas del equipo × coste por hora
+Te queda (unidad)     precio cobrado − coste total
+Margen sobre venta    te queda ÷ precio cobrado
+Margen sobre coste    te queda ÷ coste total          (el que suele engañar)
+Al año                te queda × unidades al año
+Margen medio          suma de lo que te queda al año ÷ suma de lo cobrado al año
+Pierdes al año        suma de «al año» de los servicios en negativo
+Coste del descuento   precio de tarifa × descuento medio × unidades al año
+
+Coste por hora        coste anual del equipo ÷ (personas × horas al año × % que va a clientes)
+Precio para un margen coste total ÷ (1 − margen que quieres)
+Tarifa con descuento  precio para un margen ÷ (1 − descuento medio)
+Markup                precio ÷ coste total − 1          (lo que sumas al coste)
+Punto muerto          costes fijos al año ÷ margen medio sobre venta</div>
+<p class="x-p"><b>El punto muerto</b> es el nivel de ventas en el que ni ganas ni pierdes. Cada euro que vendes deja su margen medio; cuando la suma de esos márgenes paga tus costes fijos, estás en el punto muerto. Con 180.000 € de fijos y un 40 % de margen medio, tienes que facturar 180.000 ÷ 0,40 = 450.000 € al año. En el modo «¿A qué precio tengo que vender?», si pones tus costes fijos y lo que facturas hoy y está por debajo de tu punto muerto, pierdes dinero: te marcamos tu Evolution Day. Ese corte lo marca la propia definición: por debajo del punto muerto pierdes dinero.</p>
+<p class="x-p"><b>El error de calcular sobre coste.</b> Si algo te cuesta 100 € y lo vendes a 120 €, ganas 20 €. Sobre el coste es un 20 %. Sobre lo que cobras es un 16,7 % (20 ÷ 120). Los gastos de la empresa se pagan con lo que cobras, así que el que cuenta es el segundo. Por eso, para ganar un 20 % sobre venta, el precio es 100 ÷ (1 − 0,20) = 125 €. Con 120 € te quedas en el 16,7 %.</p>
+<div class="tw"><table><thead><tr><th>Resultado</th><th>Qué te recomendamos</th><th>Por qué</th></tr></thead><tbody>
+<tr><td><b>Algún servicio en negativo</b></td><td>Tu Evolution Day</td><td>Estás pagando por trabajar. Cada unidad que vendes te cuesta dinero, y eso se arregla con precio, alcance o dejando de venderlo.</td></tr>
+<tr><td><b>Facturas por debajo de tu punto muerto</b> (si has puesto tus costes fijos)</td><td>Tu Evolution Day</td><td>Lo que te dejan tus ventas no paga tus costes fijos: pierdes dinero aunque cada servicio deje algo. Toca decidir precio, mezcla de servicios y costes fijos.</td></tr>
+<tr><td><b>Todo en positivo y por encima del punto muerto</b> (o sin costes fijos puestos)</td><td>La versión ampliada, en Evolution Club</td><td>La base está sana. Lo que toca es fijar tu margen mínimo por tipo de servicio, mirar el margen por cliente, probar precios y seguirlo mes a mes.</td></tr>
+</tbody></table></div>
+<p class="x-p"><b>Por qué no hay un margen medio mínimo.</b> El margen de contribución (lo que queda de cada venta después de pagar lo que cuesta hacerla, antes de pagar la estructura) que necesitas depende de tus costes fijos: con pocos fijos te basta un margen bajo, y con muchos no te llega uno alto. Por eso no te pedimos un porcentaje: miramos si algún servicio pierde dinero y, si pones tus costes fijos, si tus ventas llegan al punto muerto. El margen mínimo de cada tipo de servicio lo fijas tú, con tus números, y lo compruebas en cada presupuesto.</p>
+<p class="note">El 80 % de horas que van a clientes es criterio de Evolution Makers <span class="sup">Supuesto</span>: cámbialo si conoces el tuyo.</p></div></section>
+<section class="s" id="base"><div class="wrap"><h2>En qué se basa</h2><p class="x-p">Dos datos públicos sostienen la herramienta: lo que mueve el beneficio un punto de precio, y cuántas horas se trabajan de verdad en España.</p>
+<div class="src">
+<article><div class="bign">1 % → 8 %</div><p>En la empresa media del índice S&amp;P 1500, que reúne 1.500 empresas cotizadas de Estados Unidos, subir un 1 % el precio sin perder volumen sube un 8 % el beneficio operativo. Bajarlo un 1 % lo baja lo mismo. Por eso el descuento medio pesa tanto.</p><p class="from">Marn, Roegner y Zawada, <a href="https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights/the-power-of-pricing" target="_blank" rel="noopener">«The power of pricing»</a>, McKinsey Quarterly, 1 de febrero de 2003.</p></article>
+<article><div class="bign">26,18 €</div><p>Coste laboral medio por hora efectiva de trabajo en España en el segundo trimestre de 2026, con un coste total de 3.388,15 € por trabajador y mes. Dividiendo uno entre otro salen unas 129 horas efectivas al mes, unas 1.550 al año: es el valor que te proponemos en la ayuda del coste por hora.</p><p class="from">INE, <a href="https://www.ine.es/dyngs/Prensa/ETCL2T26.htm" target="_blank" rel="noopener">Encuesta Trimestral de Coste Laboral, 2.º trimestre de 2026</a>, publicada el 17 de septiembre de 2026. La división es nuestra.</p></article>
+</div>
+<p class="note">El dato de precio es de empresas grandes de Estados Unidos; en una pyme de servicios el efecto suele ser mayor porque el margen de partida es más estrecho, pero no hay un estudio español equivalente y lo decimos. Fecha de revisión de los datos: 10 de noviembre de 2026.</p></div></section>
+<section class="s"><div class="wrap"><h2>Preguntas frecuentes</h2><div class="x-faq"><details><summary>¿Qué pongo en «coste directo»?</summary><div class="a">Lo que pagas fuera por cada unidad que vendes: colaboradores externos, materiales, desplazamientos, licencias que compras para ese cliente. Tu equipo no va aquí: va en horas.</div></details><details><summary>Mi equipo cobra lo mismo venda o no. ¿Por qué cuento sus horas?</summary><div class="a">Porque son tu capacidad. Una hora que se va a un servicio que pierde dinero es una hora que no vendes en otro que deja. Si no la cuentas, todo parece rentable.</div></details><details><summary>¿Y el alquiler, la dirección o la administración?</summary><div class="a">No entran a propósito. Lo que te queda después de costes y horas es lo que paga esa estructura y el beneficio. Por eso, si pones tus costes fijos, te decimos si tus ventas llegan al punto muerto: por debajo, pierdes dinero aunque cada servicio deje algo.</div></details><details><summary>¿Qué trae la versión ampliada?</summary><div class="a">El margen de cada cliente, escenarios de precio y descuento, el seguimiento de doce meses con su gráfico y un plan de 90 días. Está dentro de Evolution Club.</div></details><details><summary>¿Qué pasa con mis datos?</summary><div class="a">Se calculan en tu navegador. No salen de tu navegador salvo que decidas mandárnoslos: al reservar tu conversación, si marcas la casilla «Envía mi resultado a Evolution Makers para preparar la conversación», o al pedir el informe por correo. Si guardas tu enlace, tus cifras van dentro: quien lo abra ve tu resultado. Si usas la ayuda del coste por hora, se quedan en este navegador tu coste por hora y el de una persona (su coste anual entre sus horas al año), para usarlo en «Tareas para la IA».</div></details></div></div></section>
+<section class="s" id="cierre"><div class="wrap"><p class="x-closeline">Cuando sabes lo que te deja cada servicio, sabes qué vender.</p><p class="x-closesub">Empieza por el servicio que peor sale. Si quieres verlo cliente a cliente y mes a mes, la versión ampliada está en Evolution Club.</p></div></section>
+</main>
+<footer class="f"><div class="wrap"><a class="logo2 flogo" href="https://www.evolutionmakers.plus/" target="_blank" rel="noopener" aria-label="Evolution Makers"><svg class="lg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6594 411" role="img" aria-label="Evolution Makers"><path fill="#FAC100" d="M90 309C24 299 -16 232 6 170C24 121 74 93 125 103C188 116 225 182 202 243C185 288 137 316 90 309ZM378 309C308 299 268 223 299 159C341 74 467 85 494 177C514 249 453 320 378 309ZM668 309C600 298 561 231 584 168C599 128 638 101 681 101C729 101 769 131 783 178C786 190 787 219 783 231C770 277 732 308 686 310C679 310 671 309 668 309Z"/><path fill="currentColor" d="M1874 410C1772 403 1694 336 1678 242C1660 139 1717 45 1816 12C1937 -29 2069 42 2093 161C2098 184 2098 218 2095 240C2078 337 1995 407 1892 410C1885 411 1876 411 1874 410ZM3552 410C3468 403 3399 352 3371 277C3355 236 3354 183 3368 140C3403 33 3526 -26 3639 11C3716 37 3769 100 3779 178C3782 199 3780 233 3775 253C3753 350 3656 419 3552 410ZM6436 410C6404 409 6375 402 6352 391C6344 388 6332 380 6330 378C6329 377 6320 287 6320 286C6320 286 6325 289 6329 293C6364 318 6398 329 6437 331C6464 332 6479 327 6489 316C6497 308 6498 303 6498 291C6497 268 6484 257 6436 240C6358 213 6321 160 6334 95C6342 49 6378 14 6430 3C6444 -0 6494 -1 6509 2C6528 6 6563 20 6563 24C6563 27 6556 101 6556 102C6555 102 6552 100 6548 98C6506 75 6453 72 6434 91C6421 104 6422 124 6437 136C6444 141 6456 147 6472 153C6508 166 6522 173 6539 185C6576 211 6596 251 6594 292C6589 356 6553 396 6490 407C6480 409 6450 411 6444 411C6443 411 6440 410 6436 410ZM2590 409C2527 402 2474 367 2454 317C2444 293 2444 290 2444 137L2444 10L2492 10L2540 10L2540 142L2540 274L2543 282C2550 301 2566 316 2587 323C2599 327 2629 327 2641 323C2664 317 2681 301 2688 281L2690 274L2691 142L2692 10L2738 9L2784 9L2784 149C2783 301 2784 291 2778 309C2756 376 2678 418 2590 409ZM4076 318C3987 221 3981 213 3951 178C3940 164 3930 153 3930 153C3929 153 3929 154 3929 156C3930 158 3930 214 3931 280L3931 401L3884 401L3836 401L3836 205L3836 9L3874 9L3912 9L3986 90C4065 178 4074 188 4095 213C4103 222 4109 230 4109 230C4109 230 4109 180 4109 120L4109 9L4156 9L4204 9L4204 208L4204 406L4180 406L4156 406L4076 318ZM1361 209C1322 101 1290 12 1289 11L1289 9L1337 9L1386 10L1416 94C1453 197 1465 233 1472 264C1473 267 1474 269 1474 269C1474 269 1475 267 1476 264C1483 233 1494 199 1531 95L1562 10L1607 9C1643 9 1652 9 1652 10C1652 11 1619 100 1580 208L1510 404L1471 404L1432 404L1361 209ZM4585 325C4545 247 4534 225 4523 199C4520 191 4517 185 4517 185C4516 185 4516 191 4516 198C4516 214 4514 246 4506 334L4500 400L4455 401L4409 401L4409 395C4410 392 4417 305 4426 202C4435 98 4442 12 4443 11L4443 9L4482 9L4520 10L4552 71C4610 182 4630 222 4641 248C4643 253 4645 257 4645 257C4645 258 4648 252 4651 244C4663 215 4675 190 4721 101L4768 9L4807 9L4846 10L4864 202C4873 307 4881 395 4881 397L4881 401L4835 401L4788 401L4788 396C4784 363 4772 218 4772 203C4772 190 4771 182 4770 186C4763 206 4745 244 4699 332L4663 402L4644 403L4625 403L4585 325ZM1032 205L1032 9L1146 9L1261 9L1261 48L1261 87L1194 87L1128 88L1127 126L1127 165L1181 165L1236 165L1236 205L1236 245L1182 245L1127 245L1127 284L1127 323L1202 323L1278 323L1278 362L1278 401L1155 401L1032 401L1032 205ZM2153 205L2153 9L2200 9L2248 9L2248 164L2248 320L2326 320L2405 320L2405 360L2405 401L2279 401L2153 401L2153 205ZM2943 243L2943 85L2884 85L2824 85L2824 47L2824 9L2990 9L3156 9L3156 48L3156 86L3097 86L3038 86L3038 244L3038 401L2990 401L2943 401L2943 243ZM3202 205L3202 9L3250 9L3297 9L3297 205L3297 401L3250 401L3202 401L3202 205ZM4913 400C4913 400 4948 311 4990 203L5066 6L5099 6L5132 6L5209 202C5251 310 5285 398 5286 399C5286 401 5284 401 5239 401L5192 400L5176 360L5161 320L5097 320L5032 320L5017 360L5002 400L4958 401C4933 401 4913 401 4913 400ZM5326 205L5326 9L5374 9L5422 9L5422 93L5422 176L5482 93L5542 9L5594 9L5646 9L5640 17C5637 22 5606 66 5572 115L5509 204L5579 301C5617 355 5649 399 5649 400C5650 401 5639 401 5595 401L5539 401L5481 321L5422 241L5422 321L5422 401L5374 401L5326 401L5326 205ZM5686 205L5686 9L5800 9L5915 9L5915 48L5915 87L5848 87L5781 87L5781 126L5781 165L5836 165L5890 165L5890 205L5890 245L5836 245L5781 245L5781 284L5781 323L5856 323L5932 323L5932 362L5932 401L5809 401L5686 401L5686 205ZM5978 205L5978 9L6060 9C6150 10 6148 10 6169 16C6224 35 6256 83 6250 140C6247 175 6228 205 6199 222L6191 226L6193 229C6194 231 6304 386 6312 396L6315 401L6262 401L6208 401L6156 324L6103 248L6086 247L6069 247L6069 324L6069 401L6024 401L5978 401L5978 205ZM1906 324C1953 316 1990 278 1998 230C2010 164 1975 104 1913 87C1900 84 1872 83 1860 87C1810 100 1776 142 1772 193C1769 232 1781 266 1804 291C1831 319 1869 331 1906 324ZM3598 323C3657 306 3692 248 3682 184C3675 133 3635 92 3585 85C3523 76 3465 122 3456 187C3454 198 3455 223 3457 232C3468 281 3506 318 3552 325C3562 327 3589 325 3598 323ZM5137 247C5137 246 5130 227 5122 204C5114 181 5105 155 5103 147C5097 128 5097 129 5097 129C5096 129 5095 135 5093 142C5091 148 5082 174 5073 200C5063 225 5056 246 5056 247C5056 248 5071 248 5096 248C5127 248 5137 248 5137 247ZM6122 171C6146 166 6160 150 6159 126C6158 108 6151 98 6136 91C6125 85 6118 84 6092 84L6069 84L6069 128L6069 172L6092 172C6105 172 6118 172 6122 171Z"/></svg></a><nav class="fn" aria-label="Formas de trabajar con nosotros"><a href="https://www.evolutionmakers.plus/chief-evolution-officer" target="_blank" rel="noopener">Chief Evolution Officer</a><a href="https://www.evolutionmakers.plus/evolution-day" target="_blank" rel="noopener">Evolution Day</a><a href="https://www.evolutionmakers.plus/club" target="_blank" rel="noopener">Evolution Club</a><a href="https://podcast.evolutionmakers.plus/" target="_blank" rel="noopener">Evolution Insights</a><a href="https://www.evolutionmakers.plus/toolkit">Evolution Toolkit</a></nav><span>Evolution Worldwide, S.L. · Sede en Madrid · Base en Sevilla · Trabajamos en toda España</span><span class="fl2"><span>910 055 130</span><a href="https://www.evolutionmakers.plus/contacto" target="_blank" rel="noopener">Contacto</a><a href="https://www.evolutionmakers.plus/politica-de-privacidad" target="_blank" rel="noopener">Privacidad</a><a href="https://www.evolutionmakers.plus/aviso-legal" target="_blank" rel="noopener">Aviso legal</a></span></div></footer>
+<div class="band" id="band" role="region" aria-label="Evolution Club"><div class="wrap"><div class="who"><b>Evolution Club · los treinta primeros</b><span>Quedan plazas. La versión ampliada de cada herramienta está dentro.</span></div><a class="btn" href="https://www.evolutionmakers.plus/club" target="_blank" rel="noopener">Pedir plaza</a></div></div>
+<script>window.EMT_CFG={"cita": "https://cita.evolutionmakers.plus/toolkit", "p": {"herramienta": "Herramienta", "resumen": "Resumen", "decidir": "Decidir", "enlace": "Enlace"}, "herramienta": "El margen de verdad"};</script>
+<script>
+(function(){
+const hd=document.querySelector('header.top');let ly=scrollY;
+const band=document.getElementById('band'),foot=document.querySelector('footer.f');
+addEventListener('scroll',()=>{const y=scrollY;if(hd){hd.classList.toggle('off',y>ly&&y>120);}ly=y;
+ if(band){const fr=foot.getBoundingClientRect().top;band.classList.toggle('on',y>420&&fr>innerHeight-40);}},{passive:true});
+const lad=document.getElementById('escalera');
+// Calendario en la misma pantalla: el botón del peldaño del Day abre la página de reservas bajo la escalera.
+// En la muestra (fuera de evolutionmakers.plus) no se carga el iframe: se enseña un aviso y el enlace.
+const enWeb=/(^|\.)evolutionmakers\.plus$/.test(location.hostname);
+const CFG=window.EMT_CFG||{cita:'',p:{},herramienta:''};
+// URL de la reserva: sin datos salvo que el empresario marque la casilla y haya un resultado suyo (el ejemplo no cuenta).
+function citaUrl(){const env=document.getElementById('cita-env'),msg=document.getElementById('cita-msg');let u=CFG.cita;
+ if(!env||!env.checked){if(msg)msg.textContent='';return u;}
+ let r=null;try{r=window.EMT.resumen?window.EMT.resumen():null;}catch(e){r=null;}
+ if(!r||(!r.enlace&&!r.soloResumen)){if(msg)msg.textContent='Todavía no hay un resultado tuyo que mandar (el ejemplo no cuenta). La reserva va sin datos.';return u;}
+ const q=[[CFG.p.herramienta,CFG.herramienta],[CFG.p.resumen,window.EMT.corta(r.resumen,200)]];
+ if(r.decidir)q.push([CFG.p.decidir,window.EMT.corta(r.decidir,280)]);
+ // El campo Enlace de la reserva admite 2.000 caracteres como máximo (prueba del 12/11). Si no cabe, no se manda y se avisa.
+ const largo=!!(r.enlace&&r.enlace.length>2000);if(r.enlace&&!largo)q.push([CFG.p.enlace,r.enlace]);
+ if(msg)msg.textContent='Se manda al reservar: '+CFG.herramienta+', tu resultado en una frase'+(r.decidir?', lo que tienes que decidir':'')+(r.enlace?(largo?'. Tu enlace es demasiado largo para la reserva: guárdalo con «Guardar mi enlace» y tráelo a la conversación.':' y tu enlace.'):'. Sin nombres ni respuestas de nadie: eso se queda en tu equipo.');
+ return u+(u.indexOf('?')<0?'?':'&')+q.map(x=>encodeURIComponent(x[0])+'='+encodeURIComponent(x[1])).join('&');}
+function citaSync(){const c=document.getElementById('cita');if(!c)return;const u=citaUrl(),fr=c.querySelector('iframe'),tab=document.getElementById('cita-tab');
+ if(tab)tab.href=u;if(fr){fr.dataset.src=u;if(fr.getAttribute('src')&&fr.getAttribute('src')!==u)fr.src=u;}}
+function cita(on){const c=document.getElementById('cita');if(!c)return;c.hidden=!on;
+ document.querySelectorAll('[data-cita]').forEach(b=>b.setAttribute('aria-expanded',on?'true':'false'));
+ if(!on)return;citaSync();const fr=c.querySelector('iframe'),ph=c.querySelector('.cita-ph');
+ if(enWeb&&fr&&!fr.getAttribute('src')){fr.src=fr.dataset.src;fr.hidden=false;if(ph)ph.hidden=true;}
+ c.scrollIntoView({behavior:'smooth',block:'start'});}
+const envB=document.getElementById('cita-env');if(envB)envB.addEventListener('change',citaSync);
+if(lad)lad.addEventListener('click',e=>{const t=e.target.closest('[data-cita]');if(t){e.preventDefault();cita(true);}
+ if(e.target.closest('[data-cita-off]'))cita(false);});
+window.EMT={
+ // rec: 'day' | 'club'; why: texto corto que explica la recomendación
+ recomienda(rec,why){if(!lad)return;lad.querySelectorAll('.step').forEach(s=>{const on=s.dataset.k===rec;s.classList.toggle('hl',on);
+   const a=s.querySelector('.act');if(!a||!a.dataset.btn)return;a.innerHTML=on?a.dataset.btn:a.dataset.lnk;});
+   const w=document.getElementById('esc-why');if(w&&why)w.textContent=why;
+   if(rec!=='day')cita(false);else citaSync();},
+ // Resumen para la reserva: cada herramienta lo sobrescribe con () => ({resumen, decidir, enlace}) o null si no hay resultado suyo.
+ resumen(){return null;},
+ // Una frase con el texto de «Copiar mi resultado»: sin la línea del título ni la de la dirección, unida con « · ».
+ frase(txt){const L=String(txt||'').split('\n').map(x=>x.trim()).filter(Boolean);if(L.length>2){L.shift();if(/^evolutionmakers\.plus\//.test(L[L.length-1]))L.pop();}
+   return this.corta(L.join(' · '),200);},
+ corta(t,n){t=String(t||'').replace(/\s+/g,' ').trim();if(t.length<=n)return t;const c=t.slice(0,n-1),k=c.lastIndexOf(' ');return (k>n*0.6?c.slice(0,k):c).replace(/[ ·,;:]+$/,'')+'…';},
+ // Enlace con el resultado: JSON en base64url (sin + / =), en «#r=». Lo que va detrás de # no llega a ningún servidor.
+ cod(o){const b=new TextEncoder().encode(JSON.stringify(o));let s='';for(let i=0;i<b.length;i+=8192)s+=String.fromCharCode.apply(null,b.subarray(i,i+8192));
+   return btoa(s).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');},
+ dec(c){try{if(!/^[A-Za-z0-9_-]+$/.test(c))return null;let s=c.replace(/-/g,'+').replace(/_/g,'/');while(s.length%4)s+='=';
+   const bin=atob(s),b=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)b[i]=bin.charCodeAt(i);return JSON.parse(new TextDecoder().decode(b));}catch(e){return null;}},
+ leeR(){const m=/^#r=([A-Za-z0-9_-]+)$/.exec(location.hash||'');return m?this.dec(m[1]):null;},
+ enlaceR(o){return location.href.split('#')[0]+'#r='+this.cod(o);},
+ // Botón «Guardar mi enlace»: get() devuelve los datos a guardar; ej() dice si es el ejemplo.
+ botonEnlace(get,ej,queEs){const b=document.getElementById('b-link'),o=document.getElementById('lk-ok');if(!b||!o)return;
+   b.onclick=()=>{const d=get();if(d==null)return;
+    if(ej()){o.style.color='var(--red)';o.textContent='Esto es el ejemplo. '+queEs+' para guardar tu enlace.';return;}
+    try{history.replaceState(null,'','#r='+this.cod(d));}catch(e){}
+    this.copiar(this.enlaceR(d),'lk-ok');setTimeout(()=>{if(o.textContent==='Copiado')o.textContent='Enlace copiado. Guárdalo en tus favoritos o mándatelo por correo.';},50);};},
+ // Al cambiar los datos, el enlace de la barra deja de valer: se quita.
+ limpiaR(){if(/^#r=/.test(location.hash||'')){try{history.replaceState(null,'',location.href.split('#')[0]);}catch(e){}}const o=document.getElementById('lk-ok');if(o)o.textContent='';},
+ copiar(txt,out){const o=document.getElementById(out);const ko=()=>{o.textContent='No se ha podido copiar: selecciona el texto del resultado';o.style.color='var(--red)';};
+   if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(()=>{o.textContent='Copiado';o.style.color='';},ko);}else ko();},
+ eur(n){return (Math.round(n)).toLocaleString('es-ES')+' €';},
+ correo(formId,inId,outId){const f=document.getElementById(formId);if(!f)return;f.addEventListener('submit',e=>{e.preventDefault();
+   const v=document.getElementById(inId).value.trim(),o=document.getElementById(outId);
+   if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)){o.textContent='Revisa el correo: falta la @ o el dominio.';o.style.color='var(--red)';return;}
+   o.style.color='';o.textContent='Muestra: en la web te llegaría a '+v+' en un minuto.';});}
+};
+})();
+</script>
+<script>
+(function(){
+const $=id=>document.getElementById(id);
+const MIN='Fija un margen mínimo por tipo de servicio y compruébalo en cada presupuesto antes de enviarlo; por debajo, solo con tu autorización';
+const F=[['nm','Servicio o línea','Ej.: Proyecto web','text'],['p','Precio de tarifa (€)','6.000'],['d','Descuento medio (%)','10'],
+ ['cd','Coste directo (€)','400'],['h','Horas del equipo','70'],['ch','Coste por hora (€)','32'],['u','Unidades al año','20']];
+const HELP={p:'Por unidad o por proyecto',d:'El que sueles hacer',cd:'Lo que pagas fuera por unidad',h:'Por unidad, todas',ch:'De quien lo hace',u:'Cuántas vendes'};
+let n=0,ejemplo=false,deLink=false,R=null,RS=null,CH='';
+function num(v){v=String(v==null?'':v).replace(/[€%\s]/g,'');if(!v)return NaN;
+ if(v.indexOf(',')>=0)v=v.replace(/\./g,'').replace(',','.');else if(/^-?\d{1,3}(\.\d{3})+$/.test(v))v=v.replace(/\./g,'');return parseFloat(v);}
+function fmt(x,dec){dec=dec||0;const neg=x<0;let t=Math.abs(x).toFixed(dec).split('.');t[0]=t[0].replace(/\B(?=(\d{3})+(?!\d))/g,'.');return (neg&&+t.join('.')!==0?'−':'')+t.join(',');}
+function E(x){return fmt(Math.round(x))+' €';}
+function pct(x){return isFinite(x)?fmt(x*100,1)+' %':'—';}
+function addLine(v){if(n>=12)return;n++;const id='l'+Date.now()+n;const d=document.createElement('div');d.className='ln';d.dataset.id=id;
+ d.innerHTML=F.map((f,k)=>'<div class="fld'+(k===0?' nm':'')+'"><label for="'+id+f[0]+'">'+f[1]+'</label><input id="'+id+f[0]+'" data-k="'+f[0]+'"'+(k?' inputmode="decimal"':' maxlength="40"')+(document.querySelectorAll('.ln').length===0?' placeholder="'+(k?'Ej.: ':'')+f[2]+'"':'')+(HELP[f[0]]?' title="'+HELP[f[0]]+'"':'')+'></div>').join('')
+  +'<div class="fld"><label aria-hidden="true">&nbsp;</label><span class="note" style="margin:0;font-size:12.5px" data-k="out">—</span></div>'
+  +'<button class="del" type="button" aria-label="Quitar este servicio">×</button>';
+ d.querySelector('.del').onclick=()=>{if(document.querySelectorAll('.ln').length>1){d.remove();n--;}};
+ d.querySelectorAll('input').forEach(i=>i.addEventListener('input',()=>vivo(d)));
+ if(v)F.forEach((f,k)=>{if(v[k]!=null)d.querySelector('[data-k="'+f[0]+'"]').value=v[k];});
+ else if(CH)d.querySelector('[data-k="ch"]').value=CH;
+ $('lines').appendChild(d);vivo(d);}
+function leer(d){const o={};F.forEach(f=>{const x=d.querySelector('[data-k="'+f[0]+'"]').value;o[f[0]]=f[0]==='nm'?x.trim():num(x);});
+ ['d','cd','h','ch'].forEach(k=>{if(isNaN(o[k]))o[k]=0;});o.d=o.d/100;return o;}
+function calc(o){const pn=o.p*(1-o.d),c=o.cd+o.h*o.ch,m=pn-c;return {pn,c,m,mv:pn>0?m/pn:NaN,mc:c>0?m/c:NaN,ventas:pn*o.u,anual:m*o.u,desc:o.p*o.d*o.u};}
+function vivo(d){const o=leer(d),out=d.querySelector('[data-k="out"]');if(!(o.p>0)){out.textContent='Te queda: —';out.style.color='';return;}
+ const r=calc(o);out.textContent='Te queda '+pct(r.mv);out.style.color=r.m<0?'var(--red)':'';}
+// Coste por hora
+function chCalc(){const p=num($('c-p').value),c=num($('c-c').value),h=num($('c-h').value),u=num($('c-u').value);
+ if(!(p>0&&c>0&&h>0&&u>0)){$('c-r').textContent='Rellena las cuatro casillas y te sale aquí.';return NaN;}
+ const v=(p*c)/(p*h*u/100);$('c-r').innerHTML='Tu coste por hora: '+fmt(v,2)+' € <span class="note" style="font:400 14px var(--body)">('+fmt(p*c)+' € al año ÷ '+fmt(p*h*u/100)+' horas que van a clientes)</span>';return v;}
+['c-p','c-c','c-h','c-u'].forEach(i=>$(i).addEventListener('input',chCalc));
+$('b-ch').onclick=()=>{const v=chCalc();if(!isFinite(v)){$('ch-ok').style.color='var(--red)';$('ch-ok').textContent='Faltan datos para calcularlo.';return;}
+ CH=fmt(v,2);document.querySelectorAll('.ln [data-k="ch"]').forEach(i=>{i.value=CH;});document.querySelectorAll('.ln').forEach(vivo);
+ try{localStorage.setItem('emt-coste-hora',String(Math.round(v*100)/100));const cc=num($('c-c').value),hh=num($('c-h').value);if(cc>0&&hh>0)localStorage.setItem('emt-coste-hora-persona',String(Math.round(cc/hh*100)/100));}catch(e){}
+ $('ch-ok').style.color='';$('ch-ok').textContent='Hecho: '+CH+' € por hora en todas tus filas. Guardamos en este navegador el coste por hora de una persona ('+fmt(num($('c-c').value)/num($('c-h').value),2)+' €, su coste anual entre sus horas al año) para «Tareas para la IA».';};
+try{const g=localStorage.getItem('emt-coste-hora');if(g&&+g>0)CH=fmt(+g,2);}catch(e){}
+
+function resultado(){const L=[];document.querySelectorAll('.ln').forEach(d=>{const o=leer(d);if(!o.nm&&!(o.p>0))return;L.push(o);});
+ const ok=L.filter(o=>o.p>0&&o.u>0&&o.d<1);
+ if(!ok.length){$('in-err').textContent='Necesitamos al menos un servicio con precio y unidades al año.';return;}
+ if(ok.length<L.length){$('in-err').textContent='Hemos dejado fuera '+(L.length-ok.length)+' fila(s) sin precio o sin unidades al año.';}else $('in-err').textContent='';
+ const rs=ok.map((o,k)=>Object.assign({nm:o.nm||('Servicio '+(k+1)),o},calc(o)));
+ const V=rs.reduce((s,r)=>s+r.ventas,0),M=rs.reduce((s,r)=>s+r.anual,0),mp=V>0?M/V:0;
+ const neg=rs.filter(r=>r.m<0),loss=-neg.reduce((s,r)=>s+r.anual,0),desc=rs.reduce((s,r)=>s+r.desc,0);
+ $('v-in').hidden=true;$('v-r').hidden=false;$('r-ej').hidden=!ejemplo;$('r-lk').hidden=!deLink||ejemplo;
+ RS=filas();
+ $('r-pct').textContent=pct(mp);
+ // Punto muerto, si lo has calculado en el modo «¿A qué precio tengo que vender?»: tus ventas de hoy o, si no las pones, las de tus servicios
+ const pmv=(IV&&IV.pm)?(IV.v||V):null,bajoPM=pmv!=null&&pmv<IV.pm;
+ $('r-b').innerHTML=(neg.length?'Tienes '+(neg.length===1?'un servicio':neg.length+' servicios')+' que pierde'+(neg.length===1?'':'n')+' dinero':bajoPM?'Tus servicios dejan dinero, pero no cubres tus costes fijos':'Tus servicios dejan dinero')+' <span class="chip '+(neg.length||bajoPM?'r':'g')+'">'+(neg.length||bajoPM?'Prioridad':'Bien')+'</span>';
+ $('r-t').textContent='Vendes '+E(V)+' al año y te quedan '+E(M)+' después de pagar costes y horas del equipo. De cada 100 € que cobras, te quedan '+fmt(mp*100)+'.';
+ $('r-loss').textContent=E(loss);$('r-loss').parentNode.classList.toggle('bad',loss>0);
+ $('r-loss-t').textContent=neg.length?'En '+neg.map(r=>'«'+r.nm+'»').join(', ')+'. Cada unidad que vendes te cuesta dinero.':'Ningún servicio está en negativo. Bien hecho.';
+ $('r-desc').textContent=E(desc);
+ $('r-desc-t').textContent=desc>0?'Es lo que dejas de cobrar al año sobre tu tarifa. Si lo bajas a la mitad, recuperas '+E(desc/2)+'.':'No das descuento. Tu tarifa es tu precio.';
+ const mx=Math.max(0.6,...rs.map(r=>Math.abs(r.mv)));
+ const lo=rs.filter(r=>r.m>=0).reduce((a,b)=>!a||b.mv<a.mv?b:a,null);
+ $('r-bars').innerHTML=rs.map(r=>'<div class="br'+(r.m<0?' neg':'')+(r===lo?' top':'')+'"><b>'+esc(r.nm)+'</b><div class="tr"><i style="width:'+Math.min(100,Math.abs(r.mv)/mx*100)+'%"></i></div><span>'+pct(r.mv)+'</span></div>').join('')
+  +'<p class="note" style="margin:2px 0 0">En rojo, lo que pierde dinero; en amarillo, el servicio en positivo que menos deja.</p>';
+ $('r-tb').innerHTML=rs.map(r=>'<tr><td>'+esc(r.nm)+'</td><td class="n">'+E(r.pn)+'</td><td class="n">'+E(r.c)+'</td><td class="n'+(r.m<0?' neg':'')+'">'+E(r.m)+'</td><td class="n'+(r.m<0?' neg':'')+'">'+pct(r.mv)+'</td><td class="n">'+pct(r.mc)+'</td><td class="n'+(r.m<0?' neg':'')+'">'+E(r.anual)+'</td></tr>').join('')
+  +'<tr><td><b>Total</b></td><td class="n">'+E(V)+'</td><td></td><td></td><td class="n">'+pct(mp)+'</td><td></td><td class="n">'+E(M)+'</td></tr>';
+ // El error sobre coste: el servicio positivo donde más se separan
+ const pos=rs.filter(r=>r.m>0&&isFinite(r.mc));
+ if(pos.length){const e=pos.reduce((a,b)=>(b.mc-b.mv)>(a.mc-a.mv)?b:a);
+  $('r-err').innerHTML='<b>El error de calcular sobre coste.</b> «'+esc(e.nm)+'» parece dejarte un '+pct(e.mc)+' si lo miras sobre lo que te cuesta. Sobre lo que cobras, que es con lo que pagas todo lo demás, te deja un '+pct(e.mv)+'.';$('r-err').hidden=false;}
+ else $('r-err').hidden=true;
+ // Primer paso
+ let paso,plan;
+ if(neg.length){const w=neg.reduce((a,b)=>b.anual<a.anual?b:a);const pmin=w.c/(1-w.o.d);
+  paso='<b>Tu primer paso, en «'+esc(w.nm)+'»:</b> con tu descuento actual, por debajo de '+E(pmin)+' de tarifa pierdes dinero. Hoy está en '+E(w.o.p)+'. Decide esta semana si subes precio, recortas horas o dejas de venderlo así.';
+  plan=['Apunta durante una semana las horas reales que lleva «'+esc(w.nm)+'»: suelen ser más de las que crees','Prepara la tarifa nueva (más de '+E(pmin)+') o un alcance más corto que quepa en el precio de hoy, y deja de dar descuento en este servicio',MIN];}
+ else {const w=rs.reduce((a,b)=>b.mv<a.mv?b:a),wd=rs.reduce((a,b)=>b.desc>a.desc?b:a);
+  paso='<b>Tu primer paso:</b> '+MIN.charAt(0).toLowerCase()+MIN.slice(1)+'. Empieza por «'+esc(w.nm)+'», que es el que menos deja ('+pct(w.mv)+').';
+  plan=[MIN+'. Apúntalo junto a cada tarifa',wd.desc>0?'Escribe una regla de descuento (hasta cuánto y quién lo autoriza): «'+esc(wd.nm)+'» es donde más das, '+E(wd.desc)+' al año':'Calcula el margen de tus cinco clientes principales con la hoja','Repite este cálculo cada trimestre con las horas reales'];}
+ if(bajoPM)paso+=' Además, facturas '+E(pmv)+' y tu punto muerto está en '+E(IV.pm)+': te faltan '+E(IV.pm-pmv)+' al año para cubrir tus costes fijos.';
+ $('r-s').innerHTML=paso;
+ $('r-p').innerHTML='<li><b>Semana 1:</b> '+plan[0]+'.</li><li><b>Semanas 2 y 3:</b> '+plan[1]+'.</li><li><b>Semana 4:</b> '+plan[2]+'.</li>';
+ R={mp,V,M,loss,desc,rs,neg};
+ if(neg.length)EMT.recomienda('day','Tienes '+(neg.length===1?'un servicio':neg.length+' servicios')+' en negativo: pierdes '+E(loss)+' al año por trabajar. Eso se arregla con precio, alcance o dejando de venderlo, y conviene hacerlo con tus números delante. Te marcamos tu Evolution Day.');
+ else if(bajoPM)EMT.recomienda('day','Facturas '+E(pmv)+' y tu punto muerto está en '+E(IV.pm)+': te faltan '+E(IV.pm-pmv)+' al año para no perder. Toca decidir precio, mezcla de servicios y costes fijos con tus números delante. Te marcamos tu Evolution Day.');
+ else EMT.recomienda('club','Ningún servicio pierde dinero'+(IV&&IV.pm?' y estás por encima de tu punto muerto':'')+': la base está sana. Lo siguiente es fijar tu margen mínimo por tipo de servicio, mirar el margen por cliente y seguirlo mes a mes. Te marcamos la versión ampliada, en Evolution Club.');
+ $('herramienta').scrollIntoView({behavior:'smooth',block:'start'});}
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+$('b-add').onclick=()=>addLine();
+$('b-calc').onclick=()=>{ejemplo=false;deLink=false;EMT.limpiaR();resultado();};
+$('b-ej').onclick=()=>{modo(1);ejemplo=true;deLink=false;EMT.limpiaR();$('lines').innerHTML='';n=0;
+ [['Proyecto web','6.000','10','400','70','32','20'],['Mantenimiento mensual','300','0','20','4','32','480'],
+  ['Formación para empresas','1.800','15','150','30','32','25'],['Diagnóstico inicial','2.500','20','100','65','32','18']].forEach(addLine);
+ $('c-p').value='6';$('c-c').value='39.680';$('c-h').value='1.550';$('c-u').value='80';chCalc();resultado();};
+$('b-edit').onclick=()=>{modo(1);$('v-r').hidden=true;$('v-in').hidden=false;$('copy-ok').textContent='';$('herramienta').scrollIntoView({behavior:'smooth',block:'start'});};
+const txtCopia=()=>'El margen de verdad · Evolution Toolkit\nMargen medio sobre venta: '+pct(R.mp)+'\nVentas al año: '+E(R.V)+' · Te quedan: '+E(R.M)
+ +'\nPierdes al año en servicios en negativo: '+E(R.loss)+'\nTe cuesta el descuento: '+E(R.desc)+'\n'+R.rs.map(r=>r.nm+': '+pct(r.mv)+' sobre venta ('+pct(r.mc)+' sobre coste), '+E(r.anual)+' al año').join('\n')+'\ntoolkit.evolutionmakers.plus/margen-de-verdad';
+$('b-copy').onclick=()=>{if(!R)return;EMT.copiar(txtCopia(),'copy-ok');};
+// ---------- Enlace con el resultado: [filas de servicios tal cual las escribiste, casillas de «¿A qué precio tengo que vender?»]
+const IVI=['iv-c','iv-m','iv-d','iv-f','iv-mm','iv-v'];
+function filas(){const L=[];document.querySelectorAll('.ln').forEach(d=>{const v=F.map(f=>d.querySelector('[data-k="'+f[0]+'"]').value.trim());if(v.some(Boolean))L.push(v);});return L;}
+function estado(){if(!R||!RS)return null;const iv=IVI.map(k=>$(k).value.trim());return (!ejIv&&iv.some((x,k)=>k!==2&&x))?[RS,iv]:[RS];}
+const enlace=()=>EMT.enlaceR(estado());
+EMT.botonEnlace(estado,()=>ejemplo,'Calcula tus servicios');
+EMT.resumen=()=>(!R||ejemplo)?null:{resumen:EMT.frase(txtCopia()),decidir:'',enlace:enlace()};
+EMT.correo('f-mail','m-in','m-ok');
+// Modo al revés: ¿a qué precio tengo que vender?
+let IV=null,ejIv=false;
+function modo(m){$('md-1').setAttribute('aria-pressed',m===1);$('md-2').setAttribute('aria-pressed',m===2);
+ $('v-inv').hidden=m!==2;if(m===2){$('v-in').hidden=true;$('v-r').hidden=true;
+  if(R){if(!$('iv-mm').value)$('iv-mm').value=fmt(R.mp*100,1);if(!$('iv-v').value)$('iv-v').value=fmt(R.V);}inv();}
+ else{$('v-in').hidden=!!R;$('v-r').hidden=!R;}}
+$('md-1').onclick=()=>modo(1);$('md-2').onclick=()=>modo(2);
+function inv(){const c=num($('iv-c').value),m=num($('iv-m').value)/100,d=(num($('iv-d').value)||0)/100;IV={};
+ if(c>0&&m>=0&&m<1&&d>=0&&d<1){const p=c/(1-m),t=p/(1-d),mk=p/c-1,ingMk=c*(1+m),mvMk=(ingMk-c)/ingMk;IV.p=p;IV.t=t;IV.mk=mk;IV.c=c;IV.m=m;IV.d=d;
+  $('iv-r1').innerHTML='<span class="note" style="margin:0">Tienes que cobrar</span><span class="big">'+fmt(p,2)+' €</span>'
+  +(d>0?'<p>Con tu descuento del '+fmt(d*100,1)+'\u00a0%, tu tarifa tiene que ser <b>'+fmt(t,2)+' €</b>.</p>':'')
+  +'<p>Es un markup del '+fmt(mk*100,1)+'\u00a0% (lo que sumas al coste). '+(m>0?'Si sumas solo un '+fmt(m*100,1)+'\u00a0% al coste, cobras '+fmt(ingMk,2)+' € y ganas un '+fmt(mvMk*100,1)+'\u00a0% de lo que cobras, no un '+fmt(m*100,1)+'\u00a0%.':'')+'</p>';}
+ else $('iv-r1').textContent=(c>0&&m>=1)?'El margen sobre lo que cobras tiene que ser menor del 100 %.':'Rellena lo que te cuesta y el margen que quieres.';
+ const f=num($('iv-f').value),mm=num($('iv-mm').value)/100,v=num($('iv-v').value);
+ if(f>0&&mm>0&&mm<1){const pm=f/mm;IV.f=f;IV.mm=mm;IV.pm=pm;IV.v=v>0?v:null;
+  let h='<span class="note" style="margin:0">Tu punto muerto: tienes que facturar</span><span class="big">'+E(pm)+' al año</span><p>Son '+E(pm/12)+' al mes. El punto muerto es el nivel de ventas en el que ni ganas ni pierdes: por encima, cada 100 € que vendes te dejan '+fmt(mm*100)+' € de beneficio.</p>';
+  if(v>0){const dif=v-pm;h+='<p><span class="chip '+(dif>=0?'g':'r')+'">'+(dif>=0?'Por encima':'Por debajo')+'</span> Hoy facturas '+E(v)+': '+(dif>=0?'te sobran '+E(dif)+' al año por encima del punto muerto.':'te faltan '+E(-dif)+' al año para cubrir tus fijos. Hoy pierdes dinero.')+'</p>';
+   if(dif<0)EMT.recomienda('day','Facturas '+E(v)+' y tu punto muerto está en '+E(pm)+': te faltan '+E(-dif)+' al año para no perder. Toca decidir precio, mezcla de servicios y costes fijos con tus números delante. Te marcamos tu Evolution Day.');
+   else if(!R||R.neg.length===0)EMT.recomienda('club','Estás '+E(dif)+' por encima de tu punto muerto. Lo siguiente es ver qué clientes y servicios te dejan ese margen y seguirlo mes a mes. Te marcamos la versión ampliada, en Evolution Club.');}
+  $('iv-r2').innerHTML=h;}
+ else $('iv-r2').textContent=(f>0&&mm<=0)?'Con un margen medio de cero o negativo no hay punto muerto: cada venta te cuesta dinero. Mira primero tus servicios.':'Rellena tus costes fijos y tu margen medio.';}
+['iv-c','iv-m','iv-d','iv-f','iv-mm','iv-v'].forEach(i=>$(i).addEventListener('input',()=>{ejIv=false;$('inv-ej').hidden=true;inv();}));
+$('b-ej2').onclick=()=>{$('iv-c').value='100';$('iv-m').value='20';$('iv-d').value='0';$('iv-f').value='180.000';$('iv-mm').value='40';$('iv-v').value='420.000';inv();ejIv=true;$('inv-ej').hidden=false;};
+$('b-copy2').onclick=()=>{if(!IV||(!IV.p&&!IV.pm)){$('copy-ok2').style.color='var(--red)';$('copy-ok2').textContent='Rellena primero algún cálculo.';return;}
+ $('copy-ok2').style.color='';let t='¿A qué precio tengo que vender? · El margen de verdad · Evolution Toolkit';
+ if(IV.p)t+='\nCoste '+fmt(IV.c,2)+' € · margen sobre venta '+fmt(IV.m*100,1)+'\u00a0% → precio '+fmt(IV.p,2)+' €'+(IV.d>0?' (tarifa con descuento del '+fmt(IV.d*100,1)+'\u00a0%: '+fmt(IV.t,2)+' €)':'')+' · markup '+fmt(IV.mk*100,1)+'\u00a0%';
+ if(IV.pm)t+='\nCostes fijos '+E(IV.f)+' · margen medio '+fmt(IV.mm*100,1)+'\u00a0% → punto muerto '+E(IV.pm)+' al año ('+E(IV.pm/12)+' al mes)'+(IV.v?' · facturas hoy '+E(IV.v):'');
+ EMT.copiar(t+'\ntoolkit.evolutionmakers.plus/margen-de-verdad','copy-ok2');};
+const H=EMT.leeR();
+if(H&&Array.isArray(H[0])&&H[0].length&&H[0].every(Array.isArray)){
+ H[0].slice(0,12).forEach(v=>addLine(v.map(x=>x==null?'':String(x))));
+ if(Array.isArray(H[1]))IVI.forEach((k,j)=>{if(H[1][j]!=null)$(k).value=String(H[1][j]);});
+ inv();ejemplo=false;deLink=true;resultado();}
+else for(let k=0;k<3;k++)addLine();
+})();
+</script>

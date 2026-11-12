@@ -1,0 +1,476 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;padding:0}img{max-width:100%}[hidden]{display:none!important}</style></head><body>
+<title>Cobro y pago</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Poppins:wght@500;600;700&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* Capa: página de la web nueva de EM. Papel #FAF9F5, piezas en blanco, H2 Poppins con barra amarilla,
+   un solo botón amarillo redondo por pantalla, columna de lectura de 760 px. Solo tema claro, como la web. */
+:root{--paper:#FAF9F5;--white:#FFFFFF;--ink:#1D1D1D;--text:#353535;--soft:#666666;--line:#E5E5E3;--grey:#F6F6F6;
+--black:#121213;--yellow:#FAC100;--ysoft:#FFF4CC;--red:#C31C2A;--green:#2F7D4A;--gsoft:#E8F3EC;--gold:#8A6A00;
+--display:'Alfa Slab One',Georgia,serif;--head:'Poppins',system-ui,-apple-system,sans-serif;--body:'Outfit',system-ui,-apple-system,sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+html{scroll-padding-top:72px}
+body{background:var(--paper);color:var(--text);font:300 18px/1.65 var(--body);-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--white)}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+@media(min-width:900px){.wrap{padding-left:max(40px,env(safe-area-inset-left,0px));padding-right:max(40px,env(safe-area-inset-right,0px))}}
+a{color:var(--ink)}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+h1,h2,h3{color:var(--ink);text-wrap:balance}
+b,strong{font-weight:600;color:var(--ink)}
+.muestra{background:var(--ysoft);border-bottom:1px dashed #c9a400;font:500 13px/1.4 var(--head);color:var(--ink)}
+.muestra .wrap{padding-block:8px}
+/* Menú, como la web */
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--white);border-bottom:1px solid var(--line);transition:transform .28s ease}
+header.top.off{transform:translateY(-110%)}
+header.top .wrap{display:flex;align-items:center;gap:18px;min-height:56px}
+.logo2{display:inline-flex;align-items:center;color:var(--ink);min-height:44px;flex:0 0 auto}
+.logo2 svg{height:17px;width:auto;display:block}
+nav.mn{display:flex;gap:22px;font-size:15px;margin-left:auto}
+nav.mn a{color:var(--text);text-decoration:none;white-space:nowrap}
+nav.mn a[aria-current="page"]{color:var(--ink);box-shadow:inset 0 -2px 0 var(--yellow)}
+@media(max-width:1000px){nav.mn a:not([aria-current]){display:none}}
+.lab-s{display:none}
+@media(max-width:600px){.logo2 svg{height:12px}header.top .btn{padding:0 14px;font-size:13px;margin-left:auto}nav.mn{display:none}.lab-l{display:none}.lab-s{display:inline}}
+/* Botón único y enlace de texto */
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 28px;border:0;border-radius:999px;background:var(--yellow);color:var(--ink);font:700 15px var(--head);cursor:pointer;text-decoration:none;white-space:nowrap}
+header.top .btn{min-height:40px;padding:0 18px;font-size:14px}
+.arr{display:inline-block;width:18px;height:12px;flex:0 0 auto}
+.arr path{fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.btn .arr{animation:nudge 2.4s ease-in-out infinite}
+.btn:hover .arr{animation:none;transform:translateX(6px);transition:transform .2s}
+@keyframes nudge{0%,70%,100%{transform:none}80%{transform:translateX(5px)}90%{transform:translateX(1px)}}
+.lnk{display:inline-flex;align-items:center;gap:6px;font:600 15px var(--head);color:var(--ink);text-decoration:none;border-bottom:2px solid var(--yellow);padding:0 0 1px;min-height:36px;background:none;border-top:0;border-left:0;border-right:0;cursor:pointer}
+.lnk .arr{width:15px;height:10px;transition:transform .25s}
+.lnk:hover .arr{transform:translateX(4px)}
+.note{font-size:15px;color:var(--soft);margin:10px 0 0;max-width:62ch}
+/* Cabeza de página */
+.crumbs{font:500 13px var(--head);color:var(--soft);margin:24px 0 0}
+.crumbs a{color:var(--soft)}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:44px;align-items:start;padding-block:14px clamp(36px,6vw,58px)}
+@media(max-width:900px){.hero{grid-template-columns:minmax(0,1fr);gap:24px}}
+h1{font:400 clamp(34px,5.4vw,56px)/1.05 var(--display);margin:10px 0 16px;letter-spacing:-.3px}
+.x-intro{font-size:19px;line-height:1.6;margin:0 0 16px;max-width:52ch}
+.x-tags{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 4px;padding:0;list-style:none}
+.x-tags li{font:600 12px var(--head);padding:4px 11px;border-radius:99px;background:var(--grey);color:var(--text)}
+.why{border-left:4px solid var(--yellow);padding:2px 0 2px 16px;margin:24px 0 0;font-size:17px;max-width:54ch}
+/* Caja de la herramienta */
+.cpn{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:24px;min-width:0}
+@media(max-width:600px){.cpn{padding:16px}}
+.x-k{display:block;font:700 12px var(--head);letter-spacing:.14em;text-transform:uppercase;color:var(--soft);margin:0 0 8px}
+.prog{display:flex;justify-content:space-between;gap:10px;font:700 12px var(--head);letter-spacing:.12em;text-transform:uppercase;color:var(--soft)}
+.pbar{height:4px;background:var(--grey);border-radius:4px;margin:10px 0 18px;overflow:hidden}
+.pbar i{display:block;height:100%;width:0;background:var(--yellow);transition:width .3s ease}
+.qtext{font:600 21px/1.3 var(--head);color:var(--ink);margin:0 0 16px;min-height:2.6em}
+.opts{display:grid;gap:10px}
+.opt{display:block;width:100%;text-align:left;min-height:52px;padding:12px 16px;border:1px solid var(--line);border-radius:12px;background:var(--paper);color:var(--ink);font:400 17px/1.35 var(--body);cursor:pointer;transition:border-color .15s,background .15s}
+.opt:hover{border-color:var(--ink)}
+.opt[aria-pressed="true"]{background:var(--ink);color:var(--white);border-color:var(--ink)}
+.trow{display:flex;justify-content:space-between;align-items:center;gap:10px 18px;margin-top:16px;flex-wrap:wrap}
+.ghost{background:none;border:0;font:600 14px var(--head);color:var(--soft);cursor:pointer;min-height:44px;padding:0 4px}
+.ghost:disabled{opacity:.35;cursor:default}
+.pill{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:99px;border:1.5px solid var(--ink);background:var(--white);color:var(--ink);font:600 14px var(--head);cursor:pointer}
+.fld{display:flex;flex-direction:column;gap:4px;min-width:0}
+.fld label{font:600 13.5px var(--head);color:var(--ink)}
+.fld small{font-size:13.5px;color:var(--soft)}
+.fld input,.fld select{min-height:46px;border:1px solid var(--line);border-radius:10px;padding:8px 12px;font:400 17px var(--body);background:var(--paper);color:var(--ink);width:100%}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media(max-width:520px){.grid2{grid-template-columns:minmax(0,1fr)}}
+/* Resultado */
+.big{font:400 clamp(34px,5vw,48px)/1 var(--display);color:var(--ink);font-variant-numeric:tabular-nums}
+.verd{font:600 20px/1.3 var(--head);color:var(--ink);margin:8px 0 4px}
+.chip{display:inline-flex;align-items:center;gap:6px;font:600 12.5px var(--head);padding:4px 11px;border-radius:99px}
+.chip::before{content:"";width:8px;height:8px;border-radius:9px;background:currentColor}
+.chip.r{background:#FBE7E8;color:var(--red)}.chip.a{background:var(--ysoft);color:var(--gold)}.chip.g{background:var(--gsoft);color:var(--green)}
+.bars{display:grid;gap:9px;margin:14px 0 4px}
+.br{display:grid;grid-template-columns:minmax(0,150px) minmax(0,1fr) 52px;gap:10px;align-items:center;font-size:15px}
+.br .tr{height:10px;background:var(--grey);border-radius:10px;overflow:hidden}
+.br .tr i{display:block;height:100%;background:#BDBAB2;width:0;transition:width .5s ease}
+.br.top .tr i{background:var(--yellow)}
+.br.top b{font-family:var(--head)}
+.br span:last-child{text-align:right;font:500 13.5px var(--head);color:var(--soft);font-variant-numeric:tabular-nums}
+.first{background:var(--ysoft);border-radius:12px;padding:14px 16px;margin:14px 0 0;font-size:16.5px}
+.plan{margin:12px 0 0;padding-left:20px;font-size:16px}.plan li{margin:5px 0}
+.ej-tag{display:inline-block;font:600 12px var(--head);background:var(--ysoft);color:var(--gold);padding:3px 10px;border-radius:99px;margin-bottom:10px}
+.ok{display:block;font:600 14px var(--head);color:var(--green);min-height:20px;margin-top:6px}
+.mail{border-top:1px solid var(--line);margin-top:18px;padding-top:16px}
+.mail form{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.mail input{flex:1 1 220px;min-width:0;min-height:46px;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink);padding:0 12px;font:400 16px var(--body)}
+.sr{position:absolute;left:-9999px}
+/* Secciones */
+section.s{padding-block:clamp(36px,6vw,58px);border-top:1px solid var(--line)}
+h2{font:700 clamp(24px,3vw,32px)/1.2 var(--head);margin:0 0 14px;border-left:4px solid var(--yellow);padding-left:14px}
+.x-p{max-width:760px;margin:0 0 16px}
+/* Escalera */
+.ladder{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:22px;list-style:none;padding:0}
+@media(max-width:900px){.ladder{grid-template-columns:minmax(0,1fr)}}
+.step{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.step.hl{border:2px solid var(--yellow)}
+.step .k{font:700 12px var(--head);letter-spacing:.14em;text-transform:uppercase;color:var(--soft)}
+.step h3{margin:0;font:600 20px/1.3 var(--head)}
+.step p{margin:0;font-size:16.5px;line-height:1.55}
+.step ul{margin:0;padding-left:18px;font-size:16px}.step li{margin:3px 0}
+.step .act{margin-top:auto;padding-top:6px}
+.step .rec{display:none;font:600 12.5px var(--head);color:var(--ink);background:var(--ysoft);border-radius:99px;padding:3px 10px;align-self:flex-start}
+.step.hl .rec{display:inline-block}
+/* Calendario de reservas bajo la escalera */
+.cita{margin-top:18px;background:var(--white);border:2px solid var(--yellow);border-radius:16px;padding:18px;min-width:0}
+@media(max-width:600px){.cita{padding:14px}}
+.cita-hd{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;justify-content:space-between}
+.cita-hd b{font:600 18px/1.3 var(--head);flex:1 1 260px;min-width:0}
+.cita-fr{position:relative;margin-top:12px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--paper);min-height:220px}
+.cita-fr iframe{display:block;width:100%;height:700px;border:0;background:var(--white)}
+@media(max-width:600px){.cita-fr iframe{height:640px}}
+.cita-fr iframe[hidden],.cita-ph[hidden]{display:none}
+.cita-ph{margin:0;padding:22px 18px;font-size:16px}
+.cita-ph b{display:block;font:600 16px/1.35 var(--head);margin-bottom:6px}
+.cita .ghost{margin-top:8px}
+.cita-env{display:flex;gap:10px;align-items:flex-start;margin:0 0 12px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--white);font:400 16px/1.45 var(--body);color:var(--ink);cursor:pointer}
+.cita-env input{flex:0 0 auto;width:20px;height:20px;margin:2px 0 0;accent-color:var(--ink)}
+.cita-env small{display:block;font-size:14px;color:var(--soft);margin-top:2px}
+.cita-msg{display:block;font:600 13.5px var(--head);color:var(--soft);margin:-6px 0 10px;min-height:0}
+.cita-msg:empty{display:none}
+/* Bloque «Guardar mi enlace» */
+.rep{margin:18px 0 0;border:1px dashed var(--line);border-radius:12px;padding:12px 14px}
+.ej-tag[hidden]{display:none}
+/* Tablas y fórmulas */
+.tw{overflow-x:auto;margin:12px 0 8px;border:1px solid var(--line);border-radius:16px;background:var(--white)}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:16px}
+th{background:var(--ink);color:var(--white);text-align:left;font:600 12px var(--head);letter-spacing:.08em;text-transform:uppercase;padding:11px 14px}
+td{border-bottom:1px solid var(--line);padding:11px 14px;vertical-align:top}
+tr:last-child td{border-bottom:0}
+td.n{white-space:nowrap;font:600 15px var(--head);color:var(--ink);font-variant-numeric:tabular-nums}
+td.y{background:var(--ysoft)}
+.yes{color:var(--green);font:700 16px var(--head)}.no{color:var(--soft)}
+.formula{font:500 14.5px/1.7 ui-monospace,Menlo,Consolas,monospace;background:var(--white);border:1px solid var(--line);border-radius:16px;padding:14px 16px;overflow-x:auto;white-space:pre;color:var(--ink);margin:8px 0 18px}
+.steps3{list-style:none;margin:18px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+@media(max-width:760px){.steps3{grid-template-columns:minmax(0,1fr)}}
+.steps3 .n{font:400 30px/1 var(--display);color:var(--ink)}
+.steps3 h3{font:600 18px/1.3 var(--head);margin:10px 0 6px}
+.steps3 p{margin:0;font-size:16.5px}
+.src{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));margin-top:18px}
+.src article{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:20px;min-width:0}
+.src .bign{font:400 34px/1 var(--display);color:var(--ink)}
+.src p{margin:8px 0 0;font-size:16.5px}
+.src .from{font-size:14px;color:var(--soft)}
+.sup{font:600 11.5px var(--head);background:var(--grey);color:var(--soft);padding:2px 8px;border-radius:99px;vertical-align:middle}
+.x-faq{border-top:1px solid var(--line);margin-top:20px;max-width:900px}
+.x-faq details{border-bottom:1px solid var(--line);background:var(--white)}
+.x-faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:16px;align-items:center;padding:16px 18px;font:600 17px/1.35 var(--head);color:var(--ink);min-height:44px}
+.x-faq summary::-webkit-details-marker{display:none}
+.x-faq summary::after{content:"+";font:400 24px var(--body);color:var(--soft);flex:0 0 auto}
+.x-faq details[open] summary::after{content:"–"}
+.x-faq .a{padding:0 18px 16px;font-size:17px}
+.pt{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr))}
+.pt li{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:18px 20px;font:400 19px/1.35 var(--display);color:var(--ink)}
+.qe{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));margin-top:14px}
+.qe article{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:20px;min-width:0}
+.qe .k{font:700 12px var(--head);letter-spacing:.14em;text-transform:uppercase;color:var(--soft)}
+.qe p{margin:8px 0 0;font-size:16.5px;line-height:1.55}
+.qd{border-top:1px solid var(--line);margin-top:12px;padding-top:8px}
+.qd summary{cursor:pointer;font:600 15px/1.35 var(--head);color:var(--ink);min-height:36px;display:flex;align-items:center}
+.qd p{font-size:15.5px}
+.qe-h{font:600 20px/1.3 var(--head);margin:28px 0 0}
+.x-closeline{margin:0;font:400 clamp(22px,2.6vw,30px)/1.3 var(--display);color:var(--ink);max-width:900px}
+.x-closesub{margin:14px 0 22px;font-size:17px;max-width:760px}
+/* Pie y banda */
+footer.f{border-top:1px solid var(--line);background:var(--white);font-size:14.5px;color:var(--soft)}
+footer.f .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;padding-block:28px 96px}
+footer.f .flogo{flex-basis:100%}.f .flogo svg{height:16px}
+.f .fn{display:flex;flex-wrap:wrap;gap:6px 22px;flex-basis:100%;font:600 15px var(--head)}
+.f .fn a{color:var(--ink);text-decoration:none;min-height:32px;display:inline-flex;align-items:center}
+.f .fl2{display:flex;flex-wrap:wrap;gap:6px 16px}.f .fl2 a{color:var(--soft)}
+.band{position:fixed;left:0;right:0;bottom:0;z-index:25;background:var(--black);color:var(--white);transform:translateY(110%);transition:transform .3s ease;padding-bottom:env(safe-area-inset-bottom,0px)}
+.band.on{transform:none}
+.band .wrap{display:flex;align-items:center;gap:14px;min-height:62px}
+.band .who{flex:1 1 auto;min-width:0;line-height:1.3}
+.band .who b{font:600 15px var(--head);color:var(--white);display:block}
+.band .who span{color:#BDBDBD;font-size:13.5px;display:block}
+.band .btn{min-height:44px;padding:0 20px}
+@media(max-width:600px){.band .btn{padding:0 14px;font-size:14px}}
+@media(prefers-reduced-motion:reduce){.btn .arr{animation:none}.pbar i,.br .tr i{transition:none}header.top{transition:none}}
+
+.fld .src-l{font-size:13px;color:var(--soft);line-height:1.35}
+.fld .src-l::before{content:"De dónde sale: ";font-weight:600;color:var(--gold)}
+.frm{display:grid;gap:16px}
+.help{font-size:14.5px;margin:-4px 0 0}
+.help summary{cursor:pointer;font:600 14px var(--head);color:var(--ink);min-height:36px;display:flex;align-items:center}
+.help .grid2{margin-top:8px}
+.kv{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 14px;margin:14px 0 0;font-size:16px}
+.kv dt{color:var(--text)}.kv dd{margin:0;text-align:right;font:600 16px var(--head);color:var(--ink);font-variant-numeric:tabular-nums}
+.kv .tot{border-top:1px solid var(--line);padding-top:6px}
+.scn{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:14px 0 0}
+@media(max-width:520px){.scn{grid-template-columns:minmax(0,1fr)}}
+.scn div{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.scn b{display:block;font:400 24px/1.1 var(--display);color:var(--ink);margin-top:4px}
+.scn span{font-size:14.5px}
+.legal{margin:14px 0 0;font-size:15.5px}
+.err{color:var(--red);font:600 14px var(--head);min-height:20px;display:block}
+</style>
+
+<header class="top"><div class="wrap"><a class="logo2" href="https://www.evolutionmakers.plus/" target="_blank" rel="noopener" aria-label="Evolution Makers, inicio"><svg class="lg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6594 411" role="img" aria-label="Evolution Makers"><path fill="#FAC100" d="M90 309C24 299 -16 232 6 170C24 121 74 93 125 103C188 116 225 182 202 243C185 288 137 316 90 309ZM378 309C308 299 268 223 299 159C341 74 467 85 494 177C514 249 453 320 378 309ZM668 309C600 298 561 231 584 168C599 128 638 101 681 101C729 101 769 131 783 178C786 190 787 219 783 231C770 277 732 308 686 310C679 310 671 309 668 309Z"/><path fill="currentColor" d="M1874 410C1772 403 1694 336 1678 242C1660 139 1717 45 1816 12C1937 -29 2069 42 2093 161C2098 184 2098 218 2095 240C2078 337 1995 407 1892 410C1885 411 1876 411 1874 410ZM3552 410C3468 403 3399 352 3371 277C3355 236 3354 183 3368 140C3403 33 3526 -26 3639 11C3716 37 3769 100 3779 178C3782 199 3780 233 3775 253C3753 350 3656 419 3552 410ZM6436 410C6404 409 6375 402 6352 391C6344 388 6332 380 6330 378C6329 377 6320 287 6320 286C6320 286 6325 289 6329 293C6364 318 6398 329 6437 331C6464 332 6479 327 6489 316C6497 308 6498 303 6498 291C6497 268 6484 257 6436 240C6358 213 6321 160 6334 95C6342 49 6378 14 6430 3C6444 -0 6494 -1 6509 2C6528 6 6563 20 6563 24C6563 27 6556 101 6556 102C6555 102 6552 100 6548 98C6506 75 6453 72 6434 91C6421 104 6422 124 6437 136C6444 141 6456 147 6472 153C6508 166 6522 173 6539 185C6576 211 6596 251 6594 292C6589 356 6553 396 6490 407C6480 409 6450 411 6444 411C6443 411 6440 410 6436 410ZM2590 409C2527 402 2474 367 2454 317C2444 293 2444 290 2444 137L2444 10L2492 10L2540 10L2540 142L2540 274L2543 282C2550 301 2566 316 2587 323C2599 327 2629 327 2641 323C2664 317 2681 301 2688 281L2690 274L2691 142L2692 10L2738 9L2784 9L2784 149C2783 301 2784 291 2778 309C2756 376 2678 418 2590 409ZM4076 318C3987 221 3981 213 3951 178C3940 164 3930 153 3930 153C3929 153 3929 154 3929 156C3930 158 3930 214 3931 280L3931 401L3884 401L3836 401L3836 205L3836 9L3874 9L3912 9L3986 90C4065 178 4074 188 4095 213C4103 222 4109 230 4109 230C4109 230 4109 180 4109 120L4109 9L4156 9L4204 9L4204 208L4204 406L4180 406L4156 406L4076 318ZM1361 209C1322 101 1290 12 1289 11L1289 9L1337 9L1386 10L1416 94C1453 197 1465 233 1472 264C1473 267 1474 269 1474 269C1474 269 1475 267 1476 264C1483 233 1494 199 1531 95L1562 10L1607 9C1643 9 1652 9 1652 10C1652 11 1619 100 1580 208L1510 404L1471 404L1432 404L1361 209ZM4585 325C4545 247 4534 225 4523 199C4520 191 4517 185 4517 185C4516 185 4516 191 4516 198C4516 214 4514 246 4506 334L4500 400L4455 401L4409 401L4409 395C4410 392 4417 305 4426 202C4435 98 4442 12 4443 11L4443 9L4482 9L4520 10L4552 71C4610 182 4630 222 4641 248C4643 253 4645 257 4645 257C4645 258 4648 252 4651 244C4663 215 4675 190 4721 101L4768 9L4807 9L4846 10L4864 202C4873 307 4881 395 4881 397L4881 401L4835 401L4788 401L4788 396C4784 363 4772 218 4772 203C4772 190 4771 182 4770 186C4763 206 4745 244 4699 332L4663 402L4644 403L4625 403L4585 325ZM1032 205L1032 9L1146 9L1261 9L1261 48L1261 87L1194 87L1128 88L1127 126L1127 165L1181 165L1236 165L1236 205L1236 245L1182 245L1127 245L1127 284L1127 323L1202 323L1278 323L1278 362L1278 401L1155 401L1032 401L1032 205ZM2153 205L2153 9L2200 9L2248 9L2248 164L2248 320L2326 320L2405 320L2405 360L2405 401L2279 401L2153 401L2153 205ZM2943 243L2943 85L2884 85L2824 85L2824 47L2824 9L2990 9L3156 9L3156 48L3156 86L3097 86L3038 86L3038 244L3038 401L2990 401L2943 401L2943 243ZM3202 205L3202 9L3250 9L3297 9L3297 205L3297 401L3250 401L3202 401L3202 205ZM4913 400C4913 400 4948 311 4990 203L5066 6L5099 6L5132 6L5209 202C5251 310 5285 398 5286 399C5286 401 5284 401 5239 401L5192 400L5176 360L5161 320L5097 320L5032 320L5017 360L5002 400L4958 401C4933 401 4913 401 4913 400ZM5326 205L5326 9L5374 9L5422 9L5422 93L5422 176L5482 93L5542 9L5594 9L5646 9L5640 17C5637 22 5606 66 5572 115L5509 204L5579 301C5617 355 5649 399 5649 400C5650 401 5639 401 5595 401L5539 401L5481 321L5422 241L5422 321L5422 401L5374 401L5326 401L5326 205ZM5686 205L5686 9L5800 9L5915 9L5915 48L5915 87L5848 87L5781 87L5781 126L5781 165L5836 165L5890 165L5890 205L5890 245L5836 245L5781 245L5781 284L5781 323L5856 323L5932 323L5932 362L5932 401L5809 401L5686 401L5686 205ZM5978 205L5978 9L6060 9C6150 10 6148 10 6169 16C6224 35 6256 83 6250 140C6247 175 6228 205 6199 222L6191 226L6193 229C6194 231 6304 386 6312 396L6315 401L6262 401L6208 401L6156 324L6103 248L6086 247L6069 247L6069 324L6069 401L6024 401L5978 401L5978 205ZM1906 324C1953 316 1990 278 1998 230C2010 164 1975 104 1913 87C1900 84 1872 83 1860 87C1810 100 1776 142 1772 193C1769 232 1781 266 1804 291C1831 319 1869 331 1906 324ZM3598 323C3657 306 3692 248 3682 184C3675 133 3635 92 3585 85C3523 76 3465 122 3456 187C3454 198 3455 223 3457 232C3468 281 3506 318 3552 325C3562 327 3589 325 3598 323ZM5137 247C5137 246 5130 227 5122 204C5114 181 5105 155 5103 147C5097 128 5097 129 5097 129C5096 129 5095 135 5093 142C5091 148 5082 174 5073 200C5063 225 5056 246 5056 247C5056 248 5071 248 5096 248C5127 248 5137 248 5137 247ZM6122 171C6146 166 6160 150 6159 126C6158 108 6151 98 6136 91C6125 85 6118 84 6092 84L6069 84L6069 128L6069 172L6092 172C6105 172 6118 172 6122 171Z"/></svg></a><nav class="mn" aria-label="Principal"><a href="https://www.evolutionmakers.plus/servicios" target="_blank" rel="noopener">Qué hacemos</a><a href="https://www.evolutionmakers.plus/manifiesto" target="_blank" rel="noopener">Manifiesto</a><a aria-current="page" href="https://podcast.evolutionmakers.plus/" target="_blank" rel="noopener">Insights</a></nav><a class="btn hb" href="https://www.evolutionmakers.plus/contacto" target="_blank" rel="noopener"><span class="lab-l">Hablar 30 minutos</span><span class="lab-s">30 min</span></a></div></header>
+<main>
+<div class="wrap">
+<p class="crumbs"><a href="https://podcast.evolutionmakers.plus/" target="_blank" rel="noopener">Evolution Insights</a> / <a href="https://www.evolutionmakers.plus/toolkit">Evolution Toolkit</a> / Cobro y pago</p>
+<div class="hero">
+<div><h1>¿Cuánto dinero tienes parado entre cobros y pagos?</h1><p class="x-intro">Vendes, facturas y tus clientes te pagan. La pregunta es cuándo. Con seis datos de tu último año te decimos cuántos días tarda en volver tu dinero, cuántos euros tienes parados y cuánto ganas cobrando antes.</p><ul class="x-tags"><li>3 minutos</li><li>Gratis y sin registro</li><li>Tus datos solo salen de tu navegador si tú quieres</li></ul><p class="why"><b>Por qué importa.</b> Entre empresas, la ley no deja pactar más de 60 días de pago. Las pymes españolas tardaron de media 78,3 días a finales de 2025. <a href="#base">Ver las fuentes</a>.</p></div>
+<div class="cpn" id="herramienta" aria-live="polite">
+<div id="v-q">
+  <span class="x-k">Tus números del último año</span>
+  <form class="frm" id="f-c" novalidate>
+  <div class="grid2">
+<div class="fld"><label for="i-v">Ventas del año (€)</label><input id="i-v" type="text" inputmode="decimal" autocomplete="off" placeholder="Ej.: 3.000.000"><small class="src-l">tu cuenta de resultados, línea «Importe neto de la cifra de negocios». O suma tus facturas emitidas del año, sin IVA.</small></div><div class="fld"><label for="i-c">Compras del año (€)</label><input id="i-c" type="text" inputmode="decimal" autocomplete="off" placeholder="Ej.: 900.000"><small class="src-l">tu cuenta de resultados, línea «Aprovisionamientos», más lo que pagas a proveedores y colaboradores. Sin IVA y sin nóminas.</small></div>
+  </div>
+  <div class="grid2">
+<div class="fld"><label for="i-dc">Días que tardas en cobrar</label><input id="i-dc" type="text" inputmode="decimal" autocomplete="off" placeholder="Ej.: 75"><small class="src-l">pregúntalo a tu gestoría. Si no lo sabes, pon cuántos días tardan en pagarte tus tres clientes principales, desde que les facturas.</small></div><div class="fld"><label for="i-dp">Días que tardas en pagar</label><input id="i-dp" type="text" inputmode="decimal" autocomplete="off" placeholder="Ej.: 45"><small class="src-l">mira las tres últimas facturas de tus proveedores principales: días entre la fecha de la factura y el día que la pagaste.</small></div>
+  </div>
+  <details class="help"><summary>¿No sabes los días? Te los calculamos con lo que te deben</summary>
+  <div class="grid2">
+<div class="fld"><label for="i-sc">Lo que te deben hoy tus clientes (€)</label><input id="i-sc" type="text" inputmode="decimal" autocomplete="off" placeholder="Ej.: 620.000"><small class="src-l">el saldo de clientes de tu contabilidad o la suma de facturas emitidas sin cobrar, sin IVA, igual que las ventas.</small></div><div class="fld"><label for="i-sp">Lo que debes hoy a proveedores (€)</label><input id="i-sp" type="text" inputmode="decimal" autocomplete="off" placeholder="Ej.: 110.000"><small class="src-l">el saldo de proveedores o la suma de facturas recibidas sin pagar, sin IVA, igual que las compras.</small></div>
+  </div><p class="note">Lo que rellenes aquí manda sobre los días de arriba.</p></details>
+  <div class="grid2">
+<div class="fld"><label for="i-e">Existencias medias (€)</label><input id="i-e" type="text" inputmode="decimal" autocomplete="off" placeholder="Ej.: 0"><small class="src-l">tu balance, línea «Existencias». Si vendes servicios y no tienes almacén, pon 0.</small></div><div class="fld"><label for="i-i">Coste de financiarte (% al año)</label><input id="i-i" type="text" inputmode="decimal" autocomplete="off" placeholder="Ej.: 6"><small class="src-l">opcional. El tipo de tu póliza de crédito o de tu préstamo, en tu último extracto del banco.</small></div>
+  </div>
+  <span class="err" id="c-err" role="alert"></span>
+  <div class="trow"><button class="btn" type="submit">Calcular mi caja atrapada<svg class="arr" viewBox="0 0 18 12" aria-hidden="true"><path d="M1 6h15M11 1l5 5-5 5"/></svg></button>
+  <button class="lnk" type="button" id="b-ej">Ver un resultado de ejemplo</button></div>
+  </form>
+</div>
+<div id="v-r" hidden>
+  <span class="ej-tag" id="r-ej" hidden>Ejemplo · empresa de servicios de 3 M€, no son tus datos</span>
+  <span class="ej-tag" id="r-lk" hidden>Abierto desde tu enlace guardado</span>
+  <span class="x-k">Tu caja atrapada entre cobros y pagos</span>
+  <div class="big" id="r-big">0 €</div>
+  <span class="note" style="margin:4px 0 0;display:block" id="r-mes"></span>
+  <p class="verd" id="r-b"></p><p style="margin:0" id="r-t"></p>
+  <dl class="kv" id="r-kv"></dl>
+  <span class="x-k" style="margin-top:18px">Qué pasa si cambia el plazo</span>
+  <div class="scn" id="r-scn"></div>
+  <p class="legal" id="r-leg"></p>
+  <div class="first" id="r-s"></div>
+  <ol class="plan" id="r-p"></ol>
+  <div class="trow">
+    <a class="pill" href="descargables/cobro-y-pago-basica.xlsx" download>Descargar la hoja de cobros y pagos (Excel)</a>
+    <button class="lnk" type="button" id="b-copy">Copiar mi resultado</button>
+    <button class="ghost" type="button" id="b-again">Cambiar mis datos</button>
+  </div>
+  <span class="ok" id="copy-ok" role="status"></span>
+<div class="rep"><b>Guarda tu resultado, sin registrarte</b><p class="note">Tu enlace lleva tus seis datos dentro: al abrirlo ves este resultado sin rellenar nada. Quien lo abra lo ve, así que compártelo solo con quien quieras.</p><div class="trow" style="justify-content:flex-start;margin-top:8px"><button class="pill" type="button" id="b-link">Guardar mi enlace</button></div><span class="ok" id="lk-ok" role="status"></span></div>
+  
+</div>
+</div>
+</div></div>
+<section class="s" id="para-ti"><div class="wrap"><h2>Esto es para ti si…</h2><ul class="pt"><li>«Cobro tarde y pago pronto.»</li><li>«Facturo bien, pero a final de mes la cuenta no lo refleja.»</li><li>«Tiro de la póliza de crédito para pagar nóminas.»</li></ul></div></section>
+<section class="s" id="escalera"><div class="wrap">
+<h2>Y ahora, ¿qué haces con tu resultado?</h2>
+<p class="x-p" id="esc-why">Tres caminos según lo que te haya salido. En cuanto calcules, te marcamos el que encaja con tu resultado.</p>
+<ol class="ladder">
+<li class="step" data-k="basica"><span class="k">Gratis · lo que acabas de hacer</span><h3>Tu caja atrapada y tu primer paso</h3><p>Ya lo tienes: tus días de cobro y de pago, los euros parados, los dos escenarios y un plan de cuatro semanas. La hoja de Excel hace el mismo cálculo para repetirlo cada trimestre.</p>
+<div class="act"><a class="lnk" href="#herramienta">Volver a la herramienta<svg class="arr" viewBox="0 0 18 12" aria-hidden="true"><path d="M1 6h15M11 1l5 5-5 5"/></svg></a></div></li>
+<li class="step hl" data-k="club"><span class="rec">Te lo recomendamos</span><span class="k">Versión ampliada · Evolution Club</span><h3>Cobrar antes y verlo mes a mes</h3><ul><li>La hoja completa, en Excel y Google Sheets, con tus cobros y pagos previstos de las próximas 13 semanas</li><li>Seguimiento de 12 meses de tus días de cobro y de pago, con su gráfico y la línea de los 60 días</li><li>La lista de tus clientes ordenada por días de retraso, con lo que pasa del plazo legal</li><li>Un plan de 90 días con responsable, horas y coste por hora</li><li>Una sesión del Club al año sobre esta herramienta, con otras personas que dirigen su empresa</li></ul>
+<div class="act" data-btn='&lt;a class=&quot;btn&quot; href=&quot;https://www.evolutionmakers.plus/club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Pedir plaza&lt;svg class=&quot;arr&quot; viewBox=&quot;0 0 18 12&quot; aria-hidden=&quot;true&quot;&gt;&lt;path d=&quot;M1 6h15M11 1l5 5-5 5&quot;/&gt;&lt;/svg&gt;&lt;/a&gt;&lt;p class=&quot;note&quot;&gt;Hablamos quince minutos y vemos si encajas.&lt;/p&gt;' data-lnk='&lt;a class=&quot;lnk&quot; href=&quot;https://www.evolutionmakers.plus/club&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;¿Cómo funciona Evolution Club?&lt;svg class=&quot;arr&quot; viewBox=&quot;0 0 18 12&quot; aria-hidden=&quot;true&quot;&gt;&lt;path d=&quot;M1 6h15M11 1l5 5-5 5&quot;/&gt;&lt;/svg&gt;&lt;/a&gt;'><a class="btn" href="https://www.evolutionmakers.plus/club" target="_blank" rel="noopener">Pedir plaza<svg class="arr" viewBox="0 0 18 12" aria-hidden="true"><path d="M1 6h15M11 1l5 5-5 5"/></svg></a><p class="note">Hablamos quince minutos y vemos si encajas.</p></div></li>
+<li class="step" data-k="day"><span class="rec">Te lo recomendamos</span><span class="k">Un día con tus números</span><h3>Tu Evolution Day</h3><p>Si tienes parado más de un mes de ventas, el hueco no se cierra persiguiendo facturas. En tu Evolution Day lo trabajamos con tus números: condiciones con clientes y proveedores, contratos y cómo financias lo que queda. Al final del día te llevas las condiciones nuevas escritas y el plan de cobro con responsables, no una lista de lo que habría que hacer.</p>
+<div class="act" data-btn='&lt;button class=&quot;btn&quot; type=&quot;button&quot; data-cita aria-controls=&quot;cita&quot; aria-expanded=&quot;false&quot;&gt;Reservar 30 minutos&lt;svg class=&quot;arr&quot; viewBox=&quot;0 0 18 12&quot; aria-hidden=&quot;true&quot;&gt;&lt;path d=&quot;M1 6h15M11 1l5 5-5 5&quot;/&gt;&lt;/svg&gt;&lt;/button&gt;&lt;p class=&quot;note&quot;&gt;Reserva una conversación de 30 minutos con Ramón para preparar tu Evolution Day, aquí mismo. &lt;a href=&quot;https://www.evolutionmakers.plus/evolution-day&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Cómo funciona tu Evolution Day&lt;/a&gt;.&lt;/p&gt;' data-lnk='&lt;a class=&quot;lnk&quot; href=&quot;https://www.evolutionmakers.plus/evolution-day&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;¿Cómo funciona tu Evolution Day?&lt;svg class=&quot;arr&quot; viewBox=&quot;0 0 18 12&quot; aria-hidden=&quot;true&quot;&gt;&lt;path d=&quot;M1 6h15M11 1l5 5-5 5&quot;/&gt;&lt;/svg&gt;&lt;/a&gt;'><a class="lnk" href="https://www.evolutionmakers.plus/evolution-day" target="_blank" rel="noopener">¿Cómo funciona tu Evolution Day?<svg class="arr" viewBox="0 0 18 12" aria-hidden="true"><path d="M1 6h15M11 1l5 5-5 5"/></svg></a></div></li>
+</ol>
+<div class="cita" id="cita" hidden><div class="cita-hd"><b>Reserva una conversación de 30 minutos con Ramón para preparar tu Evolution Day</b><a class="lnk" id="cita-tab" href="https://cita.evolutionmakers.plus/toolkit" target="_blank" rel="noopener">Abrir en otra pestaña<svg class="arr" viewBox="0 0 18 12" aria-hidden="true"><path d="M1 6h15M11 1l5 5-5 5"/></svg></a></div>
+<label class="cita-env" for="cita-env"><input type="checkbox" id="cita-env"><span>Envía mi resultado a Evolution Makers para preparar la conversación<small>Así Ramón llega a la llamada con tu análisis leído. Si no la marcas, la reserva va sin datos.</small></span></label>
+<span class="cita-msg" id="cita-msg" role="status"></span>
+<div class="cita-fr"><iframe title="Calendario para reservar 30 minutos con Ramón" data-src="https://cita.evolutionmakers.plus/toolkit" loading="lazy" hidden></iframe>
+<p class="cita-ph"><b>Aquí se abre el calendario para elegir día y hora.</b>Si no te aparece, pulsa «Abrir en otra pestaña».</p></div>
+<button class="ghost" type="button" data-cita-off>Cerrar el calendario</button></div>
+</div></section>
+<section class="s" id="ampliada"><div class="wrap">
+<h2>Básica o ampliada</h2>
+<p class="x-p">La básica te dice dónde estás. La ampliada te ayuda a mejorarlo y a comprobar cada mes si mejora. Está dentro de Evolution Club.</p>
+<div class="tw"><table><thead><tr><th>Qué incluye</th><th>Básica · gratis</th><th>Ampliada · Evolution Club</th></tr></thead><tbody><tr><td>Días de cobro, días de pago y ciclo de caja</td><td class="yes">Sí</td><td class="y yes">Sí</td></tr><tr><td>Caja atrapada en euros y coste al año</td><td class="yes">Sí</td><td class="y yes">Sí</td></tr><tr><td>Escenarios: 30 días más tarde y 15 días antes</td><td class="yes">Sí</td><td class="y yes">Sí</td></tr><tr><td>Comparación con el máximo legal de 60 días</td><td class="yes">Sí</td><td class="y yes">Sí</td></tr><tr><td>Tabla de qué pasa con cada día que ganas o pierdes</td><td class="no">—</td><td class="y yes">Sí</td></tr><tr><td>Previsión de tesorería de 13 semanas</td><td class="no">—</td><td class="y yes">Sí</td></tr><tr><td>Seguimiento de 12 meses con gráfico</td><td class="no">—</td><td class="y yes">Sí</td></tr><tr><td>Clientes por días de retraso</td><td class="no">—</td><td class="y yes">Sí</td></tr><tr><td>Plan de 90 días con horas y coste por hora</td><td class="no">—</td><td class="y yes">Sí</td></tr><tr><td>Una sesión del Club al año sobre esta herramienta</td><td class="no">—</td><td class="y yes">Sí</td></tr></tbody></table></div>
+<h3 class="qe-h">Qué es cada cosa</h3><div class="qe"><article><span class="k">Evolution Club</span><p>Una comunidad de empresarios de pymes que se ayudan a decidir mejor. Once sesiones al año en las que la sala trabaja casos reales de los socios, consultas que te contestamos nosotros y una biblioteca con las grabaciones y las versiones ampliadas de cada herramienta. No es un club de networking: se viene a compartir y a ayudar. Se entra después de una conversación de quince minutos.</p></article><article><span class="k">Evolution Analytics</span><p>Tu espacio privado dentro del Club. Cada mes subes lo que ya tienes, tal cual: el cierre de tu gestoría, un informe de ventas, una captura o una nota de voz. Sin conectar nada ni rellenar plantillas. Ves tus cifras frente al mes y al año anteriores y frente a empresas de tu sector, y recibes una lectura que revisa nuestro equipo: qué se está torciendo, qué va bien y dónde mirar. Está en desarrollo y llegará a la versión ampliada en cuanto abra.</p><details class="qd"><summary>¿Por qué te voy a dar mis datos?</summary><p>Porque siguen siendo tuyos. Los tratamos solo por encargo tuyo, con contrato. Pedimos cifras, no nombres de personas ni de clientes. La IA que usamos no aprende de tus datos. Ves quién ha mirado lo tuyo y cuándo. Con un clic, solo lo ves tú. Y lo borras entero con un botón. Nunca usamos lo que vemos para venderte nada sin decírtelo.</p></details><details class="qd"><summary>¿Qué me da que no me den mis propios informes?</summary><p>No los sustituye: los lee. Tus herramientas te enseñan cada una su parte, la contabilidad por un lado y las ventas o las reservas por otro. Aquí se juntan en un sitio y se comparan con lo que pasó antes y con empresas de tu sector, a partir de cuentas publicadas de empresas parecidas a la tuya. Además mira lo que los informes de siempre no miran: si llevas un año sin tocar precios, cuánto pesan tus dos clientes más grandes, cuánto de lo que factura tu empresa pasa por ti o qué servicio gana dinero solo si no cuentas tus horas. Y lo lee alguien con experiencia en muchas empresas, que sabe que una misma cifra no significa lo mismo en un restaurante que en un hotel.</p></details></article><article><span class="k">Tu Evolution Day</span><p>Un día entero dedicado solo a tu empresa, con el objetivo cerrado antes de empezar. Empieza contigo a solas, con lo que no se habla delante del equipo, y después entra tu equipo, hasta diez personas. Al final del día te llevas el trabajo hecho, no una lista de lo que habría que hacer: el plan comercial cerrado y con responsables, tus precios rediseñados o ese proceso que dependía de una sola persona, ya repartido. Y los indicadores para saber en tres meses si ha servido.</p></article></div>
+</div></section>
+<section class="s" id="como"><div class="wrap"><h2>Cómo funciona</h2><ol class="steps3"><li><span class="n">1</span><h3>Pon seis datos de tu último año</h3><p>Ventas, compras, días de cobro, días de pago, existencias y, si quieres, lo que te cuesta el dinero. Debajo de cada campo te decimos dónde encontrarlo.</p></li><li><span class="n">2</span><h3>Mira los euros, no solo los días</h3><p>La cifra grande es el dinero que tienes parado. Los escenarios te dicen cuánto cambia si te pagan más tarde o cobras antes.</p></li><li><span class="n">3</span><h3>Gana días de cobro</h3><p>Empieza por el primer paso que te proponemos, ponle fecha esta semana y repite el cálculo dentro de tres meses.</p></li></ol></div></section>
+<section class="s" id="calculo"><div class="wrap"><h2>Cómo se calcula</h2><p class="x-p">Todo sale de seis datos de tu último año. El cálculo usa 365 días y cantidades sin IVA.</p>
+<div class="formula">Días de cobro       los que pones, o  lo que te deben clientes ÷ ventas × 365
+Días de pago        los que pones, o  lo que debes a proveedores ÷ compras × 365
+Días de existencias existencias medias ÷ compras × 365   (0 si vendes servicios)
+Ciclo de caja       días de existencias + días de cobro − días de pago
+Caja atrapada       ventas × días de cobro ÷ 365
+                  + existencias medias
+                  − compras × días de pago ÷ 365
+Coste al año        caja atrapada × tu coste de financiarte
+Si te pagan 30 días más tarde   + ventas × 30 ÷ 365
+Si cobras 15 días antes         − ventas × 15 ÷ 365
+Recomendación       caja atrapada > ventas ÷ 12  → tu Evolution Day
+                    si no                        → versión ampliada, en Evolution Club</div>
+<p class="x-p">El <b>ciclo de caja</b> son los días que tu dinero pasa fuera: desde que pagas lo que compras hasta que cobras lo que vendes. Ojo con una trampa: los días de pago se cuentan sobre tus compras y los de cobro sobre tus ventas. En una empresa de servicios las compras pesan poco, así que pagar tarde compensa poco. Por eso el resultado principal va en euros.</p>
+<div class="tw"><table><thead><tr><th>Ejemplo: servicios, 3 M€</th><th>Dato</th><th>Euros</th></tr></thead><tbody>
+<tr><td>Clientes: 3.000.000 × 75 ÷ 365</td><td class="n">75 días</td><td class="n">616.438 €</td></tr>
+<tr><td>Existencias</td><td class="n">0 días</td><td class="n">0 €</td></tr>
+<tr><td>Proveedores: 900.000 × 45 ÷ 365</td><td class="n">45 días</td><td class="n">− 110.959 €</td></tr>
+<tr><td><b>Caja atrapada</b> (ciclo de caja: 0 + 75 − 45 = 30 días)</td><td class="n">2,0 meses de ventas</td><td class="n">505.479 €</td></tr>
+<tr><td>Si te pagan 30 días más tarde</td><td class="n">105 días</td><td class="n">+ 246.575 €</td></tr>
+<tr><td>Si cobras 15 días antes</td><td class="n">60 días</td><td class="n">− 123.288 €</td></tr>
+<tr><td>Coste al año, al 6 %</td><td class="n"></td><td class="n">30.329 €</td></tr>
+</tbody></table></div>
+<p class="note">Con 30 días de ciclo parece poco. En euros son dos meses de ventas parados. Fíjate en que el ciclo en días y la caja en euros no siempre cuentan lo mismo.</p>
+<p class="x-p" style="margin-top:18px"><b>Por qué el umbral es un mes de ventas</b> <span class="sup">Supuesto</span>. En una pyme de servicios casi todo lo que factura se va en gastos del mes: nóminas, alquiler, proveedores. Si tienes parado más de un mes de ventas, estás pagando más de un mes de tu empresa con tu dinero o con el del banco mientras tus clientes deciden cuándo pagarte. A partir de ahí ya no basta con perseguir facturas: hay que tocar condiciones, contratos y cómo financias el hueco, y eso se trabaja mejor un día entero con tus números. Por debajo, el trabajo es de seguimiento mes a mes. Es criterio de Evolution Makers y lo ajustaremos con los resultados de quien use la herramienta.</p>
+<p class="note">Las existencias se pasan a días con tus compras porque casi nadie tiene a mano el coste de lo vendido. Es una aproximación <span class="sup">Supuesto</span>: si lo tienes, la hoja ampliada te deja usarlo.</p></div></section>
+<section class="s" id="base"><div class="wrap"><h2>En qué se basa</h2><p class="x-p">Dos referencias para saber si tus plazos son normales: lo que dice la ley y lo que pasa de verdad en las pymes españolas.</p>
+<div class="src">
+<article><div class="bign">60 días</div><p>Es el plazo máximo de pago entre empresas en España. Sin pacto, son 30 días desde que recibes la mercancía o el servicio. Las partes pueden alargarlo, pero nunca por encima de 60 días naturales.</p><p class="from">Ley 3/2004, de 29 de diciembre, de lucha contra la morosidad, artículo 4, apartados 1 y 3. <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2004-21830" target="_blank" rel="noopener">Texto consolidado en el BOE</a> (última actualización del texto: 1 de octubre de 2014). Revisado por nosotros el 10 de noviembre de 2026.</p></article>
+<article><div class="bign">78,3 días</div><p>Es lo que tardaron de media en pagar las pymes españolas en el cuarto trimestre de 2025. La media de todo 2025 fue de 80,5 días, un 34 % por encima del máximo legal. Las microempresas, 74,7; las pequeñas, 78,9; las medianas, 81,4.</p><p class="from">CEPYME, Observatorio de Morosidad, segundo semestre de 2025, con datos de CESCE: <a href="https://d3t4nwcgmfrp9x.cloudfront.net/upload/Observatorio-Morosidad-II-semestre-2025.pdf" target="_blank" rel="noopener">informe</a> (marzo de 2026) y <a href="https://cepyme.es/storage/2026/04/NdP-El-esfuerzo-financiero-de-las-pymes-como-consecuencia-de-la-morosidad-se-cifra-en-1.957-millones-de-euros.pdf" target="_blank" rel="noopener">nota de prensa</a> (7 de abril de 2026). Los datos de 2025 son provisionales.</p></article>
+</div>
+<p class="note">El dato de CEPYME mide cuánto tardan las pymes en pagar a sus proveedores. Como lo que una empresa paga lo cobra otra, te sirve de referencia para lo que tardan en pagarte a ti. Es el dato español más reciente que hemos encontrado.</p></div></section>
+<section class="s"><div class="wrap"><h2>Preguntas frecuentes</h2><div class="x-faq"><details><summary>No sé mis días de cobro. ¿Qué pongo?</summary><div class="a">Abre el desplegable «¿No sabes los días?» y pon lo que te deben hoy tus clientes: lo calculamos con tus ventas. Si tampoco lo tienes, piensa en tus tres clientes principales y pon cuántos días tardan en pagarte desde que les facturas.</div></details><details><summary>¿Pongo los importes con IVA o sin IVA?</summary><div class="a">Lo que importa es que los dos lados vayan igual. Tus ventas salen sin IVA en la cuenta de resultados, pero lo que te deben los clientes lleva IVA en contabilidad. Si calculas los días con ese saldo con IVA y las ventas sin IVA, te salen más días de los reales. Corrígelo de una de dos formas: quita el IVA al saldo (divídelo entre 1 más tu tipo de IVA) y usa los dos sin IVA, o suma el IVA a las ventas y usa los dos con IVA. Con los proveedores pasa lo mismo.</div></details><details><summary>¿Qué pasa si un cliente me paga a más de 60 días?</summary><div class="a">La Ley 3/2004 no deja pactar más de 60 días entre empresas. Lo que pase de ahí es retraso y puedes reclamar intereses de demora. Antes de reclamar, cambia las condiciones de las próximas facturas por escrito.</div></details><details><summary>¿Qué trae la versión ampliada?</summary><div class="a">La previsión de cobros y pagos de las próximas 13 semanas, el seguimiento de 12 meses de tus días de cobro y pago con su gráfico, la lista de clientes por días de retraso y un plan de 90 días con horas y coste. Está dentro de Evolution Club.</div></details><details><summary>¿Qué pasa con mis datos?</summary><div class="a">Se calculan en tu navegador. No salen de tu navegador salvo que decidas mandárnoslos: al reservar tu conversación, si marcas la casilla «Envía mi resultado a Evolution Makers para preparar la conversación», o al pedir el informe por correo. Si guardas tu enlace, tus cifras van dentro: quien lo abra ve tu resultado. Por correo solo nos llega tu correo y tu resultado.</div></details></div></div></section>
+<section class="s" id="cierre"><div class="wrap"><p class="x-closeline">El dinero que ya has ganado tiene que estar en tu cuenta, no en la de tus clientes.</p><p class="x-closesub">Empieza por el primer paso y repite el cálculo cada trimestre. Si quieres prever tus próximas 13 semanas y ver tus días de cobro mes a mes, la versión ampliada está en Evolution Club.</p></div></section>
+</main>
+<footer class="f"><div class="wrap"><a class="logo2 flogo" href="https://www.evolutionmakers.plus/" target="_blank" rel="noopener" aria-label="Evolution Makers"><svg class="lg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6594 411" role="img" aria-label="Evolution Makers"><path fill="#FAC100" d="M90 309C24 299 -16 232 6 170C24 121 74 93 125 103C188 116 225 182 202 243C185 288 137 316 90 309ZM378 309C308 299 268 223 299 159C341 74 467 85 494 177C514 249 453 320 378 309ZM668 309C600 298 561 231 584 168C599 128 638 101 681 101C729 101 769 131 783 178C786 190 787 219 783 231C770 277 732 308 686 310C679 310 671 309 668 309Z"/><path fill="currentColor" d="M1874 410C1772 403 1694 336 1678 242C1660 139 1717 45 1816 12C1937 -29 2069 42 2093 161C2098 184 2098 218 2095 240C2078 337 1995 407 1892 410C1885 411 1876 411 1874 410ZM3552 410C3468 403 3399 352 3371 277C3355 236 3354 183 3368 140C3403 33 3526 -26 3639 11C3716 37 3769 100 3779 178C3782 199 3780 233 3775 253C3753 350 3656 419 3552 410ZM6436 410C6404 409 6375 402 6352 391C6344 388 6332 380 6330 378C6329 377 6320 287 6320 286C6320 286 6325 289 6329 293C6364 318 6398 329 6437 331C6464 332 6479 327 6489 316C6497 308 6498 303 6498 291C6497 268 6484 257 6436 240C6358 213 6321 160 6334 95C6342 49 6378 14 6430 3C6444 -0 6494 -1 6509 2C6528 6 6563 20 6563 24C6563 27 6556 101 6556 102C6555 102 6552 100 6548 98C6506 75 6453 72 6434 91C6421 104 6422 124 6437 136C6444 141 6456 147 6472 153C6508 166 6522 173 6539 185C6576 211 6596 251 6594 292C6589 356 6553 396 6490 407C6480 409 6450 411 6444 411C6443 411 6440 410 6436 410ZM2590 409C2527 402 2474 367 2454 317C2444 293 2444 290 2444 137L2444 10L2492 10L2540 10L2540 142L2540 274L2543 282C2550 301 2566 316 2587 323C2599 327 2629 327 2641 323C2664 317 2681 301 2688 281L2690 274L2691 142L2692 10L2738 9L2784 9L2784 149C2783 301 2784 291 2778 309C2756 376 2678 418 2590 409ZM4076 318C3987 221 3981 213 3951 178C3940 164 3930 153 3930 153C3929 153 3929 154 3929 156C3930 158 3930 214 3931 280L3931 401L3884 401L3836 401L3836 205L3836 9L3874 9L3912 9L3986 90C4065 178 4074 188 4095 213C4103 222 4109 230 4109 230C4109 230 4109 180 4109 120L4109 9L4156 9L4204 9L4204 208L4204 406L4180 406L4156 406L4076 318ZM1361 209C1322 101 1290 12 1289 11L1289 9L1337 9L1386 10L1416 94C1453 197 1465 233 1472 264C1473 267 1474 269 1474 269C1474 269 1475 267 1476 264C1483 233 1494 199 1531 95L1562 10L1607 9C1643 9 1652 9 1652 10C1652 11 1619 100 1580 208L1510 404L1471 404L1432 404L1361 209ZM4585 325C4545 247 4534 225 4523 199C4520 191 4517 185 4517 185C4516 185 4516 191 4516 198C4516 214 4514 246 4506 334L4500 400L4455 401L4409 401L4409 395C4410 392 4417 305 4426 202C4435 98 4442 12 4443 11L4443 9L4482 9L4520 10L4552 71C4610 182 4630 222 4641 248C4643 253 4645 257 4645 257C4645 258 4648 252 4651 244C4663 215 4675 190 4721 101L4768 9L4807 9L4846 10L4864 202C4873 307 4881 395 4881 397L4881 401L4835 401L4788 401L4788 396C4784 363 4772 218 4772 203C4772 190 4771 182 4770 186C4763 206 4745 244 4699 332L4663 402L4644 403L4625 403L4585 325ZM1032 205L1032 9L1146 9L1261 9L1261 48L1261 87L1194 87L1128 88L1127 126L1127 165L1181 165L1236 165L1236 205L1236 245L1182 245L1127 245L1127 284L1127 323L1202 323L1278 323L1278 362L1278 401L1155 401L1032 401L1032 205ZM2153 205L2153 9L2200 9L2248 9L2248 164L2248 320L2326 320L2405 320L2405 360L2405 401L2279 401L2153 401L2153 205ZM2943 243L2943 85L2884 85L2824 85L2824 47L2824 9L2990 9L3156 9L3156 48L3156 86L3097 86L3038 86L3038 244L3038 401L2990 401L2943 401L2943 243ZM3202 205L3202 9L3250 9L3297 9L3297 205L3297 401L3250 401L3202 401L3202 205ZM4913 400C4913 400 4948 311 4990 203L5066 6L5099 6L5132 6L5209 202C5251 310 5285 398 5286 399C5286 401 5284 401 5239 401L5192 400L5176 360L5161 320L5097 320L5032 320L5017 360L5002 400L4958 401C4933 401 4913 401 4913 400ZM5326 205L5326 9L5374 9L5422 9L5422 93L5422 176L5482 93L5542 9L5594 9L5646 9L5640 17C5637 22 5606 66 5572 115L5509 204L5579 301C5617 355 5649 399 5649 400C5650 401 5639 401 5595 401L5539 401L5481 321L5422 241L5422 321L5422 401L5374 401L5326 401L5326 205ZM5686 205L5686 9L5800 9L5915 9L5915 48L5915 87L5848 87L5781 87L5781 126L5781 165L5836 165L5890 165L5890 205L5890 245L5836 245L5781 245L5781 284L5781 323L5856 323L5932 323L5932 362L5932 401L5809 401L5686 401L5686 205ZM5978 205L5978 9L6060 9C6150 10 6148 10 6169 16C6224 35 6256 83 6250 140C6247 175 6228 205 6199 222L6191 226L6193 229C6194 231 6304 386 6312 396L6315 401L6262 401L6208 401L6156 324L6103 248L6086 247L6069 247L6069 324L6069 401L6024 401L5978 401L5978 205ZM1906 324C1953 316 1990 278 1998 230C2010 164 1975 104 1913 87C1900 84 1872 83 1860 87C1810 100 1776 142 1772 193C1769 232 1781 266 1804 291C1831 319 1869 331 1906 324ZM3598 323C3657 306 3692 248 3682 184C3675 133 3635 92 3585 85C3523 76 3465 122 3456 187C3454 198 3455 223 3457 232C3468 281 3506 318 3552 325C3562 327 3589 325 3598 323ZM5137 247C5137 246 5130 227 5122 204C5114 181 5105 155 5103 147C5097 128 5097 129 5097 129C5096 129 5095 135 5093 142C5091 148 5082 174 5073 200C5063 225 5056 246 5056 247C5056 248 5071 248 5096 248C5127 248 5137 248 5137 247ZM6122 171C6146 166 6160 150 6159 126C6158 108 6151 98 6136 91C6125 85 6118 84 6092 84L6069 84L6069 128L6069 172L6092 172C6105 172 6118 172 6122 171Z"/></svg></a><nav class="fn" aria-label="Formas de trabajar con nosotros"><a href="https://www.evolutionmakers.plus/chief-evolution-officer" target="_blank" rel="noopener">Chief Evolution Officer</a><a href="https://www.evolutionmakers.plus/evolution-day" target="_blank" rel="noopener">Evolution Day</a><a href="https://www.evolutionmakers.plus/club" target="_blank" rel="noopener">Evolution Club</a><a href="https://podcast.evolutionmakers.plus/" target="_blank" rel="noopener">Evolution Insights</a><a href="https://www.evolutionmakers.plus/toolkit">Evolution Toolkit</a></nav><span>Evolution Worldwide, S.L. · Sede en Madrid · Base en Sevilla · Trabajamos en toda España</span><span class="fl2"><span>910 055 130</span><a href="https://www.evolutionmakers.plus/contacto" target="_blank" rel="noopener">Contacto</a><a href="https://www.evolutionmakers.plus/politica-de-privacidad" target="_blank" rel="noopener">Privacidad</a><a href="https://www.evolutionmakers.plus/aviso-legal" target="_blank" rel="noopener">Aviso legal</a></span></div></footer>
+<div class="band" id="band" role="region" aria-label="Evolution Club"><div class="wrap"><div class="who"><b>Evolution Club · los treinta primeros</b><span>Quedan plazas. La versión ampliada de cada herramienta está dentro.</span></div><a class="btn" href="https://www.evolutionmakers.plus/club" target="_blank" rel="noopener">Pedir plaza</a></div></div>
+<script>window.EMT_CFG={"cita": "https://cita.evolutionmakers.plus/toolkit", "p": {"herramienta": "Herramienta", "resumen": "Resumen", "decidir": "Decidir", "enlace": "Enlace"}, "herramienta": "Cobro y pago"};</script>
+<script>
+(function(){
+const hd=document.querySelector('header.top');let ly=scrollY;
+const band=document.getElementById('band'),foot=document.querySelector('footer.f');
+addEventListener('scroll',()=>{const y=scrollY;if(hd){hd.classList.toggle('off',y>ly&&y>120);}ly=y;
+ if(band){const fr=foot.getBoundingClientRect().top;band.classList.toggle('on',y>420&&fr>innerHeight-40);}},{passive:true});
+const lad=document.getElementById('escalera');
+// Calendario en la misma pantalla: el botón del peldaño del Day abre la página de reservas bajo la escalera.
+// En la muestra (fuera de evolutionmakers.plus) no se carga el iframe: se enseña un aviso y el enlace.
+const enWeb=/(^|\.)evolutionmakers\.plus$/.test(location.hostname);
+const CFG=window.EMT_CFG||{cita:'',p:{},herramienta:''};
+// URL de la reserva: sin datos salvo que el empresario marque la casilla y haya un resultado suyo (el ejemplo no cuenta).
+function citaUrl(){const env=document.getElementById('cita-env'),msg=document.getElementById('cita-msg');let u=CFG.cita;
+ if(!env||!env.checked){if(msg)msg.textContent='';return u;}
+ let r=null;try{r=window.EMT.resumen?window.EMT.resumen():null;}catch(e){r=null;}
+ if(!r||(!r.enlace&&!r.soloResumen)){if(msg)msg.textContent='Todavía no hay un resultado tuyo que mandar (el ejemplo no cuenta). La reserva va sin datos.';return u;}
+ const q=[[CFG.p.herramienta,CFG.herramienta],[CFG.p.resumen,window.EMT.corta(r.resumen,200)]];
+ if(r.decidir)q.push([CFG.p.decidir,window.EMT.corta(r.decidir,280)]);
+ // El campo Enlace de la reserva admite 2.000 caracteres como máximo (prueba del 12/11). Si no cabe, no se manda y se avisa.
+ const largo=!!(r.enlace&&r.enlace.length>2000);if(r.enlace&&!largo)q.push([CFG.p.enlace,r.enlace]);
+ if(msg)msg.textContent='Se manda al reservar: '+CFG.herramienta+', tu resultado en una frase'+(r.decidir?', lo que tienes que decidir':'')+(r.enlace?(largo?'. Tu enlace es demasiado largo para la reserva: guárdalo con «Guardar mi enlace» y tráelo a la conversación.':' y tu enlace.'):'. Sin nombres ni respuestas de nadie: eso se queda en tu equipo.');
+ return u+(u.indexOf('?')<0?'?':'&')+q.map(x=>encodeURIComponent(x[0])+'='+encodeURIComponent(x[1])).join('&');}
+function citaSync(){const c=document.getElementById('cita');if(!c)return;const u=citaUrl(),fr=c.querySelector('iframe'),tab=document.getElementById('cita-tab');
+ if(tab)tab.href=u;if(fr){fr.dataset.src=u;if(fr.getAttribute('src')&&fr.getAttribute('src')!==u)fr.src=u;}}
+function cita(on){const c=document.getElementById('cita');if(!c)return;c.hidden=!on;
+ document.querySelectorAll('[data-cita]').forEach(b=>b.setAttribute('aria-expanded',on?'true':'false'));
+ if(!on)return;citaSync();const fr=c.querySelector('iframe'),ph=c.querySelector('.cita-ph');
+ if(enWeb&&fr&&!fr.getAttribute('src')){fr.src=fr.dataset.src;fr.hidden=false;if(ph)ph.hidden=true;}
+ c.scrollIntoView({behavior:'smooth',block:'start'});}
+const envB=document.getElementById('cita-env');if(envB)envB.addEventListener('change',citaSync);
+if(lad)lad.addEventListener('click',e=>{const t=e.target.closest('[data-cita]');if(t){e.preventDefault();cita(true);}
+ if(e.target.closest('[data-cita-off]'))cita(false);});
+window.EMT={
+ // rec: 'day' | 'club'; why: texto corto que explica la recomendación
+ recomienda(rec,why){if(!lad)return;lad.querySelectorAll('.step').forEach(s=>{const on=s.dataset.k===rec;s.classList.toggle('hl',on);
+   const a=s.querySelector('.act');if(!a||!a.dataset.btn)return;a.innerHTML=on?a.dataset.btn:a.dataset.lnk;});
+   const w=document.getElementById('esc-why');if(w&&why)w.textContent=why;
+   if(rec!=='day')cita(false);else citaSync();},
+ // Resumen para la reserva: cada herramienta lo sobrescribe con () => ({resumen, decidir, enlace}) o null si no hay resultado suyo.
+ resumen(){return null;},
+ // Una frase con el texto de «Copiar mi resultado»: sin la línea del título ni la de la dirección, unida con « · ».
+ frase(txt){const L=String(txt||'').split('\n').map(x=>x.trim()).filter(Boolean);if(L.length>2){L.shift();if(/^evolutionmakers\.plus\//.test(L[L.length-1]))L.pop();}
+   return this.corta(L.join(' · '),200);},
+ corta(t,n){t=String(t||'').replace(/\s+/g,' ').trim();if(t.length<=n)return t;const c=t.slice(0,n-1),k=c.lastIndexOf(' ');return (k>n*0.6?c.slice(0,k):c).replace(/[ ·,;:]+$/,'')+'…';},
+ // Enlace con el resultado: JSON en base64url (sin + / =), en «#r=». Lo que va detrás de # no llega a ningún servidor.
+ cod(o){const b=new TextEncoder().encode(JSON.stringify(o));let s='';for(let i=0;i<b.length;i+=8192)s+=String.fromCharCode.apply(null,b.subarray(i,i+8192));
+   return btoa(s).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');},
+ dec(c){try{if(!/^[A-Za-z0-9_-]+$/.test(c))return null;let s=c.replace(/-/g,'+').replace(/_/g,'/');while(s.length%4)s+='=';
+   const bin=atob(s),b=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)b[i]=bin.charCodeAt(i);return JSON.parse(new TextDecoder().decode(b));}catch(e){return null;}},
+ leeR(){const m=/^#r=([A-Za-z0-9_-]+)$/.exec(location.hash||'');return m?this.dec(m[1]):null;},
+ enlaceR(o){return location.href.split('#')[0]+'#r='+this.cod(o);},
+ // Botón «Guardar mi enlace»: get() devuelve los datos a guardar; ej() dice si es el ejemplo.
+ botonEnlace(get,ej,queEs){const b=document.getElementById('b-link'),o=document.getElementById('lk-ok');if(!b||!o)return;
+   b.onclick=()=>{const d=get();if(d==null)return;
+    if(ej()){o.style.color='var(--red)';o.textContent='Esto es el ejemplo. '+queEs+' para guardar tu enlace.';return;}
+    try{history.replaceState(null,'','#r='+this.cod(d));}catch(e){}
+    this.copiar(this.enlaceR(d),'lk-ok');setTimeout(()=>{if(o.textContent==='Copiado')o.textContent='Enlace copiado. Guárdalo en tus favoritos o mándatelo por correo.';},50);};},
+ // Al cambiar los datos, el enlace de la barra deja de valer: se quita.
+ limpiaR(){if(/^#r=/.test(location.hash||'')){try{history.replaceState(null,'',location.href.split('#')[0]);}catch(e){}}const o=document.getElementById('lk-ok');if(o)o.textContent='';},
+ copiar(txt,out){const o=document.getElementById(out);const ko=()=>{o.textContent='No se ha podido copiar: selecciona el texto del resultado';o.style.color='var(--red)';};
+   if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(()=>{o.textContent='Copiado';o.style.color='';},ko);}else ko();},
+ eur(n){return (Math.round(n)).toLocaleString('es-ES')+' €';},
+ correo(formId,inId,outId){const f=document.getElementById(formId);if(!f)return;f.addEventListener('submit',e=>{e.preventDefault();
+   const v=document.getElementById(inId).value.trim(),o=document.getElementById(outId);
+   if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)){o.textContent='Revisa el correo: falta la @ o el dominio.';o.style.color='var(--red)';return;}
+   o.style.color='';o.textContent='Muestra: en la web te llegaría a '+v+' en un minuto.';});}
+};
+})();
+</script>
+<script>
+(function(){
+const $=id=>document.getElementById(id);
+const E=n=>{const r=Math.round(n),a=Math.abs(r).toString().replace(/\B(?=(\d{3})+(?!\d))/g,'.');return (r<0?'− ':'')+a+' €';};
+function num(id){const s=$(id).value.trim().replace(/[€%\s]/g,'');if(s==='')return null;
+ const t=s.replace(/\.(?=\d{3}(\D|$))/g,'').replace(',','.');const n=parseFloat(t);return isNaN(n)?NaN:n;}
+let R=null,ejemplo=false,deLink=false,RD=null;
+const K=['v','c','dc','dp','sc','sp','e','i'],KI=['i-v','i-c','i-dc','i-dp','i-sc','i-sp','i-e','i-i'];
+function calcula(d){
+ const V=d.v,C=d.c;let dc=d.dc,dp=d.dp;
+ if(d.sc!=null&&V>0)dc=d.sc/V*365; if(d.sp!=null&&C>0)dp=d.sp/C*365;
+ const ex=d.e||0, de=C>0?ex/C*365:0, ciclo=de+dc-dp;
+ const cli=V*dc/365, pro=C*dp/365, caja=cli+ex-pro, mes=V/12, meses=caja/mes;
+ const mas30=V*30/365, menos15=V*15/365, coste=d.i!=null?caja*d.i/100:null;
+ return {V,C,dc,dp,de,ex,ciclo,cli,pro,caja,mes,meses,mas30,menos15,coste,i:d.i};}
+function resultado(d){
+ const r=calcula(d);R=r;RD=K.map(k=>d[k]==null||isNaN(d[k])?null:d[k]);
+ $('v-q').hidden=true;$('v-r').hidden=false;$('r-ej').hidden=!ejemplo;$('r-lk').hidden=!deLink||ejemplo;
+ const rd=x=>Math.round(x);
+ $('r-big').textContent=E(Math.max(r.caja,0));
+ $('r-mes').textContent=r.caja>0?'Son '+r.meses.toLocaleString('es-ES',{maximumFractionDigits:1})+' meses de tus ventas, parados entre facturas y almacén.':'Tus proveedores te financian más de lo que tú financias a tus clientes.';
+ let chip,txt,ver;
+ if(r.caja<=0){ver='Tus proveedores te financian';chip='<span class="chip g">Bien</span>';txt='Cobras antes de lo que pagas. Cuida esa ventaja y cumple con tus proveedores: más de 60 días no se puede pactar.';}
+ else if(r.caja<=r.mes){ver='Tienes la caja bajo control';chip='<span class="chip a">Atención</span>';txt='Tienes parado menos de un mes de ventas. Cada día que ganes en cobro es dinero que vuelve a tu cuenta.';}
+ else{ver='Estás financiando a tus clientes';chip='<span class="chip r">Prioridad</span>';txt='Tienes parado más de un mes de ventas. Ese dinero lo pones tú o lo pone el banco, y lo pagas.';}
+ $('r-b').innerHTML=ver+' '+chip;$('r-t').textContent=txt;
+ let kv='<dt>Días que tardas en cobrar</dt><dd>'+rd(r.dc)+' días</dd>'+
+  '<dt>Días que tardas en pagar</dt><dd>'+rd(r.dp)+' días</dd>'+
+  (r.ex>0?'<dt>Días de existencias</dt><dd>'+rd(r.de)+' días</dd>':'')+
+  '<dt>Ciclo de caja (días que tu dinero está fuera)</dt><dd>'+rd(r.ciclo)+' días</dd>'+
+  '<dt class="tot">Te deben tus clientes</dt><dd class="tot">'+E(r.cli)+'</dd>'+
+  (r.ex>0?'<dt>Tienes en almacén</dt><dd>'+E(r.ex)+'</dd>':'')+
+  '<dt>Debes a tus proveedores</dt><dd>− '+E(r.pro)+'</dd>'+
+  '<dt class="tot"><b>Caja atrapada</b></dt><dd class="tot">'+E(r.caja)+'</dd>'+
+  (r.coste!=null?'<dt>Te cuesta al año, al '+r.i.toLocaleString('es-ES')+' %</dt><dd>'+E(Math.max(r.coste,0))+'</dd>':'<dt>Coste al año</dt><dd style="font-weight:400;color:var(--soft)">pon tu tipo para verlo</dd>');
+ $('r-kv').innerHTML=kv;
+ $('r-scn').innerHTML='<div><span>¿Y si te pagan 30 días más tarde?</span><b>+ '+E(r.mas30)+'</b><span>más de caja atrapada'+(r.i!=null?', '+E(r.mas30*r.i/100)+' más al año de intereses':'')+'.</span></div>'+
+  '<div><span>¿Y si cobras 15 días antes?</span><b>'+E(r.menos15)+'</b><span>vuelven a tu cuenta'+(r.i!=null?' y te ahorras '+E(r.menos15*r.i/100)+' al año':'')+'.</span></div>';
+ const ref='La media de las pymes españolas fue de 78,3 días a finales de 2025 (CEPYME).';
+ $('r-leg').innerHTML=r.dc>60?'<b>Cobras a '+rd(r.dc)+' días.</b> La ley no permite pactar más de 60 días entre empresas (Ley 3/2004, art. 4). Lo que pase de ahí es retraso que puedes reclamar. '+ref
+  :'<b>Cobras a '+rd(r.dc)+' días,</b> dentro del máximo legal de 60 días entre empresas (Ley 3/2004, art. 4). '+ref;
+ let p;
+ if(r.dc>60)p=['Lista tus diez clientes más grandes con los días reales que tardan en pagarte','Revisa sus condiciones: a los que pasen de 60 días, pásales a 60 o menos en la próxima factura y por escrito','Factura el mismo día que entregas y llama a cada factura vencida el día siguiente, no al mes'];
+ else if(r.de>30)p=['Lista lo que lleva más de 90 días en el almacén','Decide qué liquidas y qué dejas de comprar','Ajusta las compras del próximo mes a lo que vendes, no a lo que compras siempre'];
+ else if(r.dp<30&&r.C>0)p=['Mira con qué proveedores pagas antes de lo pactado','Paga en la fecha pactada, ni antes ni después','Pide a tus tres proveedores principales pasar a 60 días, que es lo máximo legal'];
+ else p=['Factura el mismo día que entregas, no a final de mes','Pide un anticipo al empezar cada proyecto','Llama a cada factura vencida el día siguiente y anota cuándo te dicen que pagan'];
+ const ahorro=E(r.menos15);
+ const ejf=/^Factura el mismo día/.test(p[0])?' Por ejemplo, una agencia de eventos con la que trabajamos cobra el 50 % al firmar y el 50 % al terminar. Busca el reparto que encaje con tus clientes.':'';
+ $('r-s').innerHTML='<b>Tu primer paso:</b> '+p[0]+'.'+ejf+' Ponle fecha esta semana. Cada 15 días que adelantes el cobro son '+ahorro+' que vuelven a tu cuenta.';
+ $('r-p').innerHTML='<li><b>Semana 1:</b> '+p[0]+'.</li><li><b>Semanas 2 y 3:</b> '+p[1]+'.</li><li><b>Semana 4:</b> '+p[2]+'.</li>';
+ if(r.caja>r.mes)EMT.recomienda('day','Tienes '+E(r.caja)+' parados, más de un mes de ventas ('+E(r.mes)+'). Perseguir facturas ayuda, pero el hueco se cierra tocando condiciones, contratos y financiación. Te marcamos tu Evolution Day.');
+ else EMT.recomienda('club','Tienes parado menos de un mes de ventas. Lo que toca es vigilarlo cada mes y ganar días de cobro. Te marcamos la versión ampliada, en Evolution Club, con la previsión de 13 semanas y el seguimiento mensual.');
+}
+$('f-c').addEventListener('submit',e=>{e.preventDefault();ejemplo=false;deLink=false;EMT.limpiaR();
+ const d={v:num('i-v'),c:num('i-c'),dc:num('i-dc'),dp:num('i-dp'),sc:num('i-sc'),sp:num('i-sp'),e:num('i-e'),i:num('i-i')};
+ const err=$('c-err');err.textContent='';
+ if(!(d.v>0)){err.textContent='Pon tus ventas del año, en euros.';$('i-v').focus();return;}
+ if(d.c==null||isNaN(d.c)||d.c<0){err.textContent='Pon tus compras del año. Si no compras nada, pon 0.';$('i-c').focus();return;}
+ if(d.sc==null&&!(d.dc>=0)){err.textContent='Pon los días que tardas en cobrar, o lo que te deben tus clientes.';$('i-dc').focus();return;}
+ if(d.sp==null&&!(d.dp>=0)){d.dp=0;}
+ ['sc','sp','e','i'].forEach(k=>{if(isNaN(d[k]))d[k]=null;});
+ resultado(d);});
+$('b-ej').onclick=()=>{ejemplo=true;deLink=false;EMT.limpiaR();
+ const v={'i-v':'3.000.000','i-c':'900.000','i-dc':'75','i-dp':'45','i-e':'0','i-i':'6','i-sc':'','i-sp':''};Object.keys(v).forEach(k=>$(k).value=v[k]);
+ resultado({v:3000000,c:900000,dc:75,dp:45,sc:null,sp:null,e:0,i:6});};
+$('b-again').onclick=()=>{ejemplo=false;$('v-r').hidden=true;$('v-q').hidden=false;$('copy-ok').textContent='';$('i-v').focus();};
+const txtCopia=()=>{const r=R;return 'Cobro y pago · Evolution Toolkit\nCaja atrapada: '+E(r.caja)+' ('+r.meses.toLocaleString('es-ES',{maximumFractionDigits:1})+' meses de ventas)\nCobro: '+Math.round(r.dc)+' días · Pago: '+Math.round(r.dp)+' días · Ciclo de caja: '+Math.round(r.ciclo)+' días\nSi me pagan 30 días más tarde: +'+E(r.mas30)+'\nSi cobro 15 días antes: '+E(r.menos15)+' vuelven a caja\ntoolkit.evolutionmakers.plus/cobro-y-pago';};
+$('b-copy').onclick=()=>{if(!R)return;EMT.copiar(txtCopia(),'copy-ok');};
+// ---------- Enlace con el resultado: tus ocho casillas, en orden (null si la dejaste vacía)
+const estado=()=>R&&RD?RD:null;
+const enlace=()=>EMT.enlaceR(estado());
+EMT.botonEnlace(estado,()=>ejemplo,'Pon tus números');
+EMT.resumen=()=>(!R||ejemplo)?null:{resumen:EMT.frase(txtCopia()),decidir:'',enlace:enlace()};
+const H=EMT.leeR();
+if(Array.isArray(H)&&H.length===K.length&&H.every(x=>x===null||typeof x==='number')&&H[0]>0){
+ const d={};K.forEach((k,j)=>{d[k]=H[j];$(KI[j]).value=H[j]==null?'':String(H[j]).replace('.',',');});
+ deLink=true;resultado(d);const hz=$('herramienta');if(hz)setTimeout(()=>hz.scrollIntoView({block:'start'}),60);}
+EMT.correo('f-mail','m-in','m-ok');
+})();
+</script>

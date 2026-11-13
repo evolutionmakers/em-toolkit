@@ -143,7 +143,7 @@ tr:last-child td{border-bottom:0}
 td.n{white-space:nowrap;font:600 15px var(--head);color:var(--ink);font-variant-numeric:tabular-nums}
 td.y{background:var(--ysoft)}
 .yes{color:var(--green);font:700 16px var(--head)}.no{color:var(--soft)}
-.formula{font:500 14.5px/1.7 ui-monospace,Menlo,Consolas,monospace;background:var(--white);border:1px solid var(--line);border-radius:16px;padding:14px 16px;overflow-x:auto;white-space:pre;color:var(--ink);margin:8px 0 18px}
+.formula{width:100%;min-width:0;border-collapse:separate;border-spacing:0;background:var(--white);border:1px solid var(--line);border-radius:16px;margin:8px 0 18px;font:300 16px/1.5 var(--body);color:var(--text)}.formula th,.formula td{padding:10px 16px;text-align:left;vertical-align:top}.formula th{font:600 15px/1.5 var(--head);color:var(--ink);background:none;text-transform:none;letter-spacing:0;width:32%}.formula tr+tr th,.formula tr+tr td{border-top:1px solid var(--line)}.formula tr.sep th,.formula tr.sep td{border-top:2px solid var(--line)}@media(max-width:600px){.formula th,.formula td{display:block;width:auto}.formula th{padding-bottom:0}.formula td{padding-top:2px}.formula tr+tr td{border-top:0}}
 .steps3{list-style:none;margin:18px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
 @media(max-width:760px){.steps3{grid-template-columns:minmax(0,1fr)}}
 .steps3 .n{font:400 30px/1 var(--display);color:var(--ink)}
@@ -388,17 +388,7 @@ footer.f .flogo{flex-basis:100%}.f .flogo svg{height:16px}
 </div></section>
 <section class="s" id="como"><div class="wrap"><h2>Cómo funciona</h2><ol class="steps3"><li><span class="n">1</span><h3>Contesta sí, no o «No lo sé»</h3><p>Diez preguntas, una a una, pensando en dos trimestres malos seguidos. Si no lo sabes, dilo: cuenta como no, y es información.</p></li><li><span class="n">2</span><h3>Mira tus noes, no tus síes</h3><p>Te los ordenamos por el daño que te pueden hacer. Los dos primeros salen como tareas para este mes, con responsable y fecha. Si hay un no en el banco, empiezas por ahí.</p></li><li><span class="n">3</span><h3>Pásaselo a tu equipo</h3><p>Crea una invitación y mándala. Cada uno contesta por su cuenta y te devuelve su enlace. En el mapa ves dónde coincidís y dónde no: ahí hay algo que no estás viendo.</p></li></ol></div></section>
 <section class="s" id="calculo"><div class="wrap"><h2>Cómo se calcula</h2><p class="x-p">Cada pregunta se contesta con sí, no o «No lo sé». <b>«No lo sé» cuenta como no</b>: en un trimestre malo, lo que no sabes no lo puedes usar. Se miran los noes, no los síes, y no todos pesan igual.</p>
-<div class="formula">Cada respuesta     Sí = 0 · No = su peso · No lo sé = su peso
-Pesos              Cliente grande 3 · Póliza de crédito 3
-                   Cobrar un mes más tarde 2 · Recortar un 15 % 2
-                   Persona imprescindible 2 · el resto 1
-Daño posible       suma de los pesos de tus noes   → de 0 a 17
-Orden de los noes  1.º la póliza, si es un no
-                   2.º por peso, de más a menos
-                   3.º si empatan, el orden de las preguntas
-Tus dos tareas     los dos primeros noes de esa lista
-Recomendación      no al cliente grande y a la póliza a la vez, o 5 noes o más
-                   → tu Evolution Day; si no, Evolution Club</div>
+<table class="formula"><tbody><tr><th scope="row">Cada respuesta</th><td>Sí = 0 · No = su peso · No lo sé = su peso</td></tr><tr><th scope="row">Pesos</th><td>Cliente grande: 3 · Póliza de crédito: 3<br>Cobrar un mes más tarde: 2 · Recortar un 15&nbsp;%: 2<br>Persona imprescindible: 2 · El resto: 1</td></tr><tr><th scope="row">Daño posible</th><td>suma de los pesos de tus noes → de 0 a 17</td></tr><tr><th scope="row">Orden de los noes</th><td>1.º la póliza, si es un no<br>2.º por peso, de más a menos<br>3.º si empatan, el orden de las preguntas</td></tr><tr><th scope="row">Tus dos tareas</th><td>los dos primeros noes de esa lista</td></tr><tr><th scope="row">Recomendación</th><td>no al cliente grande y a la póliza a la vez, o 5 noes o más<br>→ tu Evolution Day; si no, Evolution Club</td></tr></tbody></table>
 <div class="tw"><table><thead><tr><th>Pregunta</th><th>Bloque</th><th>Peso</th></tr></thead><tbody>
 <tr><td>1. Cliente grande</td><td>Clientes</td><td class="n">3</td></tr><tr><td>2. Lo que te deben</td><td>Clientes</td><td class="n">1</td></tr><tr><td>3. Cobrar un mes más tarde</td><td>Clientes</td><td class="n">2</td></tr><tr><td>4. Lo que debes</td><td>Deuda</td><td class="n">1</td></tr><tr><td>5. Póliza de crédito</td><td>Deuda</td><td class="n">3</td></tr><tr><td>6. Costes fijos y variables</td><td>Costes</td><td class="n">1</td></tr><tr><td>7. Recortar un 15 %</td><td>Costes</td><td class="n">2</td></tr><tr><td>8. Persona imprescindible</td><td>Personas</td><td class="n">2</td></tr><tr><td>9. El equipo ve los números</td><td>Personas</td><td class="n">1</td></tr><tr><td>10. Número semanal de alerta</td><td>Alerta</td><td class="n">1</td></tr>
 </tbody></table></div>
@@ -411,12 +401,7 @@ Recomendación      no al cliente grande y a la póliza a la vez, o 5 noes o má
 </tbody></table></div>
 <p class="x-p"><b>Qué te recomendamos después</b> <span class="sup">Supuesto</span>. Te marcamos tu Evolution Day si dices no al cliente grande y a la póliza a la vez, o si tienes cinco noes o más. Lo primero es el peor trimestre posible: se va el cliente y el banco no renueva a la vez, y te quedas sin ingresos y sin colchón. Con cinco noes, la mitad del test, los frentes se cruzan y lo que arreglas en la caja mueve los costes y el equipo. Eso se ordena mejor en un día entero con tus números. Con menos, tus dos tareas y repetir el test cada trimestre te bastan, y te marcamos la versión ampliada en Evolution Club. Es criterio de Evolution Makers.</p>
 <h3 class="qe-h">El modo equipo</h3>
-<div class="formula" style="margin-top:10px">Acuerdo por pregunta   personas con la respuesta más repetida ÷ personas
-Discrepancia           no todos contestáis lo mismo
-                       (aquí «No lo sé» cuenta como respuesta distinta de «No»)
-Orden                  1.º menos acuerdo  2.º más peso  3.º orden de las preguntas
-Respuesta del equipo   la de la mayoría; si empatan, cuenta como no
-Recomendación          la misma regla, con las respuestas del equipo</div>
+<table class="formula" style="margin-top:10px"><tbody><tr><th scope="row">Acuerdo por pregunta</th><td>personas con la respuesta más repetida ÷ personas</td></tr><tr><th scope="row">Discrepancia</th><td>no todos contestáis lo mismo<br>(aquí «No lo sé» cuenta como respuesta distinta de «No»)</td></tr><tr><th scope="row">Orden</th><td>1.º menos acuerdo · 2.º más peso · 3.º orden de las preguntas</td></tr><tr><th scope="row">Respuesta del equipo</th><td>la de la mayoría; si empatan, cuenta como no</td></tr><tr><th scope="row">Recomendación</th><td>la misma regla, con las respuestas del equipo</td></tr></tbody></table>
 <p class="x-p">En el modo equipo, «No lo sé» se separa de «No» al buscar discrepancias, porque quien no lo sabe también te está diciendo algo: que esa información no le llega. Para la respuesta del equipo y la recomendación vuelve a contar como no. Si hay empate entre sí y no, cuenta como no: si la mitad de tu equipo no lo ve, no lo tenéis. <span class="sup">Supuesto</span></p></div></section>
 <section class="s" id="base"><div class="wrap"><h2>En qué se basa</h2><p class="x-p">El test recoge el testigo del episodio de Evolution Insights del 6 de mayo de 2026, «Test de resistencia: ¿aguantaría tu empresa dos trimestres malos?». Revisado el 10/11/2026.</p>
 <div class="src">

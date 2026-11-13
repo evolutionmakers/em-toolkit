@@ -143,7 +143,7 @@ tr:last-child td{border-bottom:0}
 td.n{white-space:nowrap;font:600 15px var(--head);color:var(--ink);font-variant-numeric:tabular-nums}
 td.y{background:var(--ysoft)}
 .yes{color:var(--green);font:700 16px var(--head)}.no{color:var(--soft)}
-.formula{font:500 14.5px/1.7 ui-monospace,Menlo,Consolas,monospace;background:var(--white);border:1px solid var(--line);border-radius:16px;padding:14px 16px;overflow-x:auto;white-space:pre;color:var(--ink);margin:8px 0 18px}
+.formula{width:100%;min-width:0;border-collapse:separate;border-spacing:0;background:var(--white);border:1px solid var(--line);border-radius:16px;margin:8px 0 18px;font:300 16px/1.5 var(--body);color:var(--text)}.formula th,.formula td{padding:10px 16px;text-align:left;vertical-align:top}.formula th{font:600 15px/1.5 var(--head);color:var(--ink);background:none;text-transform:none;letter-spacing:0;width:32%}.formula tr+tr th,.formula tr+tr td{border-top:1px solid var(--line)}.formula tr.sep th,.formula tr.sep td{border-top:2px solid var(--line)}@media(max-width:600px){.formula th,.formula td{display:block;width:auto}.formula th{padding-bottom:0}.formula td{padding-top:2px}.formula tr+tr td{border-top:0}}
 .steps3{list-style:none;margin:18px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
 @media(max-width:760px){.steps3{grid-template-columns:minmax(0,1fr)}}
 .steps3 .n{font:400 30px/1 var(--display);color:var(--ink)}
@@ -359,24 +359,9 @@ footer.f .flogo{flex-basis:100%}.f .flogo svg{height:16px}
 </div></section>
 <section class="s" id="como"><div class="wrap"><h2>Cómo funciona</h2><ol class="steps3"><li><span class="n">1</span><h3>Busca una tarde</h3><p>Móvil apagado y los números del año a mano: lo que te ha dejado cada línea y las horas que le has dedicado tú.</p></li><li><span class="n">2</span><h3>Contesta cuatro preguntas</h3><p>Qué te da de comer y qué te come, el cliente que no repites, la tarea que sueltas y el número que mirarás cada mes.</p></li><li><span class="n">3</span><h3>Ponlo en el calendario</h3><p>Descarga tu folio en PDF y añade la cita a tu agenda, con fecha y hora, como una reunión con tu mejor cliente.</p></li></ol></div></section>
 <section class="s" id="calculo"><div class="wrap"><h2>Cómo se calcula</h2><p class="x-p">La herramienta hace tres cuentas y deduce una acción para enero por cada pregunta. Lo demás son tus palabras.</p>
-<div class="formula">Margen por hora tuya   margen de la línea ÷ horas tuyas al año en esa línea
-Te da de comer         la línea con más margen por hora tuya
-Te come                la línea con menos margen por hora tuya (o la que pierde dinero)
-Parte de tus horas     horas de la línea ÷ total de tus horas en las líneas
-Parte del margen       margen de la línea ÷ margen total de las líneas
-Horas que recuperas    horas a la semana × 45 semanas × meses que quedan de 2027 ÷ 12
-En euros (si lo hay)   horas que recuperas × coste por hora de «El margen de verdad»
-Recomendación          alguna línea con margen negativo, o la que te come
-                       se lleva más del 30 % de tus horas y deja menos del 10 % del margen
-                         → tu Evolution Day
-                       si no → versión ampliada, en Evolution Club</div>
+<table class="formula"><tbody><tr><th scope="row">Margen por hora tuya</th><td>margen de la línea ÷ horas tuyas al año en esa línea</td></tr><tr><th scope="row">Te da de comer</th><td>la línea con más margen por hora tuya</td></tr><tr><th scope="row">Te come</th><td>la línea con menos margen por hora tuya (o la que pierde dinero)</td></tr><tr><th scope="row">Parte de tus horas</th><td>horas de la línea ÷ total de tus horas en las líneas</td></tr><tr><th scope="row">Parte del margen</th><td>margen de la línea ÷ margen total de las líneas</td></tr><tr><th scope="row">Horas que recuperas</th><td>horas a la semana × 45 semanas × meses que quedan de 2027 ÷ 12</td></tr><tr><th scope="row">En euros (si lo hay)</th><td>horas que recuperas × coste por hora de «El margen de verdad»</td></tr><tr><th scope="row">Recomendación</th><td>alguna línea con margen negativo, o la que te come<br>se lleva más del 30 % de tus horas y deja menos del 10 % del margen<br>→ tu Evolution Day<br>si no → versión ampliada, en Evolution Club</td></tr></tbody></table>
 <p class="x-p"><b>La franja de tu número.</b> Tu objetivo marca un camino en línea recta desde hoy hasta diciembre de 2027. Cada vez que miras tu número, lo comparas con la marca de ese mes. Te quedas atrás cuando el número va hacia el lado malo: más días de cobro, menos margen.</p>
-<div class="formula">Camino total          |objetivo − hoy|   (si son iguales: 10 % del objetivo)
-Marca del mes         hoy + (objetivo − hoy) × meses ÷ 12
-Retraso               distancia a la marca hacia el lado malo ÷ camino total
-Verde                 vas al ritmo o por delante, o el retraso es menor del 10 %
-Ámbar                 retraso entre el 10 % y el 25 %
-Rojo                  retraso de más del 25 %</div>
+<table class="formula"><tbody><tr><th scope="row">Camino total</th><td>|objetivo − hoy| (si son iguales: 10 % del objetivo)</td></tr><tr><th scope="row">Marca del mes</th><td>hoy + (objetivo − hoy) × meses ÷ 12</td></tr><tr><th scope="row">Retraso</th><td>distancia a la marca hacia el lado malo ÷ camino total</td></tr><tr><th scope="row">Verde</th><td>vas al ritmo o por delante, o el retraso es menor del 10 %</td></tr><tr><th scope="row">Ámbar</th><td>retraso entre el 10 % y el 25 %</td></tr><tr><th scope="row">Rojo</th><td>retraso de más del 25 %</td></tr></tbody></table>
 <p class="note">Los cortes del 10 % y el 25 % son criterio de Evolution Makers <span class="sup">Supuesto</span>: un 10 % del camino es el margen de un mes normal con altibajos; pasar del 25 % es ir un trimestre por detrás. Ejemplo: de 75 a 60 días de cobro, el camino es de 15 días. En marzo la marca es 71,25: verde hasta 72,8 días, ámbar hasta 75 y rojo por encima.</p>
 <p class="x-p"><b>Por qué horas al año y no porcentaje de tu tiempo.</b> Con horas, el margen por hora sale en euros y lo puedes comparar con lo que cuesta una hora de tu equipo. Si solo sabes el porcentaje, multiplícalo por tus horas de trabajo al año: con 45 horas a la semana, unas 2.000.</p>
 <div class="tw"><table><thead><tr><th>Semanas de trabajo al año</th><th>Semanas</th><th>De dónde sale</th></tr></thead><tbody>

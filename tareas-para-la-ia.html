@@ -143,7 +143,7 @@ tr:last-child td{border-bottom:0}
 td.n{white-space:nowrap;font:600 15px var(--head);color:var(--ink);font-variant-numeric:tabular-nums}
 td.y{background:var(--ysoft)}
 .yes{color:var(--green);font:700 16px var(--head)}.no{color:var(--soft)}
-.formula{font:500 14.5px/1.7 ui-monospace,Menlo,Consolas,monospace;background:var(--white);border:1px solid var(--line);border-radius:16px;padding:14px 16px;overflow-x:auto;white-space:pre;color:var(--ink);margin:8px 0 18px}
+.formula{width:100%;min-width:0;border-collapse:separate;border-spacing:0;background:var(--white);border:1px solid var(--line);border-radius:16px;margin:8px 0 18px;font:300 16px/1.5 var(--body);color:var(--text)}.formula th,.formula td{padding:10px 16px;text-align:left;vertical-align:top}.formula th{font:600 15px/1.5 var(--head);color:var(--ink);background:none;text-transform:none;letter-spacing:0;width:32%}.formula tr+tr th,.formula tr+tr td{border-top:1px solid var(--line)}.formula tr.sep th,.formula tr.sep td{border-top:2px solid var(--line)}@media(max-width:600px){.formula th,.formula td{display:block;width:auto}.formula th{padding-bottom:0}.formula td{padding-top:2px}.formula tr+tr td{border-top:0}}
 .steps3{list-style:none;margin:18px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
 @media(max-width:760px){.steps3{grid-template-columns:minmax(0,1fr)}}
 .steps3 .n{font:400 30px/1 var(--display);color:var(--ink)}
@@ -318,13 +318,7 @@ footer.f .flogo{flex-basis:100%}.f .flogo svg{height:16px}
 </div></section>
 <section class="s" id="como"><div class="wrap"><h2>Cómo funciona</h2><ol class="steps3"><li><span class="n">1</span><h3>Apunta lo que se repite</h3><p>Piensa en una semana normal. Apunta las tareas que alguien hace muchas veces: pasar datos, contestar lo de siempre, preparar el mismo informe.</p></li><li><span class="n">2</span><h3>Contesta tres preguntas por tarea</h3><p>Cada pregunta trae un ejemplo de tarea que sí y otra que no. Con tus tres respuestas, la tarea sale en verde, ámbar o rojo.</p></li><li><span class="n">3</span><h3>Empieza por una verde</h3><p>Elige la que más euros recupera, mide una semana cuánto tarda y pruébala tres semanas con la IA. Luego compara.</p></li></ol></div></section>
 <section class="s" id="calculo"><div class="wrap"><h2>Cómo se calcula</h2><p class="x-p">Cada tarea pasa por las tres preguntas y sale con un color. Solo las verdes cuentan para el ahorro. Las ámbar te dicen cuántas horas más podrías sumar si ordenas el proceso.</p>
-<div class="formula">Color         Rojo   si la 2 o la 3 es «No» (no es texto ni datos, o un error hace daño)
-              Ámbar  si la 2 y la 3 son «Sí» y la 1 es «No» (cada vez se hace distinto)
-              Verde  si las tres son «Sí»
-Horas al año  veces por semana × minutos ÷ 60 × 45 semanas
-Recuperas     horas al año × 25 %          (solo verdes)
-Euros         horas que recuperas × coste por hora de quien la hace
-Coste/hora    coste anual de la persona ÷ horas productivas al año</div>
+<table class="formula"><tbody><tr><th scope="row">Color</th><td>Rojo si la 2 o la 3 es «No» (no es texto ni datos, o un error hace daño)<br>Ámbar si la 2 y la 3 son «Sí» y la 1 es «No» (cada vez se hace distinto)<br>Verde si las tres son «Sí»</td></tr><tr><th scope="row">Horas al año</th><td>veces por semana × minutos ÷ 60 × 45 semanas</td></tr><tr><th scope="row">Recuperas</th><td>horas al año × 25 % (solo verdes)</td></tr><tr><th scope="row">Euros</th><td>horas que recuperas × coste por hora de quien la hace</td></tr><tr><th scope="row">Coste/hora</th><td>coste anual de la persona ÷ horas productivas al año</td></tr></tbody></table>
 <div class="tw"><table><thead><tr><th>Dato</th><th>Valor</th><th>De dónde sale</th></tr></thead><tbody>
 <tr><td>Semanas de trabajo al año</td><td class="n">45</td><td>52 semanas menos las vacaciones (30 días naturales, el mínimo del artículo 38 del Estatuto de los Trabajadores, unos 22 laborables) y los festivos (14, el máximo del artículo 37). Salen 44,8; redondeamos a 45.</td></tr>
 <tr><td>Horas productivas al año</td><td class="n">1.550</td><td>Las horas que de verdad trabaja una persona en España: 3.388,15 € de coste al mes ÷ 26,18 € por hora efectiva = 129 horas al mes, unas 1.550 al año. Es la misma cifra de «El margen de verdad»: si ya calculaste allí tu coste por hora en este navegador, traemos el de una persona (su coste anual entre sus horas al año). Si tú sabes tus horas, ponlas.</td></tr>

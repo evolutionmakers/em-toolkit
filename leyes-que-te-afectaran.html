@@ -143,7 +143,7 @@ tr:last-child td{border-bottom:0}
 td.n{white-space:nowrap;font:600 15px var(--head);color:var(--ink);font-variant-numeric:tabular-nums}
 td.y{background:var(--ysoft)}
 .yes{color:var(--green);font:700 16px var(--head)}.no{color:var(--soft)}
-.formula{font:500 14.5px/1.7 ui-monospace,Menlo,Consolas,monospace;background:var(--white);border:1px solid var(--line);border-radius:16px;padding:14px 16px;overflow-x:auto;white-space:pre;color:var(--ink);margin:8px 0 18px}
+.formula{width:100%;min-width:0;border-collapse:separate;border-spacing:0;background:var(--white);border:1px solid var(--line);border-radius:16px;margin:8px 0 18px;font:300 16px/1.5 var(--body);color:var(--text)}.formula th,.formula td{padding:10px 16px;text-align:left;vertical-align:top}.formula th{font:600 15px/1.5 var(--head);color:var(--ink);background:none;text-transform:none;letter-spacing:0;width:32%}.formula tr+tr th,.formula tr+tr td{border-top:1px solid var(--line)}.formula tr.sep th,.formula tr.sep td{border-top:2px solid var(--line)}@media(max-width:600px){.formula th,.formula td{display:block;width:auto}.formula th{padding-bottom:0}.formula td{padding-top:2px}.formula tr+tr td{border-top:0}}
 .steps3{list-style:none;margin:18px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
 @media(max-width:760px){.steps3{grid-template-columns:minmax(0,1fr)}}
 .steps3 .n{font:400 30px/1 var(--display);color:var(--ink)}
@@ -276,14 +276,7 @@ footer.f .flogo{flex-basis:100%}.f .flogo svg{height:16px}
 </div></section>
 <section class="s" id="como"><div class="wrap"><h2>Cómo funciona</h2><ol class="steps3"><li><span class="n">1</span><h3>Contesta lo que pasa hoy</h3><p>Si no sabes algo, di «no sé». Es una respuesta útil: te dice qué tienes que preguntar primero.</p></li><li><span class="n">2</span><h3>Mira los tres bloques</h3><p>Lo seguro, con su fecha y su enlace al BOE. Lo que está en el aire, con su estado. Y lo que conviene hacer ya, por orden.</p></li><li><span class="n">3</span><h3>Haz una sola cosa esta semana</h3><p>Empieza por el primer paso, ponle fecha y vuelve a hacer el chequeo antes de la próxima fecha límite.</p></li></ol></div></section>
 <section class="s" id="calculo"><div class="wrap"><h2>Cómo se calcula</h2><p class="x-p">Son diez preguntas como máximo. Cuatro dicen qué te aplica (si eres sociedad, si pasas de 8 millones, si tienes plantilla y si usas IA). Las otras seis dicen si ya lo tienes resuelto. Una es Verifactu, el sistema de Hacienda que obliga a que cada factura quede registrada y no se pueda borrar. Si no tienes plantilla o no usas IA, te saltamos las preguntas que no te tocan.</p>
-<div class="formula">Cada obligación      Al día (sí) · Pendiente (no) · Sin comprobar (no sé)
-Factura electrónica  y registro digital: «no» → Aún no te obliga; prepáralo
-No cumple            «no» en Verifactu o en el registro diario de jornada
-Preparación (%)      obligaciones al día ÷ obligaciones que te aplican × 100
-Fecha de Verifactu   sociedad → 1/1/2027 · resto → 1/7/2027 · «no sé» → 1/1/2027
-Factura electrónica  más de 8 M€ → 6/10/2027 · resto → 6/10/2028 · «no sé» → 6/10/2027
-Días que faltan      fecha límite más cercana de lo pendiente − hoy
-Riesgo en euros      50.000 € por ejercicio si llega la fecha de Verifactu con un programa sin adaptar</div>
+<table class="formula"><tbody><tr><th scope="row">Cada obligación</th><td>Al día (sí) · Pendiente (no) · Sin comprobar (no sé)</td></tr><tr><th scope="row">Factura electrónica y registro digital</th><td>«no» → Aún no te obliga; prepáralo</td></tr><tr><th scope="row">No cumple</th><td>«no» en Verifactu o en el registro diario de jornada</td></tr><tr><th scope="row">Preparación (%)</th><td>obligaciones al día ÷ obligaciones que te aplican × 100</td></tr><tr><th scope="row">Fecha de Verifactu</th><td>sociedad → 1/1/2027 · resto → 1/7/2027 · «no sé» → 1/1/2027</td></tr><tr><th scope="row">Factura electrónica</th><td>más de 8 M€ → 6/10/2027 · resto → 6/10/2028 · «no sé» → 6/10/2027</td></tr><tr><th scope="row">Días que faltan</th><td>fecha límite más cercana de lo pendiente − hoy</td></tr><tr><th scope="row">Riesgo en euros</th><td>50.000 € por ejercicio si llega la fecha de Verifactu con un programa sin adaptar</td></tr></tbody></table>
 <div class="tw"><table><thead><tr><th>Si te sale</th><th>Te marcamos</th><th>Por qué</th></tr></thead><tbody>
 <tr><td>Tu programa de facturación no cumple Verifactu o no registras la jornada cada día (un «no» en la pregunta de Verifactu o en la del registro diario de jornada)</td><td class="n">Tu Evolution Day</td><td>Cambiar de programa sin decidir antes cómo facturas y quién ficha suele salir caro. Primero se decide eso y luego se elige herramienta.</td></tr>
 <tr><td>Tres o más «no sé»</td><td class="n">Tu Evolution Day</td><td>Si no sabes dónde estás en tres obligaciones, el primer trabajo es averiguarlo con tus datos delante.</td></tr>

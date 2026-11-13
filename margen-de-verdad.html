@@ -143,7 +143,7 @@ tr:last-child td{border-bottom:0}
 td.n{white-space:nowrap;font:600 15px var(--head);color:var(--ink);font-variant-numeric:tabular-nums}
 td.y{background:var(--ysoft)}
 .yes{color:var(--green);font:700 16px var(--head)}.no{color:var(--soft)}
-.formula{font:500 14.5px/1.7 ui-monospace,Menlo,Consolas,monospace;background:var(--white);border:1px solid var(--line);border-radius:16px;padding:14px 16px;overflow-x:auto;white-space:pre;color:var(--ink);margin:8px 0 18px}
+.formula{width:100%;min-width:0;border-collapse:separate;border-spacing:0;background:var(--white);border:1px solid var(--line);border-radius:16px;margin:8px 0 18px;font:300 16px/1.5 var(--body);color:var(--text)}.formula th,.formula td{padding:10px 16px;text-align:left;vertical-align:top}.formula th{font:600 15px/1.5 var(--head);color:var(--ink);background:none;text-transform:none;letter-spacing:0;width:32%}.formula tr+tr th,.formula tr+tr td{border-top:1px solid var(--line)}.formula tr.sep th,.formula tr.sep td{border-top:2px solid var(--line)}@media(max-width:600px){.formula th,.formula td{display:block;width:auto}.formula th{padding-bottom:0}.formula td{padding-top:2px}.formula tr+tr td{border-top:0}}
 .steps3{list-style:none;margin:18px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
 @media(max-width:760px){.steps3{grid-template-columns:minmax(0,1fr)}}
 .steps3 .n{font:400 30px/1 var(--display);color:var(--ink)}
@@ -353,21 +353,7 @@ a.pill{text-decoration:none}
 </div></section>
 <section class="s" id="como"><div class="wrap"><h2>Cómo funciona</h2><ol class="steps3"><li><span class="n">1</span><h3>Saca tu coste por hora</h3><p>Lo que te cuesta tu equipo al año entre las horas que de verdad van a clientes. Si no lo sabes, la ayuda te lo calcula y lo pone en todas tus filas.</p></li><li><span class="n">2</span><h3>Escribe tus servicios</h3><p>Una fila por servicio: precio de tarifa, descuento que sueles dar, lo que pagas fuera, horas del equipo y cuántas vendes al año.</p></li><li><span class="n">3</span><h3>Mira qué te queda</h3><p>Ves el margen de verdad de cada servicio, cuál pierde dinero, cuánto te cuesta el descuento y por dónde empezar.</p></li></ol></div></section>
 <section class="s" id="calculo"><div class="wrap"><h2>Cómo se calcula</h2><p class="x-p">Para cada servicio, la herramienta resta del precio el descuento que sueles dar y luego todo lo que cuesta hacerlo: lo que pagas fuera y las horas de tu equipo. Lo que queda, dividido entre lo que de verdad cobras, es tu margen de verdad.</p>
-<div class="formula">Precio cobrado        precio de tarifa × (1 − descuento medio)
-Coste total           coste directo + horas del equipo × coste por hora
-Te queda (unidad)     precio cobrado − coste total
-Margen sobre venta    te queda ÷ precio cobrado
-Margen sobre coste    te queda ÷ coste total          (el que suele engañar)
-Al año                te queda × unidades al año
-Margen medio          suma de lo que te queda al año ÷ suma de lo cobrado al año
-Pierdes al año        suma de «al año» de los servicios en negativo
-Coste del descuento   precio de tarifa × descuento medio × unidades al año
-
-Coste por hora        coste anual del equipo ÷ (personas × horas al año × % que va a clientes)
-Precio para un margen coste total ÷ (1 − margen que quieres)
-Tarifa con descuento  precio para un margen ÷ (1 − descuento medio)
-Markup                precio ÷ coste total − 1          (lo que sumas al coste)
-Punto muerto          costes fijos al año ÷ margen medio sobre venta</div>
+<table class="formula"><tbody><tr><th scope="row">Precio cobrado</th><td>precio de tarifa × (1 − descuento medio)</td></tr><tr><th scope="row">Coste total</th><td>coste directo + horas del equipo × coste por hora</td></tr><tr><th scope="row">Te queda (unidad)</th><td>precio cobrado − coste total</td></tr><tr><th scope="row">Margen sobre venta</th><td>te queda ÷ precio cobrado</td></tr><tr><th scope="row">Margen sobre coste</th><td>te queda ÷ coste total (el que suele engañar)</td></tr><tr><th scope="row">Al año</th><td>te queda × unidades al año</td></tr><tr><th scope="row">Margen medio</th><td>suma de lo que te queda al año ÷ suma de lo cobrado al año</td></tr><tr><th scope="row">Pierdes al año</th><td>suma de «al año» de los servicios en negativo</td></tr><tr><th scope="row">Coste del descuento</th><td>precio de tarifa × descuento medio × unidades al año</td></tr><tr class="sep"><th scope="row">Coste por hora</th><td>coste anual del equipo ÷ (personas × horas al año × % que va a clientes)</td></tr><tr><th scope="row">Precio para un margen</th><td>coste total ÷ (1 − margen que quieres)</td></tr><tr><th scope="row">Tarifa con descuento</th><td>precio para un margen ÷ (1 − descuento medio)</td></tr><tr><th scope="row">Markup</th><td>precio ÷ coste total − 1 (lo que sumas al coste)</td></tr><tr><th scope="row">Punto muerto</th><td>costes fijos al año ÷ margen medio sobre venta</td></tr></tbody></table>
 <p class="x-p"><b>El punto muerto</b> es el nivel de ventas en el que ni ganas ni pierdes. Cada euro que vendes deja su margen medio; cuando la suma de esos márgenes paga tus costes fijos, estás en el punto muerto. Con 180.000 € de fijos y un 40 % de margen medio, tienes que facturar 180.000 ÷ 0,40 = 450.000 € al año. En el modo «¿A qué precio tengo que vender?», si pones tus costes fijos y lo que facturas hoy y está por debajo de tu punto muerto, pierdes dinero: te marcamos tu Evolution Day. Ese corte lo marca la propia definición: por debajo del punto muerto pierdes dinero.</p>
 <p class="x-p"><b>El error de calcular sobre coste.</b> Si algo te cuesta 100 € y lo vendes a 120 €, ganas 20 €. Sobre el coste es un 20 %. Sobre lo que cobras es un 16,7 % (20 ÷ 120). Los gastos de la empresa se pagan con lo que cobras, así que el que cuenta es el segundo. Por eso, para ganar un 20 % sobre venta, el precio es 100 ÷ (1 − 0,20) = 125 €. Con 120 € te quedas en el 16,7 %.</p>
 <div class="tw"><table><thead><tr><th>Resultado</th><th>Qué te recomendamos</th><th>Por qué</th></tr></thead><tbody>

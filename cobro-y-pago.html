@@ -143,7 +143,7 @@ tr:last-child td{border-bottom:0}
 td.n{white-space:nowrap;font:600 15px var(--head);color:var(--ink);font-variant-numeric:tabular-nums}
 td.y{background:var(--ysoft)}
 .yes{color:var(--green);font:700 16px var(--head)}.no{color:var(--soft)}
-.formula{font:500 14.5px/1.7 ui-monospace,Menlo,Consolas,monospace;background:var(--white);border:1px solid var(--line);border-radius:16px;padding:14px 16px;overflow-x:auto;white-space:pre;color:var(--ink);margin:8px 0 18px}
+.formula{width:100%;min-width:0;border-collapse:separate;border-spacing:0;background:var(--white);border:1px solid var(--line);border-radius:16px;margin:8px 0 18px;font:300 16px/1.5 var(--body);color:var(--text)}.formula th,.formula td{padding:10px 16px;text-align:left;vertical-align:top}.formula th{font:600 15px/1.5 var(--head);color:var(--ink);background:none;text-transform:none;letter-spacing:0;width:32%}.formula tr+tr th,.formula tr+tr td{border-top:1px solid var(--line)}.formula tr.sep th,.formula tr.sep td{border-top:2px solid var(--line)}@media(max-width:600px){.formula th,.formula td{display:block;width:auto}.formula th{padding-bottom:0}.formula td{padding-top:2px}.formula tr+tr td{border-top:0}}
 .steps3{list-style:none;margin:18px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
 @media(max-width:760px){.steps3{grid-template-columns:minmax(0,1fr)}}
 .steps3 .n{font:400 30px/1 var(--display);color:var(--ink)}
@@ -288,18 +288,7 @@ footer.f .flogo{flex-basis:100%}.f .flogo svg{height:16px}
 </div></section>
 <section class="s" id="como"><div class="wrap"><h2>Cómo funciona</h2><ol class="steps3"><li><span class="n">1</span><h3>Pon seis datos de tu último año</h3><p>Ventas, compras, días de cobro, días de pago, existencias y, si quieres, lo que te cuesta el dinero. Debajo de cada campo te decimos dónde encontrarlo.</p></li><li><span class="n">2</span><h3>Mira los euros, no solo los días</h3><p>La cifra grande es el dinero que tienes parado. Los escenarios te dicen cuánto cambia si te pagan más tarde o cobras antes.</p></li><li><span class="n">3</span><h3>Gana días de cobro</h3><p>Empieza por el primer paso que te proponemos, ponle fecha esta semana y repite el cálculo dentro de tres meses.</p></li></ol></div></section>
 <section class="s" id="calculo"><div class="wrap"><h2>Cómo se calcula</h2><p class="x-p">Todo sale de seis datos de tu último año. El cálculo usa 365 días y cantidades sin IVA.</p>
-<div class="formula">Días de cobro       los que pones, o  lo que te deben clientes ÷ ventas × 365
-Días de pago        los que pones, o  lo que debes a proveedores ÷ compras × 365
-Días de existencias existencias medias ÷ compras × 365   (0 si vendes servicios)
-Ciclo de caja       días de existencias + días de cobro − días de pago
-Caja atrapada       ventas × días de cobro ÷ 365
-                  + existencias medias
-                  − compras × días de pago ÷ 365
-Coste al año        caja atrapada × tu coste de financiarte
-Si te pagan 30 días más tarde   + ventas × 30 ÷ 365
-Si cobras 15 días antes         − ventas × 15 ÷ 365
-Recomendación       caja atrapada > ventas ÷ 12  → tu Evolution Day
-                    si no                        → versión ampliada, en Evolution Club</div>
+<table class="formula"><tbody><tr><th scope="row">Días de cobro</th><td>los que pones, o lo que te deben clientes ÷ ventas × 365</td></tr><tr><th scope="row">Días de pago</th><td>los que pones, o lo que debes a proveedores ÷ compras × 365</td></tr><tr><th scope="row">Días de existencias</th><td>existencias medias ÷ compras × 365 (0 si vendes servicios)</td></tr><tr><th scope="row">Ciclo de caja</th><td>días de existencias + días de cobro − días de pago</td></tr><tr><th scope="row">Caja atrapada</th><td>ventas × días de cobro ÷ 365<br>+ existencias medias<br>− compras × días de pago ÷ 365</td></tr><tr><th scope="row">Coste al año</th><td>caja atrapada × tu coste de financiarte</td></tr><tr><th scope="row">Si te pagan 30 días más tarde</th><td>+ ventas × 30 ÷ 365</td></tr><tr><th scope="row">Si cobras 15 días antes</th><td>− ventas × 15 ÷ 365</td></tr><tr><th scope="row">Recomendación</th><td>caja atrapada > ventas ÷ 12 → tu Evolution Day<br>si no → versión ampliada, en Evolution Club</td></tr></tbody></table>
 <p class="x-p">El <b>ciclo de caja</b> son los días que tu dinero pasa fuera: desde que pagas lo que compras hasta que cobras lo que vendes. Ojo con una trampa: los días de pago se cuentan sobre tus compras y los de cobro sobre tus ventas. En una empresa de servicios las compras pesan poco, así que pagar tarde compensa poco. Por eso el resultado principal va en euros.</p>
 <div class="tw"><table><thead><tr><th>Ejemplo: servicios, 3 M€</th><th>Dato</th><th>Euros</th></tr></thead><tbody>
 <tr><td>Clientes: 3.000.000 × 75 ÷ 365</td><td class="n">75 días</td><td class="n">616.438 €</td></tr>

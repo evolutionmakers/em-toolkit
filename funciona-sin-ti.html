@@ -143,7 +143,7 @@ tr:last-child td{border-bottom:0}
 td.n{white-space:nowrap;font:600 15px var(--head);color:var(--ink);font-variant-numeric:tabular-nums}
 td.y{background:var(--ysoft)}
 .yes{color:var(--green);font:700 16px var(--head)}.no{color:var(--soft)}
-.formula{font:500 14.5px/1.7 ui-monospace,Menlo,Consolas,monospace;background:var(--white);border:1px solid var(--line);border-radius:16px;padding:14px 16px;overflow-x:auto;white-space:pre;color:var(--ink);margin:8px 0 18px}
+.formula{width:100%;min-width:0;border-collapse:separate;border-spacing:0;background:var(--white);border:1px solid var(--line);border-radius:16px;margin:8px 0 18px;font:300 16px/1.5 var(--body);color:var(--text)}.formula th,.formula td{padding:10px 16px;text-align:left;vertical-align:top}.formula th{font:600 15px/1.5 var(--head);color:var(--ink);background:none;text-transform:none;letter-spacing:0;width:32%}.formula tr+tr th,.formula tr+tr td{border-top:1px solid var(--line)}.formula tr.sep th,.formula tr.sep td{border-top:2px solid var(--line)}@media(max-width:600px){.formula th,.formula td{display:block;width:auto}.formula th{padding-bottom:0}.formula td{padding-top:2px}.formula tr+tr td{border-top:0}}
 .steps3{list-style:none;margin:18px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
 @media(max-width:760px){.steps3{grid-template-columns:minmax(0,1fr)}}
 .steps3 .n{font:400 30px/1 var(--display);color:var(--ink)}
@@ -276,11 +276,7 @@ footer.f .flogo{flex-basis:100%}.f .flogo svg{height:16px}
 <section class="s" id="como"><div class="wrap"><h2>Cómo funciona</h2><ol class="steps3"><li><span class="n">1</span><h3>Contesta lo que pasa, no lo que debería pasar</h3><p>Piensa en los últimos tres meses. Si dudas entre dos respuestas, quédate con la que te obliga a estar.</p></li><li><span class="n">2</span><h3>Mira tu porcentaje y tu área</h3><p>El porcentaje dice cuánto depende la empresa de ti. Las barras dicen dónde: ventas, operación, dinero, equipo o accesos.</p></li><li><span class="n">3</span><h3>Haz una sola cosa</h3><p>Empieza por el primer paso que te proponemos y ponle fecha esta semana. Guarda tu enlace y el aviso de calendario: dentro de tres meses verás antes y ahora.</p></li></ol></div></section>
 <section class="s" id="calculo"><div class="wrap"><h2>Cómo se calcula</h2><p class="x-p">Cada pregunta tiene cuatro respuestas, ordenadas de menos a más dependencia. <b>La primera respuesta suma 0 puntos, la segunda 1, la tercera 2 y la cuarta 3.</b> Cuantos más puntos, más depende de ti. Mientras contestas no ves los puntos, para no condicionarte.</p>
 <p class="x-p">Un ejemplo. A «¿Quién hace y cierra los presupuestos?» contestas «Yo, con ayuda», que es la tercera respuesta: sumas 2 puntos. Con las doce preguntas puedes sumar entre 0 y 36. El porcentaje es tu suma sobre 36: con 18 puntos, un 50 %.</p>
-<div class="formula">Cada respuesta      0 · 1 · 2 · 3 puntos   (0 = no te necesitan, 3 = solo tú)
-Total               suma de las 12 respuestas   → de 0 a 36
-Dependencia (%)     total ÷ 36 × 100
-Cada área           suma de sus preguntas ÷ máximo del área × 100
-Área principal      la de mayor %; si empatan, manda ventas (es lo primero que se para)</div>
+<table class="formula"><tbody><tr><th scope="row">Cada respuesta</th><td>0 · 1 · 2 · 3 puntos (0 = no te necesitan, 3 = solo tú)</td></tr><tr><th scope="row">Total</th><td>suma de las 12 respuestas → de 0 a 36</td></tr><tr><th scope="row">Dependencia (%)</th><td>total ÷ 36 × 100</td></tr><tr><th scope="row">Cada área</th><td>suma de sus preguntas ÷ máximo del área × 100</td></tr><tr><th scope="row">Área principal</th><td>la de mayor %; si empatan, manda ventas (es lo primero que se para)</td></tr></tbody></table>
 <div class="tw"><table><thead><tr><th>Dependencia</th><th>Puntos</th><th>Qué significa</th></tr></thead><tbody>
 <tr><td class="n">0 – 25 %</td><td class="n">0 – 9</td><td><b>Funciona sin ti.</b> Tu tiempo puede ir a crecer, no a sostener.</td></tr>
 <tr><td class="n">26 – 50 %</td><td class="n">10 – 18</td><td><b>Depende de ti en lo importante.</b> El día a día va, pero las decisiones grandes esperan por ti.</td></tr>

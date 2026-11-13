@@ -1,4 +1,4 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;padding:0}img{max-width:100%}[hidden]{display:none!important}</style></head><body>
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;padding:0}img{max-width:100%}[hidden]{display:none!important}</style><style id="club-css">.clb{margin-top:22px;padding:18px 20px;border:1px solid var(--line);border-left:4px solid var(--yellow);border-radius:16px;background:var(--white)}.clb h3{font:700 19px/1.3 var(--head);color:var(--ink);margin:0 0 6px}.clb p{margin:0 0 10px;font-size:16px}.clb ul{margin:0 0 10px;padding-left:20px;font-size:16px}.clb li{margin:2px 0}.clb .trow{margin-top:8px}.clb .nota{font-size:15px;color:var(--soft);margin:6px 0 0}</style></head><body>
 <title>Tu plan de 2027 en un folio</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -326,7 +326,21 @@ footer.f .flogo{flex-basis:100%}.f .flogo svg{height:16px}
     <button class="lnk" type="button" id="b-copy">Copiar mi folio</button>
     <button class="ghost" type="button" id="b-edit">Cambiar mis respuestas</button>
   </div>
-  <span class="ok" id="copy-ok" role="status"></span>
+  <span class="ok" id="copy-ok" role="status"></span><!--club-ini--><div class="clb" id="club-bloque">
+<h3>Esto se puede seguir mes a mes</h3>
+<p>La hoja te sirve para hoy. En Evolution Club lo guardas, Evolution Analytics lo lee cada mes y te dice qué se mueve.</p>
+<ul><li>Tus números, leídos cada mes: qué mejora, qué se tuerce y por qué.</li>
+<li>Tu empresa al lado de las de tu sector, con cifras de verdad y no con impresiones.</li>
+<li>Una vez al mes, salvo agosto, con empresarios como tú y los problemas encima de la mesa.</li></ul>
+<p>Una foto está bien. Lo que te dice hacia dónde vas es la película.</p>
+<div class="trow"><a class="pill" href="https://evolutionmakers.plus/solicitar-plaza">Solicitar plaza</a>
+<button class="lnk" type="button" id="b-club">¿Ya eres socio? Entra y guárdalo</button></div>
+<p class="nota">Estamos reuniendo a los treinta primeros y quedan plazas.</p>
+<span class="ok" id="club-ok" role="status"></span></div>
+<script>(function(){const CLUB='https://club.evolutionmakers.plus',H='plan-2027-en-un-folio',b=document.getElementById('b-club'),o=document.getElementById('club-ok');
+b.onclick=function(){let r=null;try{r=window.EMT&&EMT.resumen?EMT.resumen():null;}catch(e){r=null;}
+if(!r){o.style.color='var(--red)';o.textContent='Primero saca tu resultado: el ejemplo no se guarda.';return;}
+o.textContent='';window.open(CLUB+'/toolkit/guardar#h='+H+'&d='+EMT.cod(r),'_blank','noopener');};})();</script><!--club-fin-->
 <div class="rep"><b>Guarda tu resultado, sin registrarte</b><p class="note">Tu enlace lleva tus respuestas dentro: al abrirlo ves este resultado sin volver a escribirlas. Quien lo abra lo ve, así que compártelo solo con quien quieras.</p><div class="trow" style="justify-content:flex-start;margin-top:8px"><button class="pill" type="button" id="b-link">Guardar mi enlace</button></div><span class="ok" id="lk-ok" role="status"></span></div>
   
 </div>
